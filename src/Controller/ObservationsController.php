@@ -50,17 +50,23 @@ class ObservationsController extends AppController
     public function add()
     {
         $observation = $this->Observations->newEntity();
+
         if ($this->request->is('post')) {
+
             $observation = $this->Observations->patchEntity($observation, $this->request->data);
+
             if ($this->Observations->save($observation)) {
                 $this->Flash->success(__('The observation has been saved.'));
 
-                return $this->redirect($this->Auth->redirectUrl('/users/home'));
+                log("inside add in obs");
+
+                return $this->redirect($this->Auth->redirectUrl('/results/multiadd'));
             }
             $this->Flash->error(__('The observation could not be saved. Please, try again.'));
         }
+
         $participants = $this->Observations->Participants->find('list', ['limit' => 200]);
-        $runs = $this->Observations->Runs->find('list', ['limit' => 200]);
+        $runs = $this->Observations->Runs->find('list');
         $this->set(compact('observation', 'participants', 'runs'));
         $this->set('_serialize', ['observation']);
     }

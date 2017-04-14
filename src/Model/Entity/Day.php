@@ -8,8 +8,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property int $session_id
  * @property \Cake\I18n\Time $day_date
+ * @property int $session_id
  *
  * @property \App\Model\Entity\Session $session
  * @property \App\Model\Entity\Run[] $runs

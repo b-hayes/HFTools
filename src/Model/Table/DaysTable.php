@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -62,7 +63,7 @@ class DaysTable extends Table
             ->notEmpty('name');
 
         $validator
-            ->dateTime('day_date')
+            ->date('day_date')
             ->requirePresence('day_date', 'create')
             ->notEmpty('day_date');
 

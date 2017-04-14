@@ -22,6 +22,8 @@ class ClientsController extends AppController
         $this->set('_serialize', ['clients']);
     }
 
+
+
     /**
      * View method
      *

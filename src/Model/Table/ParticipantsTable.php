@@ -34,7 +34,7 @@ class ParticipantsTable extends Table
         parent::initialize($config);
 
         $this->table('participants');
-        $this->displayField('id');
+        $this->displayField('first_name');
         $this->primaryKey('id');
 
         $this->hasMany('Observations', [

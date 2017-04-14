@@ -10,7 +10,7 @@ if($current_day != null) $step = "run";
 $current_run = $this->request->session()->read('Current.run');
 if($current_run != null) $step = "observation";
 
-//$step = "day";
+//$step = "day"; //use this for locking in a particular step for testing
 ?>
 
 

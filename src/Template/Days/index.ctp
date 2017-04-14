@@ -37,8 +37,7 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $day->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $day->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $day->id], ['confirm' => __('Are you sure
-                you want to delete # {0}?', $day->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $day->id], ['confirm' => __('Are you sure you want to delete # {0}?', $day->id)]) ?>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -52,7 +51,6 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out
-            of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>

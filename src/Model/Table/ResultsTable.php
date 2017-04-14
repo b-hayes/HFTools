@@ -49,6 +49,32 @@ class ResultsTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+//        $validator
+//            ->integer('id')
+//            ->allowEmpty('id', 'create');
+//
+//        $validator
+//            ->requirePresence('q_key', 'create')
+//            ->notEmpty('q_key');
+//
+//        $validator
+//            ->requirePresence('q_value', 'create')
+//            ->notEmpty('q_value');
+//
+//        // i added these
+//
+//        $validator
+//            ->requirePresence('q_key', 'create')
+//            ->notEmpty('q_key');
+//
+//        $validator
+//            ->requirePresence('q_value', 'create')
+//            ->notEmpty('q_value');
+//
+//        $validator
+//            ->allowEmpty('img');
+
+
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');

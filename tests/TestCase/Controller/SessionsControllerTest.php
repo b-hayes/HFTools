@@ -1,6 +1,7 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
+use App\Controller\SessionsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
@@ -20,10 +21,12 @@ class SessionsControllerTest extends IntegrationTestCase
         'app.users',
         'app.participants',
         'app.observations',
+        'app.runs',
+        'app.days',
+        'app.results',
         'app.clients_participants',
         'app.roles',
-        'app.participants_roles',
-        'app.days'
+        'app.participants_roles'
     ];
 
     /**

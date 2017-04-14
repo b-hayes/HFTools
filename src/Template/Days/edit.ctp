@@ -7,12 +7,11 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-            __('Delete'),
-            ['action' => 'delete', $day->id],
-            ['confirm' => __('Are you sure you want to delete # {0}?', $day->id)]
+                __('Delete'),
+                ['action' => 'delete', $day->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $day->id)]
             )
-            ?>
-        </li>
+        ?></li>
         <li><?= $this->Html->link(__('List Days'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Sessions'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Session'), ['controller' => 'Sessions', 'action' => 'add']) ?></li>
@@ -26,8 +25,8 @@
         <legend><?= __('Edit Day') ?></legend>
         <?php
             echo $this->Form->input('name');
-        echo $this->Form->input('session_id', ['options' => $sessions]);
-        echo $this->Form->input('day_date');
+            echo $this->Form->input('day_date');
+            echo $this->Form->input('session_id', ['options' => $sessions]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

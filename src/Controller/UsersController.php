@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -15,48 +16,62 @@ class UsersController extends AppController
      */
     public function home()
     {
-
         $this->loadModel('Sessions');
         $this->loadModel('Days');
         $this->loadModel('Runs');
 
         $client_id = $this->Auth->user('client_id');
+        $current_session = null;
 
-        $current_session = null; //default value so null is passed (avoids variable not defined errors)
-        //get the currently open session if it exists (ONLY if client is logged in)
         if ($client_id != null) {
-            $this->log("Client: " . $client_id . " logged in, checking for open session.");
             $current_session = $this->Sessions->find()
                 ->where(['client_id' => $client_id])
-                ->andwhere(['start_date <=' => date('Y-m-d G:i:s')])
+                ->andwhere(['start_date <=' => date('Y-m-d')])
                 ->andwhere(['end_date >=' => date('Y-m-d')])->first();
-        } else {
-            $this->log("No Client logged in.");
         }
 
+        $current_day = null;
 
-        $current_day = null; //default value so null is passed (avoids variable not defined errors)
-        //check if day already exists (Only if there is a session open)
         if ($current_session != null) {
-            $this->log("Client: " . $client_id . " has a session open, checking for open day.");
             $current_day = $this->Days->find()
                 ->where(['session_id =' . $current_session['id']])
                 ->andwhere(['DATE(day_date) =' => date('Y-m-d')])->first();
-            //Note : had to use the MySQL Date() function to get correct match
         }
 
-        $current_run = null; //default value so null is passed (avoids variable not defined errors)
+        $current_run = null;
+
         if ($current_day != null) {
-            $this->log("day_id = " . $current_day['id'] . " has todays date, checking for an open run.");
-            //get the first run that is_open AND is for the current_day
+
             $current_run = $this->Runs->find()
                 ->where(['day_id = ' => $current_day['id']])
-                ->andwhere(['is_open = ' => true])->first(); //1 is true 0 is false
+                ->andwhere(['is_open = ' => true])->first();
         }
 
         $this->request->session()->write('Current', ['session' => $current_session,
             'day' => $current_day, 'run' => $current_run]);
+
+
+        if ($current_session) {
+            if ($current_day) {
+                if ($current_run) {
+                    return $this->redirect(
+                        ['controller' => 'observations', 'action' => 'add']);
+                } else {
+                    return $this->redirect(
+                        ['controller' => 'runs', 'action' => 'add']);
+                }
+            } else {
+                return $this->redirect(
+                    ['controller' => 'days', 'action' => 'add']);
+            }
+        } else {
+            return $this->redirect(
+                ['controller' => 'sessions', 'action' => 'add']);
+        }
     }
+
+
+
 
 
     /**
@@ -82,6 +97,8 @@ class UsersController extends AppController
 
             $this->Flash->error(__('Invalid username or password, try again'));
         }
+
+
     }
 
     /**
@@ -98,6 +115,7 @@ class UsersController extends AppController
 
         $this->Users->patchEntity($user, ['last_login' => date('Y-m-d H:i:s')]);
         $this->Users->save($user);
+        $this->setNavigation();
 
         return $this->redirect($this->Auth->logout());
     }
@@ -182,6 +200,7 @@ class UsersController extends AppController
         $clients = $this->Users->Clients->find('list', ['limit' => 200]);
         $this->set(compact('user', 'clients'));
         $this->set('_serialize', ['user']);
+
     }
 
     /**

@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Controller\AppController;
+
 /**
  * Sessions Controller
  *
@@ -19,18 +21,8 @@ class SessionsController extends AppController
         $this->paginate = [
             'contain' => ['Clients']
         ];
+        $sessions = $this->paginate($this->Sessions);
 
-        //only show information that a client can see if a client_id is present
-        $client_id = $this->request->session()->read('Auth.User.client_id');
-        if (!empty($client_id)) {
-            $this->log('Client id: ' . $client_id . ' was detected.');
-            $sessions = $this->paginate(
-                $this->Sessions->find()->where(['client_id = ' . $client_id])
-            );
-        } else {
-            $this->log('No client_id was detected.');
-            $sessions = $this->paginate($this->Sessions);
-        }
         $this->set(compact('sessions'));
         $this->set('_serialize', ['sessions']);
     }
@@ -60,18 +52,27 @@ class SessionsController extends AppController
     public function add()
     {
         $session = $this->Sessions->newEntity();
+
         if ($this->request->is('post')) {
             $session = $this->Sessions->patchEntity($session, $this->request->data);
             if ($this->Sessions->save($session)) {
                 $this->Flash->success(__('The session has been saved.'));
 
-                return $this->redirect($this->Auth->redirectUrl('/users/home'));
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The session could not be saved. Please, try again.'));
         }
-        $clients = $this->Sessions->Clients->find('list', ['limit' => 200]);
+
+        $session = $this->request->session();
+        $clients_id = $session->read('Auth.User.client_id');
+
+        // $clients = $this->Sessions->Clients->find('list', ['limit' => 200]);
+        $clients = $this->Sessions->Clients->find('list')->where(['id =' => $clients_id]);
+
+
         $this->set(compact('session', 'clients'));
         $this->set('_serialize', ['session']);
+
     }
 
     /**
@@ -91,7 +92,7 @@ class SessionsController extends AppController
             if ($this->Sessions->save($session)) {
                 $this->Flash->success(__('The session has been saved.'));
 
-                return $this->redirect($this->Auth->redirectUrl('/users/home'));
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The session could not be saved. Please, try again.'));
         }

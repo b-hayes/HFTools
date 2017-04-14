@@ -14,28 +14,16 @@
  */
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
-
-// Make user infor available to all views with this layout
-$User = $this->request->session()->read('Auth.User');
-//How long in seconds until login session expires, used for redirecting back to login page
-$timeout = (3*60*60)+10; //currently set to 3 hours + 10 seconds
-
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <!--    Session Timeout Redirect    -->
-    <meta http-equiv="refresh" content="<?=
-        $timeout . " ;
-    " . $this->Url->build([
-    "controller" => "Users",
-    "action" => "login"
-    ]) ?>"/>
 
+<head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
+        <?= "Human factors tools" ?>
+        <?php $this->assign('title', 'HFTools'); ?>
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
@@ -52,46 +40,23 @@ $timeout = (3*60*60)+10; //currently set to 3 hours + 10 seconds
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-
 </head>
+
 <body>
+    <nav class="navbar" data-topbar role="navigation">
+        <ul class="title-area large-3 medium-4 columns">
+            <li class="name">
+                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
 
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="<?= $this->Html->Url->build(
-                    ['controller'=>'Users', 'action'=>'home']
-                ) ?>">
-                <span class="navbar-brand glyphicon glyphicon-home">
-                         HFTools
-                </span>
-            </a>
+            </li>
+        </ul>
+        <div class="top-bar-section">
+            <?= $this->Element('Navbar/navbar'); ?>
+            <?= $this->fetch($navigation); ?>
         </div>
-        <?php
-                //Grab user specific menu options, name, and show logoff button
-                if(isset($User)){
-                    echo $this->Element('Navbar/' . $User['role']); //filename based on user role eg Navbar/admin.ctp
-        echo "
-        <ul class=\"nav navbar-nav navbar-right\
-        ">";
-        echo '<P class="navbar-text">Logged in as ' . $User['username'] .
-        " | " . $User['role'] .
-        "</P>".
-        "
-        <li>".
-            $this->Html->link('<span class="glyphicon glyphicon-log-out"></span> Log out',
-            ['controller' => 'Users', 'action' => 'logout'],
-            ['escape' => false]
-            ) . "
-        </li>
-        </ul>";
-        }
-        ?>
-    </div>
-</nav>
-
+    </nav>
 <?= $this->Flash->render() ?>
-<div class="container-fluid">
+<div class="container clearfix">
     <?= $this->fetch('content') ?>
 </div>
 <footer>

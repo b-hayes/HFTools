@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -65,13 +66,14 @@ class SessionsTable extends Table
             ->allowEmpty('description');
 
         $validator
-            ->dateTime('start_date')
+            ->date('start_date')
             ->requirePresence('start_date', 'create')
             ->notEmpty('start_date');
 
         $validator
             ->date('end_date')
-            ->allowEmpty('end_date');
+            ->requirePresence('end_date', 'create')
+            ->notEmpty('end_date');
 
         return $validator;
     }

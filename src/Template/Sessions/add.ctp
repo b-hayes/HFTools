@@ -3,30 +3,28 @@
   * @var \App\View\AppView $this
   */
 ?>
-
-<?= $this->Form->create($session, [
-'url' => [
-'controller' => 'Sessions', 'action' => 'add'
-],
-]) ?>
-<fieldset>
-    <legend><?= __('Add Session') ?></legend>
-    <?php
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Client'), ['controller' => 'Clients', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Days'), ['controller' => 'Days', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Day'), ['controller' => 'Days', 'action' => 'add']) ?></li>
+    </ul>
+</nav>
+<div class="sessions form large-9 medium-8 columns content">
+    <?= $this->Form->create($session) ?>
+    <fieldset>
+        <legend><?= __('Add Session') ?></legend>
+        <?php
             echo $this->Form->input('name');
-    echo $this->Form->input('description');
-    //echo $this->Form->input('start_date');
-    echo $this->Form->input('end_date');
-    echo $this->Form->control('start_date', ['type' => 'datetime']);
-    //echo $this->Form->control('end_date', ['type' => 'date']);
-    if($this->request->session()->read('Auth.User.client_id') != null){
-    echo $this->Form->hidden('client_id', ['default' => $this->request->session()->read('Auth.User.client_id') ]);
-    }
-    else {
-    echo $this->Form->input('client_id');
-    }
-    ?>
-
-</fieldset>
-<?= $this->Form->button(__('Submit')) ?>
-<?= $this->Form->end() ?>
-
+            echo $this->Form->input('description');
+            echo $this->Form->input('start_date');
+            echo $this->Form->input('end_date');
+            echo $this->Form->input('client_id', ['options' => $clients]);
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
+</div>

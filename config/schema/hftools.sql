@@ -65,6 +65,14 @@ CREATE TABLE `sessions` (
     FOREIGN KEY (`client_id`) REFERENCES clients(`id`)
 );
 
+CREATE TABLE `sessions_participants` (
+    `participant_id` INT UNSIGNED NOT NULL,
+    `session_id` INT UNSIGNED NOT NULL,
+    FOREIGN KEY (`participant_id`) REFERENCES participants(`id`),
+    FOREIGN KEY (`session_id`) REFERENCES sessions(`id`),
+    PRIMARY KEY (`participant_id`, `session_id`)
+);
+
 
 CREATE TABLE `days` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

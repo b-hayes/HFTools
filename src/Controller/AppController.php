@@ -51,6 +51,11 @@ class AppController extends Controller
             ]
         ]);
 
+        $this->setNavigation();
+
+
+
+        //$this->Auth->allow(['home', 'login']);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -58,6 +63,18 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+    }
+
+    public function setNavigation() {
+        if ($this->Auth->user('role') == 'admin') {
+            $this->set('navigation', 'admin');
+
+        } else if ($this->Auth->user('role') == 'client_admin') {
+            $this->set('navigation', 'client');
+
+        } else {
+            $this->set('navigation', 'default');
+        }
     }
 
     /**

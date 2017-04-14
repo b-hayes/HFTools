@@ -7,8 +7,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Day'), ['action' => 'edit', $day->id]) ?></li>
-        <li><?= $this->Form->postLink(__('Delete Day'), ['action' => 'delete', $day->id], ['confirm' => __('Are you sure
-            you want to delete # {0}?', $day->id)]) ?>
+        <li><?= $this->Form->postLink(__('Delete Day'), ['action' => 'delete', $day->id], ['confirm' => __('Are you sure you want to delete # {0}?', $day->id)]) ?>
         </li>
         <li><?= $this->Html->link(__('List Days'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Day'), ['action' => 'add']) ?></li>
@@ -27,8 +26,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Session') ?></th>
-            <td><?= $day->has('session') ? $this->Html->link($day->session->name, ['controller' => 'Sessions', 'action'
-                => 'view', $day->session->id]) : '' ?>
+            <td><?= $day->has('session') ? $this->Html->link($day->session->name, ['controller' => 'Sessions', 'action' => 'view', $day->session->id]) : '' ?>
             </td>
         </tr>
         <tr>

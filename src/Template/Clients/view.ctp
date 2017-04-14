@@ -64,8 +64,7 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Sessions', 'action' => 'view', $sessions->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Sessions', 'action' => 'edit', $sessions->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sessions', 'action' => 'delete',
-                $sessions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sessions->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sessions', 'action' => 'delete', $sessions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sessions->id)]) ?>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -130,8 +129,7 @@
                 $participants->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Participants', 'action' => 'edit',
                 $participants->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Participants', 'action' => 'delete',
-                $participants->id], ['confirm' => __('Are you sure you want to delete # {0}?', $participants->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Participants', 'action' => 'delete', $participants->id], ['confirm' => __('Are you sure you want to delete # {0}?', $participants->id)]) ?>
             </td>
         </tr>
         <?php endforeach; ?>

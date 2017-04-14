@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Controller\AppController;
+
 /**
  * Days Controller
  *
@@ -24,6 +26,8 @@ class DaysController extends AppController
         $this->set(compact('days'));
         $this->set('_serialize', ['days']);
     }
+
+
 
     /**
      * View method
@@ -55,7 +59,11 @@ class DaysController extends AppController
             if ($this->Days->save($day)) {
                 $this->Flash->success(__('The day has been saved.'));
 
-                return $this->redirect($this->Auth->redirectUrl('/users/home'));
+                $client_id = $this->Auth->user('client_id');
+                if ($client_id != null){
+                    return $this->redirect(['controller' => 'Users', 'action' => 'home']);
+                }
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The day could not be saved. Please, try again.'));
         }

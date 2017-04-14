@@ -1,7 +1,19 @@
 p {
-    word-break: keep-all;
+    word-break: keep-all; /*ensures text wrapping of all <p> elements*/
 }
 
+.nopadding {
+    /* use this class to override all styles forcing no padding */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.btn-arrow-indicator {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+/* Question related styles */
 .subQuestion-rowHeading {
     width: 30%;
 }
@@ -13,22 +25,17 @@ p {
 .Question-Section-Statement {
     padding: 2%;
 }
+/* end of Question related styles */
 
-.btn-arrow-indicator {
-    margin-left: 12px;
-    margin-right: 12px;
-}
 
+/* navbar related styles */
 .navbar {
     background: #116d76;
     color: white;
     /*box-shadow: 10px 10px 5px #888888;*/
 }
 
-.navbar-brand a {
-    color: white;
-}
-
+/* navbar menu styles */
 .navbar ul a {
     background: #116d76;
     color: white;
@@ -38,6 +45,25 @@ p {
 
 .navbar ul a:hover {
     background: #308e97;
+    color: white;
+}
+/* end navbar menu styles */
+
+
+/* navbar toggle button styles*/
+.icon-bar {
+    background: white;
+    color: #116d76;
+    text-shadow: 1px 1px 2px black;
+}
+.navbar-toggle:hover {
+    background: #308e97;
+    color: white;
+}
+/* end navbar toggle button styles*/
+
+/* navbar brand styles */
+.navbar-brand a {
     color: white;
 }
 
@@ -57,7 +83,10 @@ p {
     color: #308e97;
     background: white;
 }
+/* end navbar brand styles */
+/* end navbar related styles */
 
+/* panel related styles */
 .panel {
     border-style: solid;
     border-width: 1px;
@@ -76,10 +105,11 @@ p {
 .panel.panel-heading {
     border-bottom: ridge whitesmoke;
 }
+/* end of panel related styles */
 
-.nopadding {
-    padding: 0 !important;
-    margin: 0 !important;
+/* button related styles */
+.btn-lg {
+    border-style: outset;
 }
 
 .btn-default {
@@ -88,6 +118,7 @@ p {
 }
 
 .btn-huge {
+    /* btn-huge is used for hompage buttons that are meant to big and easy to tap*/
     padding: 10px 16px;
     font-size: 20px;
     line-height: 1.5;
@@ -106,22 +137,24 @@ p {
     /*text-shadow: 1px 1px 1px rgba(255,255,255,0.7) , -1px -1px 1px rgba(0,0,0,1) ;*/
 }
 
-.btn-lg {
-    border-style: outset;
-}
-
 .glyphicon-massive {
+    /* this is used on buttons to make glyphicons used a lot bigger
+    (scales with inherited font size) */
     font-size: 3em;
     margin: 3px;
 }
+/* end of button related styles */
 
+/* square is experimental and not being used.
+    it forces an element to be a perfect square based on its width*/
 .square {
     width: 100%;
     padding-top: 100%;
     position: relative;
     display: flex;
 }
-
+/* square-contents is used to contain elements that should sit within the
+    perfect square with their own positioning values.*/
 .square-contents {
     position: absolute;
     top: 0;

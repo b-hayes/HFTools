@@ -58,6 +58,7 @@ class ParticipantsController extends AppController
     public function add()
     {
         $participant = $this->Participants->newEntity();
+
         if ($this->request->is('post')) {
             $participant = $this->Participants->patchEntity($participant, $this->request->data);
             if ($this->Participants->save($participant)) {
@@ -67,7 +68,20 @@ class ParticipantsController extends AppController
             }
             $this->Flash->error(__('The participant could not be saved. Please, try again.'));
         }
-        $clients = $this->Participants->Clients->find('list', ['limit' => 200]);
+//
+//        $session = $this->request->session();
+//        $clients_id = $session->read('Auth.User.client_id');
+//
+//        // $clients = $this->Sessions->Clients->find('list', ['limit' => 200]);
+//        $clients = $this->Sessions->Clients->find('list')->where(['id =' => $clients_id]);
+
+        $participant = $this->request->session();
+        $clients_id = $participant->read('Auth.User.client_id');
+
+
+        $clients = $this->Participants->Clients->find('list')->where(['id =' => $clients_id]);
+
+
         $roles = $this->Participants->Roles->find('list', ['limit' => 200]);
         $this->set(compact('participant', 'clients', 'roles'));
         $this->set('_serialize', ['participant']);

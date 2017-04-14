@@ -1,3 +1,5 @@
+<?php $this->start('admin'); ?>
+
 <ul class="nav navbar-nav">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -16,6 +18,7 @@
             </li>
         </ul>
     </li>
+
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Users
@@ -33,6 +36,7 @@
             </li>
         </ul>
     </li>
+
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Participants
@@ -136,3 +140,19 @@
         </ul>
     </li>
 </ul>
+<?php $this->end(); ?>
+
+
+<?php $this->start('client'); ?>
+<ul class="nav navbar-nav">
+    <li><?= $this->Html->link(__('Session history'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
+    <li><?=$this->Html->link(__('logout'), ['controller' => 'Users', 'action' => 'logout']) ?> </li>
+</ul>
+<?php $this->end(); ?>
+
+
+<?php $this->start('default'); ?>
+<ul class="nav navbar-nav">
+    <li><?= $this->Html->link(__('Help'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
+</ul>
+<?php $this->end(); ?>
