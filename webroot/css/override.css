@@ -1,0 +1,70 @@
+
+button{
+    background-color: #1cc7ff;
+}
+button:focus{
+    background-color: #1cc7ff;
+}
+button.side-nav{
+    margin:1px;
+}
+
+.section {
+    border: 2px solid #1cc7ff;
+    padding: 1rem;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+}
+ .question{
+     /*border: 1px solid #a0d3e8;*/
+     padding: 3px;
+}
+
+ .btn {
+     margin-right: 3px;
+     margin-bottom: 3px;
+ }
+
+ .deleteQuestion {
+     position: relative;
+     float: right;
+ }
+
+.logo-image{
+    margin-left: 1%;
+    /*width: 100%;*/
+    /*margin-bottom: -50px;*/
+}
+
+.navbar {
+    background-color: #d9d9d9;
+}
+
+.navbar-nav{
+    margin-top: -50px;
+}
+
+.row{
+    /*Not usually needed but base.css for some reason caps row width so I'm overriding it here.*/
+    max-width: 100%;
+}
+
+table .wide-table{
+    min-width: 750px;
+    width: 100%;
+}
+
+.panel{
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    /* CSS when screen width is equal to or less than 768px goes here */
+    .navbar-nav{
+        margin-top: -75px;
+    }
+    .logo-image{
+        margin-left: 1%;
+        max-height: 80px;
+    }
+}
