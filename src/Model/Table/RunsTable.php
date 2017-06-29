@@ -42,7 +42,9 @@ class RunsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Observations', [
-            'foreignKey' => 'run_id'
+            'foreignKey' => 'run_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
     }
 

@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use function serialize;
 
 
 /**
@@ -55,36 +56,30 @@ class UsersController extends AppController
         $this->loadModel('Sessions');
         $this->loadModel('Runs');
 
-        $client_id = $this->Auth->user('client_id');
+        $clientId = $this->Auth->user('client_id');
         $current_session = null;
         $current_run = null;
 
-        if ($client_id != null) {
+        if ($clientId != null) {
             $current_session = $this->Sessions->find()
-                ->where(['client_id' => $client_id])
-                ->andwhere(['start_date <=' => date('Y-m-d')])
-                ->andwhere(['end_date >=' => date('Y-m-d')])->first();
+                ->where(['client_id = :client_id'])
+                ->andwhere([':today BETWEEN start_date AND end_date'])
+                ->bind(':today', date('Y-m-d'))
+                ->bind(':client_id', $clientId)->first();
         }
 
-//        $current_day = null;
-//        if ($current_session != null) {
-//            $current_day = $this->Days->find()
-//                ->where(['session_id =' . $current_session['id']])
-//                ->andwhere(['DATE(day_date) =' => date('Y-m-d')])->first();
-//        }
-
-
         if ($current_session != null) {
+
             $current_run = $this->Runs->find()
-                ->where(['session_id = ' => $current_session['id']])
-                ->andwhere(['DATE(run_date) =' => date('Y-m-d')])->first();
-                //->andwhere(['is_open = ' => true])->first();
+                ->where(['session_id = :openSessionsId'])
+                ->andwhere(['run_date = :today'])
+                ->bind(':openSessionsId', $current_session['id'])
+                ->bind(':today', date('Y-m-d'))->first();
         }
 
         $this->request->session()->write('Current', ['session' => $current_session, 'run' => $current_run]);
 
         if ($current_session) {
-
             if ($current_run) {
                 return $this->redirect(
                     ['controller' => 'observations', 'action' => 'create']);

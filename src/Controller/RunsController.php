@@ -78,13 +78,12 @@ class RunsController extends AppController
 
             $sessions = $this->Runs->Sessions->find('list')
                 ->where(['client_id =' => $clientId])
-                ->andwhere(['start_date <=' => date('Y-m-d')])
-                ->andwhere(['end_date >=' => date('Y-m-d')])->first();
+                ->andwhere([':todays_date BETWEEN start_date AND end_date'])
+                ->bind(':todays_date', date('Y-m-d'));
+
         } else {
             $sessions = $this->Runs->Sessions->find('list', ['limit' => 200]);
         }
-
-
 
         $this->set(compact('run', 'sessions'));
         $this->set('_serialize', ['run']);

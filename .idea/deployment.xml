@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="hftools" uploadOnCheckin="e2c72c62-3a54-43df-990c-91693f7aa362">
+  <component name="PublishConfigData" autoUpload="Always" serverName="hftools" uploadOnCheckin="e2c72c62-3a54-43df-990c-91693f7aa362">
     <serverData>
       <paths name="hftools">
         <serverdata>
@@ -11,5 +11,6 @@
       </paths>
     </serverData>
     <option name="myUploadOnCheckinName" value="hftools" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
