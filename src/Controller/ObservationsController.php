@@ -103,8 +103,9 @@ class ObservationsController extends AppController
             $observer = $this->request->getData('observer_id');
             $run = $this->request->getData('run_id');
             $questionnaire_id = $this->request->getData('questionnaire_id');
-
             $participantsAdded = $this->request->getData('participant._id');
+
+            $observationIds = [];
 
             foreach ($participantsAdded as $addParticipant) {
                 $newObs = $this->Observations->newEntity();
@@ -115,9 +116,14 @@ class ObservationsController extends AppController
                 if(!$this->Observations->save($newObs)) {
                     $hasSuccessfullySaved = false;
                 }
+
+                array_push($observationIds, $newObs);
             }
 
             if ($hasSuccessfullySaved) {
+
+                $this->request->session()->write('Tmp', ['observations' => $observationIds]);
+
                 $this->Flash->success(__('The observation has been saved.'));
                 return $this->redirect(['controller' => 'answers','action' => 'questionnaireAnswers', $questionnaire_id]);
 

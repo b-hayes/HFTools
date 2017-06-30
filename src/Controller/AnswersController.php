@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use function array_values;
+use function debug;
 
 /**
  * Answers Controller
@@ -77,7 +79,22 @@ class AnswersController extends AppController
     public function questionnaireAnswers($questionnaireID = null)
     {
         $this->loadModel('Questionnaires');
+        $this->loadModel('AnswersObservations');
+        $this->loadModel('Participants');
+
         $saved_successfully = true;
+        $observationsArray = $this->request->session()->read('Tmp.observations');
+        $count = count($observationsArray);
+
+        debug($observationsArray);
+
+        // terminating case here
+        if ($observationsArray == null) {
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $observer = $this->Participants->get($observationsArray[0]['observer_id']);
+        $participant = $this->Participants->get($observationsArray[0]['participant_id']);
 
         if ($this->request->is('post')) {
             $answers = $this->request->getData('answers');
@@ -89,21 +106,41 @@ class AnswersController extends AppController
                 if(!$this->Answers->save($newAnswer)) {
                     $saved_successfully = false;
                 }
+
+                $saveResults = $this->AnswersObservations->newEntity();
+                $saveResults->observation_id = $observationsArray[0]['id'];
+                $saveResults->answer_id = $newAnswer->id;
+
+                if(!$this->AnswersObservations->save($saveResults)) {
+                    $saved_successfully = false;
+                }
             }
 
             if ($saved_successfully) {
+                // insert into answers_observations
                 $this->Flash->success(__('The answer has been saved.'));
-                return $this->redirect(['action' => 'index']);
+
+                unset($observationsArray[0]);
+                $observationsArray = array_values($observationsArray);
+
+                $this->request->session()->write('Tmp', ['observations' => $observationsArray]);
+                return $this->redirect(['controller' => 'answers','action' => 'questionnaireAnswers', $questionnaireID]);
+
+            } else {
+                $this->Flash->error(__('The answer could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The answer could not be saved. Please, try again.'));
+
         }
 
-        // 120
         $questionnaire = $this->Questionnaires->get($questionnaireID, [
             'contain' => ['Sections' => ['Questions']]]);
 
-        $this->set(compact('questionnaire', $questionnaire));
+        $this->set(compact('questionnaire', 'observer', 'participant', 'count'));
         $this->set('_serialize', ['questionnaire']);
+    }
+
+    public function results() {
+
     }
 
 

@@ -12,18 +12,18 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <strong>Section title:</strong> <?= h($sections->name) ?>
-            <BR />
+            <div class="pull-right">
+                <?= $this->Html->link(__('Edit'), ['controller' => 'Sections', 'action' => 'edit', $sections->id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sections', 'action' => 'delete', $sections->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sections->id)]) ?>
+            </div> <BR />
 
             <!-- Added this so that if description isn't added this won't be displayed -->
             <?php if($sections->description != ''): ?>
 
                 <strong>Description of section:</strong> <?= h($sections->description) ?>
-                <div class="pull-right">
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Sections', 'action' => 'edit', $sections->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sections', 'action' => 'delete', $sections->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sections->id)]) ?>
-                </div>
 
             <?php endif; ?>
+
         </div>
         <div class="panel-body">
             <?php foreach($sections->questions as $questions): ?>

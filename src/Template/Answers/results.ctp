@@ -10,22 +10,9 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
 <div class="answers form large-9 medium-8 columns content">
     <h3><?= h($questionnaire->name) ?></h3>
     <h4><?= h($questionnaire->description) ?></h4>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Information
-        </div>
-        <div class="panel-body">
-            <strong>Observer: </strong><?= h($observer->full_name) ?><BR>
-            <strong>Current participant: </strong><?= h($participant->full_name) ?><BR>
-            <strong>There are: </strong><?= h($count) ?> observations remaining in this run.<BR>
-
-        </div>
-    </div>
-
+    <h4><?= h($observer->full_name) ?></h4>
     <?= $this->Form->create('answers') ?>
     <fieldset>
-
         <?php foreach($questionnaire->sections as $sections): ?>
             <div class="panel panel-info">
                 <div class="panel-heading">

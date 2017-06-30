@@ -30,7 +30,7 @@
         </ul>
     </div>
 
-    <button class=" btn-block collapse-next">Questionnaires</button>
+    <button class=" btn-block collapse-next">Tools</button>
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List Questionnaires'), ['controller' => 'Questionnaires', 'action' => 'index']) ?></li>

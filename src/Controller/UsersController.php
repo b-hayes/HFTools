@@ -69,7 +69,6 @@ class UsersController extends AppController
         }
 
         if ($current_session != null) {
-
             $current_run = $this->Runs->find()
                 ->where(['session_id = :openSessionsId'])
                 ->andwhere(['run_date = :today'])
