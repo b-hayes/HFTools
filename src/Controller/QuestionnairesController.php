@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Entity\Questionnaire;
+use function debug;
 use function is_null;
 use const null;
 use function print_r;
@@ -130,7 +131,6 @@ class QuestionnairesController extends AppController
 
         if ($this->request->is('post')) {
             $sectionsArray = []; // As request getData (array format) is retrieved it needs to be converted and stored in order to attach to parent object.
-            $sectionIndex = 0;  // Helps get the questions that belongs to section. number here .question
 
             // New Checklist is created
             $questionnaire = $this->Questionnaires->patchEntity($questionnaire, $this->request->getData(), [
@@ -139,42 +139,42 @@ class QuestionnairesController extends AppController
                     ]]
             );
 
+            // array_values re-indexes the post array.. so if sections removed it sorts them. i.e if indexes are 1, 2, 5 array_value will return 0, 1, 2
+            $dataSection = array_values($this->request->getData('section'));
+
             // All the Items on the form are contained into a variable
-            $sections = $this->Questionnaires->Sections->newEntities($this->request->getData('section'));
+            $sections = $this->Questionnaires->Sections->newEntities($dataSection);
 
-            debug($sections);
+            foreach ($sections as $section) {
+                $questionsArray = [];
 
-//
-//            foreach ($sections as $section) {
-//                $questionsArray = [];
-//                $questionLocation = 'section.' . $sectionIndex . '.question';
-//
-//                $newSec = $this->Questionnaires->Sections->newEntity();
-//                $newSec->name = $section->name;
-//                $newSec->description = $section->description;
-//
-//                $questions = $this->Questionnaires->Sections->Questions->newEntities($this->request->getData($questionLocation));
-//
-//                foreach ($questions as $question) {
-//                    $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
-//                    $newQuestion->text = $question->text;
-//                    array_push($questionsArray, $newQuestion);
-//                }
-//
-//                $newSec->questions = $questionsArray;
-//                array_push($sectionsArray, $newSec);
-//                $sectionIndex++;
-//            }
-//
-//            // Set the checklist's items to be the array
-//            $questionnaire->sections = $sectionsArray;
-//
-//            if ($this->Questionnaires->save($questionnaire)) {
-//                $this->Flash->success(__('The questionnaire has been saved.'));
-//                return $this->redirect(['action' => 'index']);
-//            } else {
-//                $this->Flash->error(__('The questionnaire could not be saved. Please, try again.'));
-//            }
+                $newSec = $this->Questionnaires->Sections->newEntity();
+                $newSec->name = $section->name;
+                $newSec->description = $section->description;
+
+                $dataQuestions = array_values($section->question);
+                $questions = $this->Questionnaires->Sections->Questions->newEntities($dataQuestions);
+
+                foreach ($questions as $question) {
+                    $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
+                    $newQuestion->text = $question->text;
+                    array_push($questionsArray, $newQuestion);
+                }
+
+                // Set the questions for this section to..
+                $newSec->questions = $questionsArray;
+                array_push($sectionsArray, $newSec);
+            }
+
+            // Set the checklist's items to be the array
+            $questionnaire->sections = $sectionsArray;
+
+            if ($this->Questionnaires->save($questionnaire)) {
+                $this->Flash->success(__('The questionnaire has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The questionnaire could not be saved. Please, try again.'));
+            }
         }
     }
 }
