@@ -4,12 +4,10 @@
   * @var \App\Model\Entity\Session[]|\Cake\Collection\CollectionInterface $sessions
   */
 ?>
-<div>
     <h3><?= __('Sessions') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('start_date') ?></th>
@@ -21,16 +19,18 @@
         <tbody>
             <?php foreach ($sessions as $session): ?>
             <tr>
-                <td><?= $this->Number->format($session->id) ?></td>
                 <td><?= h($session->name) ?></td>
                 <td><?= h($session->description) ?></td>
                 <td><?= h($session->start_date) ?></td>
                 <td><?= h($session->end_date) ?></td>
                 <td><?= $session->has('client') ? $this->Html->link($session->client->name, ['controller' => 'Clients', 'action' => 'view', $session->client->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $session->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $session->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $session->id], ['confirm' => __('Are you sure you want to delete # {0}?', $session->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $session->id],
+                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $session->id],
+                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $session->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $session->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -46,4 +46,3 @@
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
-</div>

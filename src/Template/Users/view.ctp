@@ -16,10 +16,6 @@
             <td><?= $user->has('client') ? $this->Html->link($user->client->name, ['controller' => 'Clients', 'action' => 'view', $user->client->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($user->password) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Role') ?></th>
             <td><?= h($user->role) ?></td>
         </tr>

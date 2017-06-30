@@ -5,7 +5,7 @@
   */
 ?>
     <h3><?= __('Participants') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -25,9 +25,9 @@
                 <td><?= h($participant->email) ?></td>
                 <td><?= h($participant->phone) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $participant->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $participant->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $participant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $participant->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $participant->id]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $participant->id]) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $participant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $participant->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

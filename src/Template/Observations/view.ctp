@@ -26,7 +26,7 @@
     <div class="related">
         <h4><?= __('Related Answers') ?></h4>
         <?php if (!empty($observation->answers)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="wide-table" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Observation Id') ?></th>
@@ -41,9 +41,12 @@
                 <td><?= h($answers->question_id) ?></td>
                 <td><?= h($answers->answer_text) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Answers', 'action' => 'view', $answers->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Answers', 'action' => 'edit', $answers->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Answers', 'action' => 'delete', $answers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $answers->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Answers', 'action' => 'view', $answers->id],
+                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Answers', 'action' => 'edit', $answers->id],
+                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['controller' => 'Answers', 'action' => 'delete', $answers->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $answers->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

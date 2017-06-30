@@ -5,10 +5,9 @@
   */
 ?>
     <h3><?= __('Observations') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observer_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('participant_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('run_id') ?></th>
@@ -18,14 +17,16 @@
         <tbody>
             <?php foreach ($observations as $observation): ?>
             <tr>
-                <td><?= $this->Number->format($observation->id) ?></td>
                 <td><?= $this->Number->format($observation->observer_id) ?></td>
                 <td><?= $observation->has('participant') ? $this->Html->link($observation->participant->id, ['controller' => 'Participants', 'action' => 'view', $observation->participant->id]) : '' ?></td>
                 <td><?= $observation->has('run') ? $this->Html->link($observation->run->name, ['controller' => 'Runs', 'action' => 'view', $observation->run->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $observation->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $observation->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $observation->id], ['confirm' => __('Are you sure you want to delete # {0}?', $observation->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $observation->id],
+                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $observation->id],
+                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $observation->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $observation->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

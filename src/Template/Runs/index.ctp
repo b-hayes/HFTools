@@ -6,7 +6,7 @@
 ?>
 <div>
     <h3><?= __('Runs') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -26,9 +26,9 @@
                 <td><?= h($run->name) ?></td>
                 <td><?= h($run->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $run->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $run->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $run->id], ['confirm' => __('Are you sure you want to delete # {0}?', $run->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $run->id]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $run->id]) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $run->id], ['confirm' => __('Are you sure you want to delete # {0}?', $run->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

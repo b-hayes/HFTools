@@ -16,7 +16,7 @@
 </nav>
 <div class="answers index large-9 medium-8 columns content">
     <h3><?= __('Answers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -32,9 +32,9 @@
                 <td><?= $answer->has('question') ? $this->Html->link($answer->question->id, ['controller' => 'Questions', 'action' => 'view', $answer->question->id]) : '' ?></td>
                 <td><?= h($answer->answer_text) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $answer->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $answer->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $answer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $answer->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $answer->id]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $answer->id]) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $answer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $answer->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

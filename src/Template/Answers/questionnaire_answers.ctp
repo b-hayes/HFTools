@@ -19,7 +19,6 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
             <strong>Observer: </strong><?= h($observer->full_name) ?><BR>
             <strong>Current participant: </strong><?= h($participant->full_name) ?><BR>
             <strong>There are: </strong><?= h($count) ?> observations remaining in this run.<BR>
-
         </div>
     </div>
 

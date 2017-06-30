@@ -23,8 +23,8 @@ class ObservationsFixture extends TestFixture
         'run_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'fk_o_obs1' => ['type' => 'index', 'columns' => ['observer_id'], 'length' => []],
-            'fk_o_participant1' => ['type' => 'index', 'columns' => ['participant_id'], 'length' => []],
             'fk_o_run2' => ['type' => 'index', 'columns' => ['run_id'], 'length' => []],
+            'fk_o_participant1' => ['type' => 'index', 'columns' => ['participant_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],

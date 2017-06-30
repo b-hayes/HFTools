@@ -22,7 +22,7 @@
     <div class="related">
         <h4><?= __('Related Sections') ?></h4>
         <?php if (!empty($questionnaire->sections)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="wide-table" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Questionnaire Id') ?></th>
@@ -37,9 +37,9 @@
                 <td><?= h($sections->name) ?></td>
                 <td><?= h($sections->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Sections', 'action' => 'view', $sections->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Sections', 'action' => 'edit', $sections->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sections', 'action' => 'delete', $sections->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sections->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Sections', 'action' => 'view', $sections->id]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Sections', 'action' => 'edit', $sections->id]) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['controller' => 'Sections', 'action' => 'delete', $sections->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sections->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -1,48 +1,41 @@
 <?php
 /**
  * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Questionnaire $questionnaire
  */
-
-$iterator = 0;  // used as an array index for when  all the questions and answers are sent via 'post'
-
 ?>
 
-<div class="answers form large-9 medium-8 columns content">
+
     <h3><?= h($questionnaire->name) ?></h3>
     <h4><?= h($questionnaire->description) ?></h4>
-    <h4><?= h($observer->full_name) ?></h4>
-    <?= $this->Form->create('answers') ?>
-    <fieldset>
-        <?php foreach($questionnaire->sections as $sections): ?>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <strong>Section title:</strong> <?= h($sections->name) ?>
-                    <BR />
-                    <?php if($sections->description != ''): ?>
-                        <strong>Description of section:</strong> <?= h($sections->description) ?>
-                    <?php endif; ?>
+
+<?php foreach($questionnaire->sections as $sections): ?>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <strong>Section title:</strong> <?= h($sections->name) ?>
+            <div class="pull-right">
+                <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Sections', 'action' => 'edit', $sections->id]) ?>
+                <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['controller' => 'Sections', 'action' => 'delete', $sections->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sections->id)]) ?>
+            </div> <BR />
+
+            <!-- Added this so that if description isn't added this won't be displayed -->
+            <?php if($sections->description != ''): ?>
+
+                <strong>Description of section:</strong> <?= h($sections->description) ?>
+
+            <?php endif; ?>
+
+        </div>
+        <div class="panel-body">
+            <?php foreach($sections->questions as $questions): ?>
+                <div>
+                    <?= h($questions->text) ?>
+                    <div class="pull-right">
+                        <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Questions', 'action' => 'edit', $questions->id]) ?>
+                        <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['controller' => 'Questions', 'action' => 'delete', $questions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $questions->id)]) ?>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <?php
-
-                    foreach($sections->questions as $questions) {
-
-                        // display the questions to the user
-                        echo h($questions->text);
-
-                        // this field is hidden, because this needs to  be part of the 'post' request to save question id, sadly labels are not included in post requests.
-                        echo $this->Form->control('answers.' . $iterator . '.question_id', ['type' => 'hidden', 'value' => $questions->id]);
-
-                        // user input field
-                        echo $this->Form->control('answers.' . $iterator . '.answer_text', ['label' => false]);
-
-                        $iterator++;
-                    }
-                    ?>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endforeach; ?>

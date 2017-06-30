@@ -84,9 +84,7 @@ class AnswersController extends AppController
 
         $saved_successfully = true;
         $observationsArray = $this->request->session()->read('Tmp.observations');
-        $count = count($observationsArray);
-
-        debug($observationsArray);
+        $count = (count($observationsArray) - 1);
 
         // terminating case here
         if ($observationsArray == null) {
@@ -137,10 +135,6 @@ class AnswersController extends AppController
 
         $this->set(compact('questionnaire', 'observer', 'participant', 'count'));
         $this->set('_serialize', ['questionnaire']);
-    }
-
-    public function results() {
-
     }
 
 

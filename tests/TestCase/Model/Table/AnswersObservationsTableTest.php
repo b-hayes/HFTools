@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ObservationsTable;
+use App\Model\Table\AnswersObservationsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ObservationsTable Test Case
+ * App\Model\Table\AnswersObservationsTable Test Case
  */
-class ObservationsTableTest extends TestCase
+class AnswersObservationsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ObservationsTable
+     * @var \App\Model\Table\AnswersObservationsTable
      */
-    public $Observations;
+    public $AnswersObservations;
 
     /**
      * Fixtures
@@ -24,6 +24,7 @@ class ObservationsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.answers_observations',
         'app.observations',
         'app.participants',
         'app.clients',
@@ -37,8 +38,7 @@ class ObservationsTableTest extends TestCase
         'app.answers',
         'app.questions',
         'app.sections',
-        'app.questionnaires',
-        'app.answers_observations'
+        'app.questionnaires'
     ];
 
     /**
@@ -49,8 +49,8 @@ class ObservationsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Observations') ? [] : ['className' => ObservationsTable::class];
-        $this->Observations = TableRegistry::get('Observations', $config);
+        $config = TableRegistry::exists('AnswersObservations') ? [] : ['className' => AnswersObservationsTable::class];
+        $this->AnswersObservations = TableRegistry::get('AnswersObservations', $config);
     }
 
     /**
@@ -60,7 +60,7 @@ class ObservationsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Observations);
+        unset($this->AnswersObservations);
 
         parent::tearDown();
     }
@@ -71,16 +71,6 @@ class ObservationsTableTest extends TestCase
      * @return void
      */
     public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

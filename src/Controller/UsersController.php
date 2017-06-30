@@ -35,7 +35,7 @@ class UsersController extends AppController
 
                 if ($this->Auth->user('role') == 'admin') {
                     $this->set('role', $this->Auth->user('role'));
-                    return $this->redirect(['controller' => 'users']);
+                    return $this->redirect(['controller' => 'users', 'action' => 'welcome']);
                 }
                 return $this->redirect(['action' => 'home']);
             }
@@ -182,6 +182,10 @@ class UsersController extends AppController
         $clients = $this->Users->Clients->find('list', ['limit' => 200]);
         $this->set(compact('user', 'clients'));
         $this->set('_serialize', ['user']);
+    }
+
+    public function welcome() {
+
     }
 
     /**

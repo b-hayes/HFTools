@@ -6,6 +6,7 @@
 ?>
 
 <h3><?= __('Users') ?></h3>
+
 <table class="wide-table" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
@@ -28,12 +29,12 @@
             <td><?= h($user->last_login) ?></td>
             <td><?= h($user->modified) ?></td>
             <td class="actions">
-
-                <a href="/~hftools/hftools/users/view/<?= $user->id ?>" title="View Details"><span class="glyphicon glyphicon-info-sign"></span></a>
-                <a href="/~hftools/hftools/users/edit/<?= $user->id ?>" title="Edit Details"><span class="glyphicon glyphicon-pencil"></span></a>
-                <?php //echo $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                <?php //echo $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                <?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'escapeTitle' => false]) ?>
+<!--                --><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $user->id],
+                // ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                <?php echo $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $user->id],
+                    ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                <?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $user->id],
+                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'escapeTitle' => false, 'title' => 'Delete User Account']) ?>
             </td>
         </tr>
     <?php endforeach; ?>

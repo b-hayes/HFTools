@@ -5,10 +5,9 @@
   */
 ?>
     <h3><?= __('Clients') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('address') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('client_number') ?></th>
@@ -22,7 +21,6 @@
         <tbody>
             <?php foreach ($clients as $client): ?>
             <tr>
-                <td><?= $this->Number->format($client->id) ?></td>
                 <td><?= h($client->name) ?></td>
                 <td><?= h($client->address) ?></td>
                 <td><?= h($client->client_number) ?></td>
@@ -31,9 +29,9 @@
                 <td><?= h($client->contact_person) ?></td>
                 <td><?= h($client->acount_created) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $client->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $client->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $client->id], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $client->id], ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $client->id], ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $client->id], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id), 'escapeTitle' => false, 'title' => 'Delete Client']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
