@@ -52,6 +52,36 @@ class SessionsController extends AppController
         $this->set('_serialize', ['session']);
     }
 
+    public function displaySpecificParticipants($clientId = null) {
+
+        //$client_id = $this->request->getData('id');
+
+        if ($clientId != null) {
+            $this->loadModel('Participants');
+
+            // fuck ORM doing real queries to make up for bad database design.
+            $connection = ConnectionManager::get('default');
+
+            // had to do some hackery to get this working, but gets participant ids that share the same client as the currently logged in account
+            $results = $connection->execute('SELECT participant_id FROM clients_participants WHERE client_id = :id', ['id' => $clientId])->fetchAll();
+
+            if ($results) {
+
+                // more awesome hackery work, used to out the array in the correct format for retrieving data from participants model
+                $ids = [];
+                for ($i = 0; $i < count($results); $i++) {
+                    array_push($ids, $results[$i][0]);
+                }
+
+                $participants = $this->Participants->find('list')->where(['id IN ' => $ids]);
+
+                $this->set(compact('participants'));
+                $this->set('_serialize', ['participants']);
+            }
+        }
+
+    }
+
     /**
      * Add method
      *
@@ -68,26 +98,29 @@ class SessionsController extends AppController
         $session = $this->Sessions->newEntity();
 
         if ($this->request->is('post')) {
+
             $session = $this->Sessions->patchEntity($session, $this->request->getData());
             $participantID = $this->request->getData('participant._id');
 
-            $session->start_date = Date::createFromDate($session->start_date);
-            $session->end_date = Date::createFromDate($session->end_date);
+//            $session->start_date = $session->start_date->nice();
+//            $session->end_date = $session->end_date->nice();
 
             // check the user selected one or more participants (otherwise app will crash if they do not.
             if (!empty($participantID)) {
-
                 if ($this->Sessions->save($session)) {
                     for ($i = 0; $i < count($participantID); $i++) {
                         $connection->insert('participants_sessions', [
-                            'participant_id' => $participantID[$i][0],
-                            'session_id' => $session['id']
+                            'participant_id' => $participantID[$i],
+                            'session_id' => $session->id
                         ]);
                     }
 
                     $this->Flash->success(__('The session has been saved.'));
 
-                    return $this->Auth->User['role'] == 'client' ? $this->redirect(['action' => 'index']) : $this->redirect(['controller' => 'users', 'action' => 'home']);
+                    if (strcmp($userRole, 'client') == 0) {
+                        return $this->redirect(['controller' => 'users', 'action' => 'home']);
+                    }
+                    return $this->redirect(['action' => 'index']);
                 }
             }
             $this->Flash->error(__('The session could not be saved. Please, try again.'));
@@ -104,6 +137,7 @@ class SessionsController extends AppController
         if ($userRole == 'client') {
             $clients = $this->Sessions->Participants->Clients->find('list')->where(['id = ' => $clients_id]);
             $participants = $this->Participants->find('list')->where(['id IN ' => $ids]);
+
         } else {
             $clients = $this->Sessions->Participants->Clients->find('list');
             $participants = $this->Participants->find('list');

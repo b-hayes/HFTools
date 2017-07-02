@@ -39,8 +39,34 @@ class RunsController extends AppController
     public function view($id = null)
     {
         $run = $this->Runs->get($id, [
+            'contain' => ['Sessions', 'Observations' => ['Participants', 'Answers']]
+        ]);
+
+        $this->set('run', $run);
+        $this->set('_serialize', ['run']);
+    }
+
+
+
+    public function allSessionRuns()
+    {
+        $this->loadModel('Participants');
+
+        // get all run ids for today todo will need to be for specific run later.
+        $id = $this->Runs->find('all')
+            ->where(['run_date = :today'])
+            ->bind(':today', date('Y-m-d'))->toArray();
+
+        $run = $this->Runs->get($id[0]['id'], [
             'contain' => ['Sessions', 'Observations']
         ]);
+
+        foreach ($run->observations as $observation) {
+            $observation->observer_id;
+        }
+
+        $observers = 0;
+        $participants = 0;
 
         $this->set('run', $run);
         $this->set('_serialize', ['run']);

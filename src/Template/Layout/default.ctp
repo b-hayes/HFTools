@@ -23,6 +23,28 @@ if ($role == "admin"){
     $device = "sm";
 }
 ?>
+
+<!-- Protect dangerous actions with dangerous-action class.  -->
+<div id="dangerModal" class="modal fade" role="dialog">
+    <div class="modal-dialog dangerous">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Caution.</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="continue-action btn btn-danger pull-left">Continue</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel Action</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +58,7 @@ if ($role == "admin"){
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?php echo $this->Html->css('base.css') ?>
     <?php echo $this->Html->css('bootstrap-datepicker.min.css') ?>
+<!--    --><?php //echo $this->Html->css('bootstrap-dialog.min.css') ?>
     <?= $this->Html->css('override.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -43,6 +66,7 @@ if ($role == "admin"){
     <?= $this->Html->script('/webroot/js/jquery-3.2.1.min.js'); ?>
     <?= $this->Html->script('/webroot/js/bootstrap.min.js'); ?>
     <?= $this->Html->script('/webroot/js/bootstrap-datepicker.min.js'); ?>
+<!--    --><?php //echo $this->Html->script('/webroot/js/bootstrap-dialog.min.js'); ?>
 </head>
 <body>
 <?= $this->element('Navigation/navigation'); ?>
@@ -76,3 +100,37 @@ if ($role == "admin"){
 </footer>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $(".dangerous-action").each(function () {
+            var action = $( this ).attr("onclick");
+            var danger = $( this ).attr("danger");
+            var title = $( this ).attr("title");
+            $( this ).prop('onclick',null);
+            $( this ).click(function () {
+                if(danger == undefined){
+                    danger = "The following action may have serious implication."
+                }
+                if(title == undefined){
+                    title = "Continue";
+                }
+                $("#dangerModal .modal-body").html(danger);
+                $("#dangerModal .continue-action").html(title);
+                $("#dangerModal .continue-action").unbind('click'); //make sure we remove last action used
+                $("#dangerModal .continue-action").attr('onclick', action); //assign the action to the continue button
+                $("#dangerModal").modal('show');
+            });
+        });
+
+        $(".checkbox").addClass("btn btn-default btn-block");
+        $(".checkbox").click(function () {
+            alert($( this > "checkbox" ).val().toString());
+            if($( this > "checkbox" ).val()){
+                $( this ).addClass("active");
+            } else {
+                $( this ).removeClass("active");
+            }
+        })
+    })
+</script>

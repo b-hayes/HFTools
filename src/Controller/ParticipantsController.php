@@ -51,15 +51,21 @@ class ParticipantsController extends AppController
     public function add()
     {
         $participant = $this->Participants->newEntity();
+
         if ($this->request->is('post')) {
+
             $participant = $this->Participants->patchEntity($participant, $this->request->getData());
             if ($this->Participants->save($participant)) {
                 $this->Flash->success(__('The participant has been saved.'));
 
+                //return $this->redirect($this->referer());
                 return $this->redirect(['action' => 'index']);
+
+            } else {
+                $this->Flash->error(__('The participant could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The participant could not be saved. Please, try again.'));
         }
+
         $clients = $this->Participants->Clients->find('list', ['limit' => 200]);
         $roles = $this->Participants->Roles->find('list', ['limit' => 200]);
         $sessions = $this->Participants->Sessions->find('list', ['limit' => 200]);

@@ -42,7 +42,9 @@ class QuestionsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Answers', [
-            'foreignKey' => 'question_id'
+            'foreignKey' => 'question_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
     }
 

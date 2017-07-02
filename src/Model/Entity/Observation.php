@@ -4,18 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Run Entity
+ * Observation Entity
  *
  * @property int $id
- * @property int $session_id
- * @property \Cake\I18n\FrozenDate $run_date
- * @property string $name
- * @property string $description
+ * @property int $observer_id
+ * @property int $participant_id
+ * @property int $run_id
  *
- * @property \App\Model\Entity\Session $session
- * @property \App\Model\Entity\Observation[] $observations
+ * @property \App\Model\Entity\Participant $participant
+ * @property \App\Model\Entity\Run $run
+ * @property \App\Model\Entity\Answer[] $answers
  */
-class Run extends Entity
+class Observation extends Entity
 {
 
     /**
@@ -29,6 +29,6 @@ class Run extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => true
+        'id' => false
     ];
 }

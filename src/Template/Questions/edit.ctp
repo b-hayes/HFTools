@@ -3,7 +3,11 @@
   * @var \App\View\AppView $this
   */
 ?>
-<div class="questions form large-9 medium-8 columns content">
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Warning: You should only edit questions for minor corrections.</h4>
+    <p>This question may have been answered during an Observation already and changing the questions meaning/purpose will invalidate the answer data stored.</p>
+</div>
     <?= $this->Form->create($question) ?>
     <fieldset>
         <legend><?= __('Edit Question') ?></legend>
@@ -15,4 +19,3 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-</div>

@@ -3,51 +3,34 @@
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\Run $run
   */
+
 ?>
-<div>
-    <h3><?= h($run->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Session') ?></th>
-            <td><?= $run->has('session') ? $this->Html->link($run->session->name, ['controller' => 'Sessions', 'action' => 'view', $run->session->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($run->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($run->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Run Date') ?></th>
-            <td><?= h($run->run_date) ?></td>
-        </tr>
-    </table>
-    <div class="related">
-        <h4><?= __('Related Observations') ?></h4>
-        <?php if (!empty($run->observations)): ?>
-        <table class="wide-table" cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Observer Id') ?></th>
-                <th scope="col"><?= __('Participant Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($run->observations as $observations): ?>
-            <tr>
-                <td><?= h($observations->observer_id) ?></td>
-                <td><?= h($observations->participant_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Observations', 'action' => 'view', $observations->id],
-                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Observations', 'action' => 'edit', $observations->id],
-                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
-                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['controller' => 'Observations', 'action' => 'delete', $observations->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $observations->id), 'escapeTitle' => false , 'title' => 'View Details']) ?>
-                </td>
-            </tr>
+
+<!--- session stuffs --->
+<h2><?= h('Session name: ' . $run->session->name) ?></h2>
+<h3><?= h('Description: ' . $run->session->description) ?></h3>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <h5 class="col-md-4"><?= '<strong>Name of run: </strong> ' . h($run->name); ?></h5>
+            <h6 class="col-md-4"><?= '<strong>Description of run: </strong> ' . h($run->description) ?></h6>
+            <h6 class="col-md-4"><?= '<strong>Date run was conducted: </strong> ' . h($run->run_date) ?></h6>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="panel-group">
+            <?php foreach($run->observations as $observations): ?>
+                <div class="section-in-panel clearfix">
+                    <?= h($observations->observer_id) . ' <strong> observed </strong>  ' . h($observations->participant->full_name)?>
+                    <?= $this->Html->link(__('<button class="btn btn-default pull-right">see results <span class="glyphicon glyphicon-chevron-right"></span></button>'), ['controller' => 'observations', 'action' => 'view', $observations->id],
+                        ['escapeTitle' => false]) ?>
+                </div>
             <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
+        </div>
     </div>
 </div>
+
+

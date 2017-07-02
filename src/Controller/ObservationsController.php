@@ -1,9 +1,12 @@
 <?php
 namespace App\Controller;
+use function array_push;
 use Cake\Datasource\ConnectionManager;
 
 use App\Controller\AppController;
 use function debug;
+use function MongoDB\BSON\toJSON;
+use function time;
 
 /**
  * Observations Controller
@@ -31,6 +34,7 @@ class ObservationsController extends AppController
         $this->set('_serialize', ['observations']);
     }
 
+
     /**
      * View method
      *
@@ -40,13 +44,76 @@ class ObservationsController extends AppController
      */
     public function view($id = null)
     {
-        $observation = $this->Observations->get($id, [
-            'contain' => ['Participants', 'Runs', 'Answers']
-        ]);
+        $this->loadModel('Participants');
 
-        $this->set('observation', $observation);
-        $this->set('_serialize', ['observation']);
+        $results = ['questionnaire' => ['sections' => []]];
+
+        $observation = $this->Observations->get($id, [
+            'contain' => ['Participants', 'Runs', 'Answers' => ['Questions' => ['Sections' => ['Questionnaires']]]]
+        ])->toArray();
+
+        // get the questionnaire name and description
+        $results['questionnaire']['name'] = $observation['answers'][0]['question']['section']['questionnaire']['name'];
+        $results['questionnaire']['description'] = $observation['answers'][0]['question']['section']['questionnaire']['description'];
+
+        // get the participant and observer names
+        $observer = $this->Participants->find()->where(['id = :participantID'])
+            ->bind(':participantID', $observation['observer_id'])->toArray();
+        $results['participant']['name'] = $observation['participant']['first_name'] . ' ' . $observation['participant']['last_name'];
+        $results['participant']['observer'] = $observer[0]['first_name'] . ' ' . $observer[0]['last_name'];
+
+        // get the runs name and description
+        $results['run']['name'] = $observation['run']['name'];
+        $results['run']['description'] = $observation['run']['description'];
+        $results['run']['run_date'] = $observation['run']['run_date']->nice();
+
+        $lastAdded = '';
+
+        foreach ($observation['answers'] as $observations) {
+            if (strcmp($lastAdded, $observations['question']['section']['name']) != 0) {
+
+                array_push($results['questionnaire']['sections'],
+                    ['name' => $observations['question']['section']['name'],
+                        'description' => $observations['question']['section']['description'],
+                        'section_id' => $observations['question']['section']['id']]);
+            }
+            $lastAdded = $observations['question']['section']['name'];
+        }
+
+        foreach ($results['questionnaire']['sections'] as &$item) {
+            $questions = [];
+
+            foreach ($observation['answers'] as $observations) {
+
+                if ($item['section_id'] == $observations['question']['section_id']) {
+                    array_push($questions, [
+                        'question_text' => $observations['question']['text'],
+                        'answer_text' => $observations['answer_text']]);
+                }
+            }
+            array_push($item, ['questions' => $questions]);
+        }
+            $this->set('results', $results);
+            $this->set('_serialize', ['results']);
     }
+
+
+    /**
+     * View method
+     *
+     * @param string|null $id Observation id.
+     * @return \Cake\Http\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+//    public function view($id = null)
+//    {
+//        $observation = $this->Observations->get($id, [
+//            'contain' => ['Participants', 'Runs', 'Answers']
+//        ]);
+//
+//        $this->set('observation', $observation);
+//        $this->set('_serialize', ['observation']);
+//    }
 
     /**
      * Add method
@@ -93,8 +160,6 @@ class ObservationsController extends AppController
         $currentSessionID = $this->request->session()->read('Current.session.id');
         $userRole = $this->request->session()->read('Auth.User.role');
 
-
-
         $observation = $this->Observations->newEntity();
 
         if ($this->request->is('post')) {
@@ -116,17 +181,14 @@ class ObservationsController extends AppController
                 if(!$this->Observations->save($newObs)) {
                     $hasSuccessfullySaved = false;
                 }
-
                 array_push($observationIds, $newObs);
             }
 
             if ($hasSuccessfullySaved) {
-
                 $this->request->session()->write('Tmp', ['observations' => $observationIds]);
 
                 $this->Flash->success(__('The observation has been saved.'));
                 return $this->redirect(['controller' => 'answers','action' => 'questionnaireAnswers', $questionnaire_id]);
-
             }
             $this->Flash->error(__('The observation could not be saved. Please, try again.'));
         }

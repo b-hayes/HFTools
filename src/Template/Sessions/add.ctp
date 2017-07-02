@@ -4,6 +4,25 @@
  */
 ?>
 
+<div id="ModalAddParticipant" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div id="ModalAddParticipant-Contents">
+                    <?= $this->requestAction(
+                        array('controller'=>'Participants','action'=>'add')
+                    ) ?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="ModalAddParticipant-SubmitButton" type="button" class="pull-left">Submit</button>
+                <button type="button" class="pull-right" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div>
     <?= $this->Form->create($session) ?>
     <fieldset>
@@ -21,15 +40,17 @@
         echo $this->Form->control('start_date', ['type' => 'text']);
         echo $this->Form->control('end_date', ['type' => 'text']);
 
-        echo $this->Form->control('client_id', ['option' => $clients]);
-        echo $this->Form->control('participant._id', array(
-            'label' => 'participants',
-            'type' => 'select',
-            'multiple' => 'checkbox',
-            'options' => $participants,
-            'value' => $participants
-        ));
+        echo $this->Form->control('client_id', ['option' => $clients, 'baseURL' => $this->Html->Url->build(
+            ['controller'=>'Sessions', 'action'=>'displaySpecificParticipants']), 'empty' => true]);
         ?>
+        <div id="part-list" class="col-md-8">
+            Please select a Client.
+        </div>
+
+        <div class="alert alert-info clearfix col-md-4">
+            <p>Cant find the participant your looking for?</p><br>
+            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddParticipant">Create New Participant...</button>
+        </div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
@@ -59,8 +80,72 @@
 
 
     $(document).ready(function(){
+        var ClientID = $("#client-id").val();
+        var baseURL = $("#client-id").attr('baseURL');
+
+        function getParticipants() {
+            if(ClientID == ""){
+                $("#part-list").html("Please select a Client.");
+            } else{
+                $("#part-list").load(baseURL + "/" + ClientID);
+            }
+        }
+
+        $("#client-id").change(function () {
+            ClientID = $("#client-id").val();
+            getParticipants();
+        });
+
+        //stuff for add participant modal
+        var modal = $("#ModalAddParticipant");
+        var modalContent = $("#ModalAddParticipant-Contents");
+        var form = modalContent.find("form"); //$("#ModalAddParticipant").find("form");
+
+        function resetModal() {
+            console.log("form reset");
+//            form = $(modalContent).find("form");
+            form.find("button:submit").hide(); //hid the submit button he form normally uses.
+//            console.log(form.html());
+        }
+
+        function SubmitModal() {
+            console.log(">>>>>>>>Submit pressed");
+            form = modalContent.find("form");
+            console.log(form.html());
+            var formData = form.serialize(); //$("#ModalAddParticipant").find("form").serialize();
+            var formUrl = form.attr("action"); //$("#ModalAddParticipant").find("form").attr("action");
+            console.log(formData);
+            console.log(formUrl);
+            $.when(
+                $.ajax({
+                    url: formUrl,
+                    type: 'POST',
+                    data: formData,
+                    dataType: "html",
+                    success: function(result){
+                        console.log(">>>>>RESULT:");
+                        console.log(result);
+                        var error = $(result).find(".error-message").first();
+                        console.log(error.html());
+                        if(error != undefined) {
+                            //if there was an error in the result change the modal with the new form with validation messages.
+                            $(modalContent).html(result);
+                        } else {
+                            modal.modal('hide');
+                            getParticipants();
+                        }
+                    }
+                })
+            ).then(function () {
+                    resetModal();
+                }
+            );
+        }
+
+        resetModal();
+        $("#ModalAddParticipant-SubmitButton").click(SubmitModal);
+
         if(getMobileOperatingSystem()!="unknown"){
-            alert(getMobileOperatingSystem());
             //mobile devices use native OS date picker
             $("#start-date").attr('type', 'date');
             $("#end-date").attr('type', 'date');
@@ -83,9 +168,5 @@
                 todayHighlight: true
             });
         }
-//        $("#start-date").attr('type', 'cus-date');
-//        $("#end-date").attr('type', 'cus-date');
-
-
     });
 </script>

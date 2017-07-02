@@ -5,7 +5,7 @@
   */
 ?>
     <h3><?= h($client->name) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table wide-table">
         <tr>
             <th scope="row"><?= __('Address') ?></th>
             <td><?= h($client->address) ?></td>

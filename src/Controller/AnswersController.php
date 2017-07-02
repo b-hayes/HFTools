@@ -83,12 +83,18 @@ class AnswersController extends AppController
         $this->loadModel('Participants');
 
         $saved_successfully = true;
+
         $observationsArray = $this->request->session()->read('Tmp.observations');
+
         $count = (count($observationsArray) - 1);
 
         // terminating case here
         if ($observationsArray == null) {
-            return $this->redirect(['action' => 'index']);
+            $runID = $this->request->session()->read('Current.run.id');
+
+            if ($runID) {
+                return $this->redirect(['controller' => 'runs', 'action' => 'view', $runID]);
+            }
         }
 
         $observer = $this->Participants->get($observationsArray[0]['observer_id']);
@@ -122,7 +128,8 @@ class AnswersController extends AppController
                 $observationsArray = array_values($observationsArray);
 
                 $this->request->session()->write('Tmp', ['observations' => $observationsArray]);
-                return $this->redirect(['controller' => 'answers','action' => 'questionnaireAnswers', $questionnaireID]);
+
+                return $this->redirect(['controller' => 'answers', 'action' => 'questionnaireAnswers', $questionnaireID]);
 
             } else {
                 $this->Flash->error(__('The answer could not be saved. Please, try again.'));

@@ -19,7 +19,7 @@
         ));
 
         echo $this->Form->control('run_id', ['options' => $runs]);
-        echo $this->Form->control('questionnaire_id', ['options' => $questionnaires]);
+        echo $this->Form->control('questionnaire_id', ['options' => $questionnaires, 'label' => 'Select tool']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -23,8 +23,11 @@
                         ['escapeTitle' => false , 'title' => 'View Details']) ?>
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $questionnaire->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
-                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $questionnaire->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $questionnaire->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash alert-danger"></span>'), ['action' => 'delete', $questionnaire->id],
+                        ['escapeTitle' => false , 'title' => 'Delete Questionnaire',
+                        'class' => 'dangerous-action',
+                        'danger' => '<h5><strong>If you continue you will loose ALL data that Clients have associated with this Questionnaire.</strong></h5>' .
+                    'Only perform this action if you are 100% sure that no important client information will be lost. ']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -15,6 +15,13 @@ button.side-nav{
     margin-bottom: 10px;
     box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
 }
+
+.section-in-panel {
+    border: 1px solid #a0d3e8;
+    padding: 1rem;
+    margin-top: 15px;
+}
+
  .question{
      /*border: 1px solid #a0d3e8;*/
      padding: 3px;
@@ -58,6 +65,54 @@ table.wide-table{
     border-radius: 0;
 }
 
+#dangerModal .modal-header, #dangerModal .modal-title{
+    color: white;
+    background-color: #d00000;
+}
+#dangerModal .modal-body{
+    background-color: white;
+}
+#dangerModal .modal-footer{
+    background-color: #f5ccc8;
+}
+
+.modal {
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    transform:scale(2, 2);
+    margin-top: 5px;
+}
+div .checkbox > label{
+    /*transform:scale(2, 2);*/
+    /*border: 2px solid #1cc7ff;*/
+    /*background-color: red;*/
+}
+div .checkbox {
+    text-align: left;
+}
+
+.error-message {
+    background-color: red;
+}
+
+@media screen and (min-width: 768px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
 @media (max-width: 768px) {
     /* CSS when screen width is equal to or less than 768px goes here */
     .navbar-nav{
@@ -66,6 +121,9 @@ table.wide-table{
     .logo-image{
         margin-left: 1%;
         max-height: 80px;
+    }
+    .modal-dialog {
+        width: 90%;
     }
 }
 
