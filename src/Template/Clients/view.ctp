@@ -40,7 +40,6 @@
                 <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Start Date') ?></th>
                 <th scope="col"><?= __('End Date') ?></th>
-                <th scope="col"><?= __('Client Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($client->sessions as $sessions): ?>
@@ -49,7 +48,6 @@
                 <td><?= h($sessions->description) ?></td>
                 <td><?= h($sessions->start_date) ?></td>
                 <td><?= h($sessions->end_date) ?></td>
-                <td><?= h($sessions->client_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Sessions', 'action' => 'view', $sessions->id],
                         ['escapeTitle' => false , 'title' => 'View Details']) ?>

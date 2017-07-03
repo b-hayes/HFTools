@@ -49,7 +49,10 @@
 
         <div class="alert alert-info clearfix col-md-4">
             <p>Cant find the participant your looking for?</p><br>
-            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddParticipant">Create New Participant...</button>
+<!--            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddParticipant">Create New Participant...</button>-->
+            <a href="<?php echo $this->Html->Url->build([
+                    'controller'=>'Participants', 'action'=>'add'
+            ]); ?>" type="button" class="btn btn-info pull-right">Create New Participant...</a>
         </div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
@@ -128,6 +131,7 @@
                         var error = $(result).find(".error-message").first();
                         console.log(error.html());
                         if(error != undefined) {
+                            $(result).find("button:submit").hide();
                             //if there was an error in the result change the modal with the new form with validation messages.
                             $(modalContent).html(result);
                         } else {

@@ -8,7 +8,6 @@
     <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
@@ -19,7 +18,6 @@
         <tbody>
             <?php foreach ($participants as $participant): ?>
             <tr>
-                <td><?= $this->Number->format($participant->id) ?></td>
                 <td><?= h($participant->first_name) ?></td>
                 <td><?= h($participant->last_name) ?></td>
                 <td><?= h($participant->email) ?></td>

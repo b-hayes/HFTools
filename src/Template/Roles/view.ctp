@@ -6,22 +6,11 @@
 ?>
 <div>
     <h3><?= h($role->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($role->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($role->id) ?></td>
-        </tr>
-    </table>
     <div class="related">
         <h4><?= __('Related Participants') ?></h4>
         <?php if (!empty($role->participants)): ?>
         <table class="wide-table" cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('First Name') ?></th>
                 <th scope="col"><?= __('Last Name') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
@@ -30,7 +19,6 @@
             </tr>
             <?php foreach ($role->participants as $participants): ?>
             <tr>
-                <td><?= h($participants->id) ?></td>
                 <td><?= h($participants->first_name) ?></td>
                 <td><?= h($participants->last_name) ?></td>
                 <td><?= h($participants->email) ?></td>

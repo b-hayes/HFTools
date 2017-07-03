@@ -25,10 +25,17 @@ class ObservationsController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Participants');
+
         $this->paginate = [
             'contain' => ['Participants', 'Runs']
         ];
+
         $observations = $this->paginate($this->Observations);
+
+        foreach ($observations as $obs) {
+            $obs->observer = $this->Participants->get($obs->observer_id);
+        }
 
         $this->set(compact('observations'));
         $this->set('_serialize', ['observations']);

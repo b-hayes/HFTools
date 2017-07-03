@@ -9,7 +9,6 @@
     <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('session_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('run_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
@@ -20,7 +19,6 @@
         <tbody>
             <?php foreach ($runs as $run): ?>
             <tr>
-                <td><?= $this->Number->format($run->id) ?></td>
                 <td><?= $run->has('session') ? $this->Html->link($run->session->name, ['controller' => 'Sessions', 'action' => 'view', $run->session->id]) : '' ?></td>
                 <td><?= h($run->run_date) ?></td>
                 <td><?= h($run->name) ?></td>

@@ -23,27 +23,42 @@
     <button class=" btn-block collapse-next">Accounts</button>
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
-            <li><?= $this->Html->link(__('List accounts'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('Create new account'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-            <li><?= $this->Html->link(__('List clients'), ['controller' => 'Clients', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('Create new client'), ['controller' => 'Clients', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('List Clients Login Accounts'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+            <hr>
+            <li><?= $this->Html->link(__('Create New Client'), ['controller' => 'Clients', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('Create New Client Login Account'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        </ul>
+    </div>
+
+    <button class=" btn-block collapse-next">Participants</button>
+    <div class="panel collapse">
+        <ul class="nav nav-pills nav-stacked">
+            <li><?= $this->Html->link(__('List Participants'), ['controller' => 'Participants', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('Create New Account'), ['controller' => 'Participants', 'action' => 'add']) ?></li>
+            <hr>
+            <li><?= $this->Html->link(__('List Participant Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('Create New Participant Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
         </ul>
     </div>
 
     <button class=" btn-block collapse-next">Tools</button>
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
-            <li><?= $this->Html->link(__('List Questionnaires'), ['controller' => 'Questionnaires', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('Create new questionnaire'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
+            <li><?= $this->Html->link(__('List Tools'), ['controller' => 'Questionnaires', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('Create New Tool'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
         </ul>
     </div>
 
     <button class=" btn-block collapse-next">Sessions</button>
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
-            <li><?= $this->Html->link(__('New Run'), ['controller' => 'Runs', 'action' => 'add']) ?></li>
+
             <li><?= $this->Html->link(__('List Sessions'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
             <li><?= $this->Html->link(__('New Session'), ['controller' => 'Sessions', 'action' => 'add']) ?></li>
+            <hr>
+            <li><?= $this->Html->link(__('List Runs'), ['controller' => 'Runs', 'action' => 'index']) ?></li>
+            <hr>
             <li><?= $this->Html->link(__('List Observations'), ['controller' => 'Observations', 'action' => 'index']) ?></li>
             <li><?= $this->Html->link(__('New Observation'), ['controller' => 'Observations', 'action' => 'add']) ?></li>
         </ul>
@@ -53,9 +68,6 @@
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List Observations'), ['controller' => 'Observations', 'action' => 'index']) ?> </li>
-            <li><?= $this->Html->link(__('New Observation'), ['controller' => 'Observations', 'action' => 'add']) ?> </li>
-            <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?> </li>
-            <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?> </li>
         </ul>
     </div>
     <script>

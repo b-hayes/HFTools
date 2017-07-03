@@ -10,8 +10,8 @@
 <table class="wide-table" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
-        <th scope="col"><?= $this->Paginator->sort('username') ?></th>
         <th scope="col"><?= $this->Paginator->sort('client_id') ?></th>
+        <th scope="col"><?= $this->Paginator->sort('username') ?></th>
         <th scope="col"><?= $this->Paginator->sort('role') ?></th>
         <th scope="col"><?= $this->Paginator->sort('created') ?></th>
         <th scope="col"><?= $this->Paginator->sort('last_login') ?></th>
@@ -22,8 +22,8 @@
     <tbody>
     <?php foreach ($users as $user): ?>
         <tr>
-            <td><?= h($user->username) ?></td>
             <td><?= $user->has('client') ? $this->Html->link($user->client->name, ['controller' => 'Clients', 'action' => 'view', $user->client->id]) : '' ?></td>
+            <td><?= h($user->username) ?></td>
             <td><?= h($user->role) ?></td>
             <td><?= h($user->created) ?></td>
             <td><?= h($user->last_login) ?></td>

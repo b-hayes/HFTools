@@ -5,32 +5,13 @@
  */
 ?>
 
-<div id="ModalAddQuestion" class="modal fade" role="dialog">
+<div id="Modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <?= $this->requestAction(
+                <?php echo $this->requestAction(
                     array('controller'=>'Questions','action'=>'add')
-                ) ?>
-                <button type="button" class="pull-right" style="margin-top: -71px" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="ModalAddSection" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <!--            <div class="modal-header">-->
-            <!--                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-            <!--                <h4 class="modal-title">New Question for Section X</h4>-->
-            <!--            </div>-->
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <?= $this->requestAction(
-                    array('controller'=>'Sections','action'=>'add')
                 ) ?>
                 <button type="button" class="pull-right" style="margin-top: -71px" data-dismiss="modal">Cancel</button>
             </div>
@@ -78,7 +59,7 @@
                 </div>
             <?php endforeach; ?>
 <!--            <br><button type="button" class="addQuestion btn btn-info btn-sm" sectionID="--><?php //echo h($sections->id) ?><!--">-->
-                Add Question</button>
+<!--                Add Question</button>-->
         </div>
     </div>
 <?php endforeach; ?>
@@ -88,4 +69,18 @@
     //TODO: Decided this is a NTH.. buttons are commented out for now.
     //need question to show the add dialog with the appropriate section selected
     //similar with add section n questionnaire
+    function editModal() {
+        
+    }
+    
+    function changeEditLinksToModals() {
+        $("[title= 'Edit Details']").each(function () {
+//            console.log($(this).attr('href'));
+            $(this).attr('modalURL', $(this).attr('href')); //move href url to another data type for later
+        })
+    }
+    
+    $(document).ready(function () {
+        changeEditLinksToModals();
+    });
 </script>

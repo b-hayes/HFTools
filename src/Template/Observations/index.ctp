@@ -17,8 +17,8 @@
         <tbody>
             <?php foreach ($observations as $observation): ?>
             <tr>
-                <td><?= $this->Number->format($observation->observer_id) ?></td>
-                <td><?= $observation->has('participant') ? $this->Html->link($observation->participant->id, ['controller' => 'Participants', 'action' => 'view', $observation->participant->id]) : '' ?></td>
+                <td><?= $observation->has('observer_id') ? $this->Html->link($observation->observer->full_name, ['controller' => 'Participants', 'action' => 'view', $observation->observer_id]) : '' ?></td>
+                <td><?= $observation->has('participant') ? $this->Html->link($observation->participant->full_name, ['controller' => 'Participants', 'action' => 'view', $observation->participant->id]) : '' ?></td>
                 <td><?= $observation->has('run') ? $this->Html->link($observation->run->name, ['controller' => 'Runs', 'action' => 'view', $observation->run->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $observation->id],

@@ -16,10 +16,6 @@
             <td><?= $session->has('client') ? $this->Html->link($session->client->name, ['controller' => 'Clients', 'action' => 'view', $session->client->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($session->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Start Date') ?></th>
             <td><?= h($session->start_date) ?></td>
         </tr>
