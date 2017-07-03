@@ -4,17 +4,7 @@
   * @var \App\Model\Entity\Buttonvalue $buttonvalue
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Buttonvalue'), ['action' => 'edit', $buttonvalue->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Buttonvalue'), ['action' => 'delete', $buttonvalue->id], ['confirm' => __('Are you sure you want to delete # {0}?', $buttonvalue->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Buttonvalues'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Buttonvalue'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Buttontypes'), ['controller' => 'Buttontypes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Buttontype'), ['controller' => 'Buttontypes', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="buttonvalues view large-9 medium-8 columns content">
     <h3><?= h($buttonvalue->id) ?></h3>
     <table class="vertical-table">

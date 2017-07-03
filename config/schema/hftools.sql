@@ -204,6 +204,7 @@ CREATE TABLE `sections` (
   `questionnaire_id` int(10) unsigned NOT NULL,
   `name` varchar(355) NOT NULL,
   `description` varchar(355) DEFAULT NULL,
+  
   PRIMARY KEY (`id`),
   KEY `fk_s_questionnaire1` (`questionnaire_id`),
   CONSTRAINT `fk_s_questionnaire1` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaires` (`id`)
@@ -246,6 +247,7 @@ DROP TABLE IF EXISTS `buttontypes`;
 CREATE TABLE `buttontypes` (
   `id` int(10) unsigned NOT NULL  AUTO_INCREMENT,
   `text` varchar(355) NOT NULL,
+  `type` varchar(355) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -267,11 +269,6 @@ CREATE TABLE `buttontypes_buttonvalues` (
 FOREIGN KEY (`buttontype_id`) REFERENCES `buttontypes` (`id`),
 FOREIGN KEY (`buttonvalue_id`) REFERENCES `buttonvalues` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-
-DROP TABLE IF EXISTS `types`;
-DROP TABLE IF EXISTS `values`;
-DROP TABLE IF EXISTS `types_values`;
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

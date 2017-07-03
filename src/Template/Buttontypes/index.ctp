@@ -4,14 +4,7 @@
   * @var \App\Model\Entity\Buttontype[]|\Cake\Collection\CollectionInterface $buttontypes
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Buttontype'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Buttonvalues'), ['controller' => 'Buttonvalues', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Buttonvalue'), ['controller' => 'Buttonvalues', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="buttontypes index large-9 medium-8 columns content">
     <h3><?= __('Buttontypes') ?></h3>
     <table cellpadding="0" cellspacing="0">
@@ -19,6 +12,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('text') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('type') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,6 +21,7 @@
             <tr>
                 <td><?= $this->Number->format($buttontype->id) ?></td>
                 <td><?= h($buttontype->text) ?></td>
+                <td><?= h($buttontype->type) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $buttontype->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $buttontype->id]) ?>

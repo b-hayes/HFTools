@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $text
+ * @property string $type
  *
  * @property \App\Model\Entity\Buttonvalue[] $buttonvalues
  */

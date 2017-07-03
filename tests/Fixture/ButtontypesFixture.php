@@ -19,6 +19,7 @@ class ButtontypesFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'text' => ['type' => 'string', 'length' => 355, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'type' => ['type' => 'string', 'length' => 355, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -37,7 +38,8 @@ class ButtontypesFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'text' => 'Lorem ipsum dolor sit amet'
+            'text' => 'Lorem ipsum dolor sit amet',
+            'type' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

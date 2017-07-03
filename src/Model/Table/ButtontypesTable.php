@@ -59,6 +59,10 @@ class ButtontypesTable extends Table
             ->requirePresence('text', 'create')
             ->notEmpty('text');
 
+        $validator
+            ->requirePresence('type', 'create')
+            ->notEmpty('type');
+
         return $validator;
     }
 }
