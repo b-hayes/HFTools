@@ -24,10 +24,10 @@
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List Clients'), ['controller' => 'Clients', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('List Clients Login Accounts'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('List Clients Login Accounts'), ['controller' => 'Users', 'action' => 'index']) ?></li>
             <hr>
             <li><?= $this->Html->link(__('Create New Client'), ['controller' => 'Clients', 'action' => 'add']) ?></li>
-            <li><?= $this->Html->link(__('Create New Client Login Account'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('Create New Client Login Account'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         </ul>
     </div>
 
@@ -35,7 +35,7 @@
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List Participants'), ['controller' => 'Participants', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('Create New Account'), ['controller' => 'Participants', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('Create New Participant'), ['controller' => 'Participants', 'action' => 'add']) ?></li>
             <hr>
             <li><?= $this->Html->link(__('List Participant Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
             <li><?= $this->Html->link(__('Create New Participant Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>

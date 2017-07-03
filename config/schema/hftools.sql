@@ -242,6 +242,38 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS `buttontypes`;
+CREATE TABLE `buttontypes` (
+  `id` int(10) unsigned NOT NULL  AUTO_INCREMENT,
+  `text` varchar(355) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `buttonvalues`;
+CREATE TABLE `buttonvalues` (
+  `id` int(10) unsigned NOT NULL  AUTO_INCREMENT,
+  `text_lable` varchar(355) NOT NULL,
+  `text_value` varchar(355) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `buttontypes_buttonvalues`;
+CREATE TABLE `buttontypes_buttonvalues` (
+  `buttontype_id` int(10) unsigned NOT NULL,
+  `buttonvalue_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`buttontype_id`, `buttonvalue_id`),
+FOREIGN KEY (`buttontype_id`) REFERENCES `buttontypes` (`id`),
+FOREIGN KEY (`buttonvalue_id`) REFERENCES `buttonvalues` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `types`;
+DROP TABLE IF EXISTS `values`;
+DROP TABLE IF EXISTS `types_values`;
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

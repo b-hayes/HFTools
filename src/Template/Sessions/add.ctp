@@ -27,6 +27,23 @@
     <?= $this->Form->create($session) ?>
     <fieldset>
         <legend><?= __('Add Session') ?></legend>
+        <div>
+            <?php
+            echo $this->Form->control('client_id', ['option' => $clients, 'baseURL' => $this->Html->Url->build(
+                ['controller'=>'Sessions', 'action'=>'displaySpecificParticipants']), 'empty' => true]);
+            ?>
+            <div id="part-list" class="col-md-8">
+                Please select a Client.
+            </div>
+
+            <div class="alert alert-info clearfix col-md-4">
+                <p>Cant find the participant your looking for?</p><br>
+                <!--            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddParticipant">Create New Participant...</button>-->
+                <a href="<?php echo $this->Html->Url->build([
+                    'controller'=>'Participants', 'action'=>'add'
+                ]); ?>" type="button" class="btn btn-info pull-right">Create New Participant...</a>
+            </div>
+        </div>
         <?php
         echo $this->Form->control('name');
         echo $this->Form->control('description');
@@ -39,21 +56,8 @@
 
         echo $this->Form->control('start_date', ['type' => 'text']);
         echo $this->Form->control('end_date', ['type' => 'text']);
-
-        echo $this->Form->control('client_id', ['option' => $clients, 'baseURL' => $this->Html->Url->build(
-            ['controller'=>'Sessions', 'action'=>'displaySpecificParticipants']), 'empty' => true]);
         ?>
-        <div id="part-list" class="col-md-8">
-            Please select a Client.
-        </div>
 
-        <div class="alert alert-info clearfix col-md-4">
-            <p>Cant find the participant your looking for?</p><br>
-<!--            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#ModalAddParticipant">Create New Participant...</button>-->
-            <a href="<?php echo $this->Html->Url->build([
-                    'controller'=>'Participants', 'action'=>'add'
-            ]); ?>" type="button" class="btn btn-info pull-right">Create New Participant...</a>
-        </div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

@@ -4,7 +4,7 @@
   * @var \App\Model\Entity\Questionnaire[]|\Cake\Collection\CollectionInterface $questionnaires
   */
 ?>
-    <h3><?= __('Questionnaires') ?></h3>
+    <h3><?= __('Tools') ?></h3>
     <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>

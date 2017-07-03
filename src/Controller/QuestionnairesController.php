@@ -125,8 +125,24 @@ class QuestionnairesController extends AppController
     }
 
 
+    private function reindexArray($array)
+    {
+        $newArray = [];
+
+        if (empty($array)) {
+            return null;
+        } else {
+            $newArray = array_values($this->request->getData('section'));
+        }
+        return $newArray;
+    }
+
+
     public function create()
     {
+        $hasProvidedRelevantInformation = true;
+        $errorMessageInFlash = 'The questionnaire could not be saved. Please, try again.';
+
         $questionnaire = $this->Questionnaires->newEntity();
 
         if ($this->request->is('post')) {
@@ -140,41 +156,64 @@ class QuestionnairesController extends AppController
             );
 
             // array_values re-indexes the post array.. so if sections removed it sorts them. i.e if indexes are 1, 2, 5 array_value will return 0, 1, 2
-            $dataSection = array_values($this->request->getData('section'));
+            $dataSection = $this->reindexArray($this->request->getData('section'));
 
             // All the Items on the form are contained into a variable
             $sections = $this->Questionnaires->Sections->newEntities($dataSection);
 
-            foreach ($sections as $section) {
-                $questionsArray = [];
+            if (!empty($sections)) {
+                foreach ($sections as $section) {
+                    $questionsArray = [];
 
-                $newSec = $this->Questionnaires->Sections->newEntity();
-                $newSec->name = $section->name;
-                $newSec->description = $section->description;
+                    if(empty($section->name)) {
+                        $hasProvidedRelevantInformation = false;
+                        $errorMessageInFlash = 'You need to provide each section with a name';
+                        break;
+                    }
 
-                $dataQuestions = array_values($section->question);
-                $questions = $this->Questionnaires->Sections->Questions->newEntities($dataQuestions);
+                    $newSec = $this->Questionnaires->Sections->newEntity();
+                    $newSec->name = $section->name;
+                    $newSec->description = $section->description;
 
-                foreach ($questions as $question) {
-                    $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
-                    $newQuestion->text = $question->text;
-                    array_push($questionsArray, $newQuestion);
+                    if (empty($section->question)) {
+                        $hasProvidedRelevantInformation = false;
+                        $errorMessageInFlash = 'You need to have at least one question for each section!';
+                        break;
+                    }
+
+                    $dataQuestions = $this->reindexArray($section->question);
+                    $questions = $this->Questionnaires->Sections->Questions->newEntities($dataQuestions);
+
+                    foreach ($questions as $question) {
+
+                        if(empty($question['question'][0]['text'])) {
+                            $hasProvidedRelevantInformation = false;
+                            $errorMessageInFlash = 'All questions must have text!';
+                            break;
+                        }
+
+                        $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
+                        $newQuestion->text = $question['question'][0]['text'];
+                        array_push($questionsArray, $newQuestion);
+                    }
+
+                    // Set the questions for this section to..
+                    $newSec->questions = $questionsArray;
+                    array_push($sectionsArray, $newSec);
                 }
+                // Set the checklist's items to be the array
+                $questionnaire->sections = $sectionsArray;
 
-                // Set the questions for this section to..
-                $newSec->questions = $questionsArray;
-                array_push($sectionsArray, $newSec);
-            }
-
-            // Set the checklist's items to be the array
-            $questionnaire->sections = $sectionsArray;
-
-            if ($this->Questionnaires->save($questionnaire)) {
-                $this->Flash->success(__('The questionnaire has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The questionnaire could not be saved. Please, try again.'));
+                if ($hasProvidedRelevantInformation) {
+                    if($this->Questionnaires->save($questionnaire)){
+                        $this->Flash->success(__('The Tool has been saved.'));
+                        return $this->redirect(['action' => 'index']);
+                    }
+                }
+                $this->Flash->error(__($errorMessageInFlash));
             }
         }
     }
+
+
 }

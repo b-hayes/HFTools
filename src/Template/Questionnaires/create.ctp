@@ -4,87 +4,52 @@
  */
 ?>
 <?= $this->Form->create('Questionnaire') ?>
-<h1>Testing info pannels</h1>
-<div class="panel panel-info">
-    <div class="panel panel-heading collapse-next" style="margin-bottom: 1px">
-        <span class="glyphicon glyphicon-info-sign"></span>
-        Did you know you can eat cheese on crackers?
-    </div>
-    <div class="panel-body">
-        Yes, bruschetta is the equivalent of Italian salsa, but when done right, it's a bright medley that makes you forget you'll be reeking of garlic and onion for the rest of the afternoon.
-
-        Dice 2 large tomatoes, ¼ red onion, and 1 clove garlic, and slice a handful of basil into ribbons. Mix all the ingredients together with 1 tablespoon of extra virgin olive oil and a pinch of salt, leaving ¼ of the basil aside for garnish. Spoon the mixture onto the cracker and garnish with the remaining basil.
-    </div>
-</div>
-<span class="glyphicon glyphicon-info-sign collapse-next"></span>
-<div class="panel panel-info">
-    <div class="panel panel-heading">
-        Did you know you can eat cheese on crackers?
-    </div>
-    <div class="panel-body">
-        Yes, bruschetta is the equivalent of Italian salsa, but when done right, it's a bright medley that makes you forget you'll be reeking of garlic and onion for the rest of the afternoon.
-
-        Dice 2 large tomatoes, ¼ red onion, and 1 clove garlic, and slice a handful of basil into ribbons. Mix all the ingredients together with 1 tablespoon of extra virgin olive oil and a pinch of salt, leaving ¼ of the basil aside for garnish. Spoon the mixture onto the cracker and garnish with the remaining basil.
-    </div>
-</div>
-
-<div class="alert-info" style="margin-bottom: 5px">
-    <a class="collapse-next">
-    <span class="glyphicon glyphicon-info-sign"></span>
-    Did you know you can eat cheese on crackers?
-    </a>
-    <div class="panel panel-info" style="padding: 10px">
-        Yes, bruschetta is the equivalent of Italian salsa, but when done right, it's a bright medley that makes you forget you'll be reeking of garlic and onion for the rest of the afternoon.
-
-        Dice 2 large tomatoes, ¼ red onion, and 1 clove garlic, and slice a handful of basil into ribbons. Mix all the ingredients together with 1 tablespoon of extra virgin olive oil and a pinch of salt, leaving ¼ of the basil aside for garnish. Spoon the mixture onto the cracker and garnish with the remaining basil.
-    </div class="panel panel-info" style="padding: 10px">
-</div>
-
-
-<span class="glyphicon glyphicon-info-sign btn btn-info collapse-next" style="float: left; margin-right: 5px;"></span>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        Did you know you can eat cheese on crackers?
-    </div>
-    <div class="panel-body">
-        Yes, bruschetta is the equivalent of Italian salsa, but when done right, it's a bright medley that makes you forget you'll be reeking of garlic and onion for the rest of the afternoon.
-
-        Dice 2 large tomatoes, ¼ red onion, and 1 clove garlic, and slice a handful of basil into ribbons. Mix all the ingredients together with 1 tablespoon of extra virgin olive oil and a pinch of salt, leaving ¼ of the basil aside for garnish. Spoon the mixture onto the cracker and garnish with the remaining basil.
-    </div>
-</div>
-
-<div style="position: absolute; top: 0; right: 0;">
-    <span class="glyphicon glyphicon-question-sign btn btn-info collapse-next" style="float: right; margin-right: 5px;"></span>
-    <div class="panel panel-info" style="width: 500px; display: none;">
-        <div class="panel-heading">
-            Did you know you can eat cheese on crackers?
-        </div>
-        <div class="panel-body">
-        Yes, bruschetta is the equivalent of Italian salsa, but when done right, it's a bright medley that makes you forget you'll be reeking of garlic and onion for the rest of the afternoon.
-
-        Dice 2 large tomatoes, ¼ red onion, and 1 clove garlic, and slice a handful of basil into ribbons. Mix all the ingredients together with 1 tablespoon of extra virgin olive oil and a pinch of salt, leaving ¼ of the basil aside for garnish. Spoon the mixture onto the cracker and garnish with the remaining basil.
-        </div>
-    </div>
-</div>
 
 
 <fieldset>
-    <legend><?= __('Create new questionnaire') ?></legend>
+    <legend><?= __('Create new Tool') ?></legend>
+
+    <div class="panel panel-info">
+        <div class="panel panel-heading collapse-next" style="margin-bottom: 1px">
+            <span class="glyphicon glyphicon-info-sign"></span>
+            How does this work?
+        </div>
+        <div class="panel-body">
+            <p><strong>Step 1:</strong> Start by giving the tool a descriptive name and description by entering them
+            in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
+
+            <p><strong>Step 2:</strong>: Once you have give your tool a name and description you can create as many sections as you please,
+                simply by clicking on the [add image here] button. You can also delete sections by clicking on the delete section button [insert button image].
+                As a guide, when you hover over the button the section to be removed will become highlighted so that you do not delete the wrong section by mistake.
+                Each section has a name and a description. <strong>Only</strong> the section name is mandatory, but we recommend you give each
+                section a description indicating its purpose.</p>
+
+            <p><strong>Step 3:</strong>: After you have your sections all set up, you can add questions to any section by selecting the add new question button [add image].
+                This allows you to set up your sections then add questions later if you choose. There is also a delete question button [add image] that you can use to remove
+                any question at any time. By hovering your mouse over the button you can see the question highlighted.
+            </p>
+
+            <p><strong>Step 4:</strong>: Take a moment now to check that all the fields are correct and complete and correct them if they are not, then simply click [the save button].
+                If you are successful you will be redirected to a list of all tools currently in existence and a green bar at the top of the page will confirm it has been saved.
+            </p>
+
+        </div>
+    </div>
+
     <?php
     // name and description of this questionnaire being created
-    echo $this->Form->control('name', ['label' => 'Questionnaire name']);
-    echo $this->Form->control('description', ['label' => 'Questionnaire description']);
+    echo $this->Form->control('name', ['label' => 'Tool name']);
+    echo $this->Form->control('description', ['label' => 'Tool description']);
     ?>
 
     <!-- the default inputs for a basic questionnaire -->
     <div id="sections">
         <div id="section0" section="0" class="section" questionCounter="0">
-        <?php
-        // name and description of the section
-        echo $this->Form->control('section.0.name', ['label' => 'Section name']);
-        echo $this->Form->control('section.0.description', ['label' => 'Section description']);
-        // section.0.question.0.description
-        ?>
+
+<!--        name and description of the section-->
+        <?= $this->Form->control('section.0.name', ['label' => 'Section name']); ?>
+        <?= $this->Form->control('section.0.description', ['label' => 'Section description']); ?>
+
             <Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>
             <a class="btn btn-info collapse-next" >Question style..</a>
             <div style="display: none">

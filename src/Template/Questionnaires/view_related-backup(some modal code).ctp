@@ -5,6 +5,20 @@
  */
 ?>
 
+<div id="Modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <?php echo $this->requestAction(
+                    array('controller'=>'Questions','action'=>'edit')
+                ) ?>
+                <button type="button" class="pull-right" style="margin-top: -71px" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h3><?= h($questionnaire->name) ?></h3>
 <h4><?= h($questionnaire->description) ?></h4>
 <?php foreach($questionnaire->sections as $sections): ?>
@@ -44,6 +58,31 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+<!--            <br><button type="button" class="addQuestion btn btn-info btn-sm" sectionID="--><?php //echo h($sections->id) ?><!--">-->
+<!--                Add Question</button>-->
         </div>
     </div>
 <?php endforeach; ?>
+<!--<br><button type="button" class="addSection pull-right" questionnaireID="--><?php //echo h($questionnaire->id) ?><!--">Add Section</button>-->
+
+<script>
+    //TODO: Decided this is a NTH.. buttons are commented out for now.
+    //need question to show the add dialog with the appropriate section selected
+    //similar with add section n questionnaire
+    function editModal() {
+
+    }
+    
+    function changeEditLinksToModals() {
+        $("[title= 'Edit Details']").each(function () {
+//            console.log($(this).attr('href'));
+            $(this).attr('modalURL', $(this).attr('href')); //move href url to another data type for later
+            $(this).attr('href', ''); //and remove the link
+            $(this).click(editModal); //and make it pop the modal instead.
+        })
+    }
+    
+    $(document).ready(function () {
+        changeEditLinksToModals();
+    });
+</script>

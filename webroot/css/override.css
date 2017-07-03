@@ -136,3 +136,7 @@ div .checkbox {
     height: 800px;
     pointer-events: none;
 }
+
+.tab {
+    padding-left:4%
+}
