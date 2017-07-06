@@ -17,7 +17,7 @@
             <div class="panel-body">
                 <strong>Name: </strong><?php echo h($results['run']['name']) ?><br>
                 <strong>Description: </strong><?php echo h($results['run']['description']) ?><br>
-                <strong>Date: </strong><?php echo h($results['run']['run_date']) ?>
+                <strong>Date: </strong><?php echo h($results['run']['run_date']->nice()) ?>
             </div>
         </div>
     </div>

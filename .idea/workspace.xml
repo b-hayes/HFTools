@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5aa227fa-790f-4123-b159-7079ed88eaa1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RunsController.php" afterPath="$PROJECT_DIR$/src/Controller/RunsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Clients/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Clients/index.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Clients/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Clients/view.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/view.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Runs/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Runs/view.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Sessions/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Sessions/index.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Sessions/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Sessions/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ObservationsController.php" afterPath="$PROJECT_DIR$/src/Controller/ObservationsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Observations/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Observations/view.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,10 +27,10 @@
       <file leaf-file-name="ObservationsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ObservationsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-476">
+              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
-                <marker date="1499238869000" expanded="true" signature="7595:7666" ph="SELECT parti... participants_sessions" />
+                <marker date="1499325726000" expanded="true" signature="7607:7678" ph="SELECT parti... participants_sessions" />
               </folding>
             </state>
           </provider>
@@ -47,8 +39,8 @@
       <file leaf-file-name="view.ctp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Template/Observations/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="455">
+              <caret line="19" column="87" lean-forward="false" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -92,7 +84,6 @@
         <option value="$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/AnswersTable.php" />
         <option value="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Observations/view.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Entity/Answer.php" />
         <option value="&lt;d052ebfd-a7bf-49c9-af35-03d813112bb5&gt;/hftools/src/Model/Entity/Participant.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/RunsTable.php" />
@@ -106,7 +97,6 @@
         <option value="$PROJECT_DIR$/src/Model/Table/ObservationsTable 2.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/ObservationsTable.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/SessionsTable.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ObservationsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Sessions/add.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/SessionsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Sessions/index.ctp" />
@@ -118,6 +108,8 @@
         <option value="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Runs/view.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/RunsController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ObservationsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Observations/view.ctp" />
       </list>
     </option>
   </component>
@@ -354,7 +346,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133344000" />
+    <option name="totallyTimeSpent" value="134619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -563,18 +555,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ObservationsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-476">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <marker date="1499238869000" expanded="true" signature="7595:7666" ph="SELECT parti... participants_sessions" />
+            <marker date="1499325726000" expanded="true" signature="7607:7678" ph="SELECT parti... participants_sessions" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Observations/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="455">
+          <caret line="19" column="87" lean-forward="false" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
           <folding />
         </state>
       </provider>
