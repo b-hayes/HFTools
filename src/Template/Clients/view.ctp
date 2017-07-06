@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Acount Created') ?></th>
-            <td><?= h($client->acount_created) ?></td>
+            <td><?= h($client->acount_created->nice()) ?></td>
         </tr>
     </table>
     <div class="related">
@@ -46,8 +46,8 @@
             <tr>
                 <td><?= h($sessions->name) ?></td>
                 <td><?= h($sessions->description) ?></td>
-                <td><?= h($sessions->start_date) ?></td>
-                <td><?= h($sessions->end_date) ?></td>
+                <td><?= h($sessions->start_date->nice()) ?></td>
+                <td><?= h($sessions->end_date->nice()) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Sessions', 'action' => 'view', $sessions->id],
                         ['escapeTitle' => false , 'title' => 'View Details']) ?>
@@ -78,7 +78,7 @@
                 <td><?= h($users->username) ?></td>
                 <td><?= h($users->role) ?></td>
                 <td><?= h($users->created) ?></td>
-                <td><?= h($users->last_login) ?></td>
+                <td><?= h($users->last_login->nice()) ?></td>
                 <td><?= h($users->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['controller' => 'Users', 'action' => 'view', $users->id],

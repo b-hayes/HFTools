@@ -2,263 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5aa227fa-790f-4123-b159-7079ed88eaa1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/cake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/cake.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/cake.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/composer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/composer.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/app.default.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/bootstrap_cli.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/paths.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/routes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/schema/hftools.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/schema/i18n.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/schema/sessions.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Application.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Console/Installer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/AnswersController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/AppController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/ButtontypesController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/ButtonvaluesController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/ClientsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/Component/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/ObservationsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/PagesController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/ParticipantsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/QuestionsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/RolesController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/RunsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/SectionsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/SessionsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Behavior/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Answer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Buttontype.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Buttonvalue.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Client.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Observation.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Participant.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Question.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Questionnaire.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Role.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Run.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Section.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/Session.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Entity/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/AnswersTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/ButtontypesTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/ButtonvaluesTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/ClientsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/ObservationsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/ParticipantsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/QuestionnairesTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/QuestionsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/RolesTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/RunsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/SectionsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/SessionsTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Table/UsersTable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Shell/ConsoleShell.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/results.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Answers/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttontypes/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttontypes/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttontypes/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttonvalues/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttonvalues/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttonvalues/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Buttonvalues/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Clients/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Clients/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Clients/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Clients/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Flash/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Flash/error.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Flash/success.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Navigation/navigation-OLD.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Element/Navigation/navigation_OLD-2.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Email/html/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Email/text/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Error/error400.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Error/error500.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/Email/html/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/Email/text/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/ajax.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/error.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Layout/rss/default.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/create.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/view-backup.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Observations/view.ctp.OLD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Pages/home.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Participants/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Participants/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Participants/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Participants/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/create_backup.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/view_related-backup(some modal code).ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/view_related.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questions/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questions/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questions/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Questions/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Roles/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Roles/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Roles/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Roles/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Runs/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Runs/all_session_runs.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Runs/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Runs/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Runs/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sections/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sections/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sections/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sections/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sessions/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sessions/display_specific_participants.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sessions/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sessions/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Sessions/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/add.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/edit.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/index.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/login.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/view.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Template/Users/welcome.ctp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/View/AjaxView.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/View/AppView.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/View/Helper/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/AnswersFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/AnswersObservationsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/AnswersQuestionsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ButtontypesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ButtonvaluesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ClientsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ClientsParticipantsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ObservationsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ParticipantsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ParticipantsRolesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ParticipantsSessionsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/QuestionnairesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/QuestionsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/RolesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/RunsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/SectionsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/SessionsFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/TypesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/UsersFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Fixture/ValuesFixture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/ApplicationTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/AnswersControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/AnswersObservationsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/AnswersQuestionsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ButtontypesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ButtonvaluesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ClientsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ClientsParticipantsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/Component/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ObservationsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/PagesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ParticipantsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ParticipantsRolesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ParticipantsSessionsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/QuestionnairesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/QuestionsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/RolesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/RunsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/SectionsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/SessionsControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/TypesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/UsersControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Controller/ValuesControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Behavior/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/AnswersObservationsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/AnswersQuestionsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/AnswersTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ButtontypesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ButtonvaluesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ClientsParticipantsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ClientsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ObservationsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ParticipantsRolesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ParticipantsSessionsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ParticipantsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/QuestionnairesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/QuestionsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/RolesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/RunsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/SectionsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/SessionsTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/TypesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/UsersTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/ValuesTableTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/TestCase/View/Helper/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/base-OLD.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/bootstrap-datepicker.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/bootstrap-dialog.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/cake.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/home.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/css/override.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/font/cakedingbats-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/font/cakedingbats-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/font/cakedingbats-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/font/cakedingbats-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/font/cakedingbats-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/AMCSBanner2016.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/AMCSBanner2016_Trim.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/cake-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/cake.icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/cake.logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/img/cake.power.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/accordionScript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/bootstrap-datepicker.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/bootstrap-dialog.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/empty" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/js/jquery-3.2.1.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RunsController.php" afterPath="$PROJECT_DIR$/src/Controller/RunsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Clients/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Clients/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Clients/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Clients/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Runs/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Runs/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Sessions/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Sessions/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Sessions/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Sessions/view.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -279,23 +32,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SessionsController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SessionsController.php">
+      <file leaf-file-name="ObservationsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ObservationsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="145" column="62" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="145" selection-end-column="62" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1499308173000" expanded="true" signature="1785:1854" ph="SELECT parti... clients_participants" />
+                <marker date="1499238869000" expanded="true" signature="7595:7666" ph="SELECT parti... participants_sessions" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Sessions/add.ctp">
+      <file leaf-file-name="view.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Template/Observations/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -314,22 +67,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Template/Runs/all_session_runs.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Runs/view.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Sessions/display_specific_participants.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/RunsController.php" />
-        <option value="$PROJECT_DIR$/src/Template/Observations/create.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Observations/add.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/QuestionsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Users/index.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Observations/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Participants/index.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Roles/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Clients/view.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Roles/view.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Runs/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Sessions/view.ctp" />
         <option value="$PROJECT_DIR$/webroot/css/override.css" />
         <option value="$PROJECT_DIR$/src/Template/Questionnaires/index.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Buttonvalues/view.ctp" />
@@ -365,6 +109,15 @@
         <option value="$PROJECT_DIR$/src/Controller/ObservationsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Sessions/add.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/SessionsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Sessions/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Clients/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Clients/view.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Sessions/view.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Participants/view.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Participants/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Participants/modal_add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Runs/view.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/RunsController.php" />
       </list>
     </option>
   </component>
@@ -456,7 +209,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Sessions" />
+              <option name="myItemId" value="Observations" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,7 +354,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131214000" />
+    <option name="totallyTimeSpent" value="133344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -673,14 +426,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Template/Runs/index.ctp" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Sessions/view.ctp" />
-    <entry file="file://$PROJECT_DIR$/webroot/css/override.css" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Questionnaires/index.ctp" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Questionnaires/view.ctp" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Buttonvalues/view.ctp" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Buttonvalues/index.ctp" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Buttonvalues/edit.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Template/Buttonvalues/add.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Template/Buttontypes/add.ctp" />
@@ -693,18 +438,15 @@
     <entry file="file://$PROJECT_DIR$/src/Template/Sections/add.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Controller/SectionsController.php" />
     <entry file="file://$PROJECT_DIR$/src/Model/Entity/Questionnaire.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/RunsController.php" />
     <entry file="file://$PROJECT_DIR$/src/Template/Runs/add.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Controller/ParticipantsController.php" />
     <entry file="file://$PROJECT_DIR$/src/Controller/ButtonvaluesController.php" />
     <entry file="file://$PROJECT_DIR$/src/Controller/ButtontypesController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php" />
     <entry file="file://$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Controller/QuestionnairesController.php" />
     <entry file="file://$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Observations/view.ctp" />
     <entry file="file://$PROJECT_DIR$/src/Model/Table/AnswersTable.php" />
     <entry file="file://$PROJECT_DIR$/src/Model/Entity/Answer.php" />
     <entry file="file://$PROJECT_DIR$/src/Model/Entity/Participant.php" />
@@ -721,7 +463,40 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Table/ParticipantsTable.php" />
     <entry file="file://$PROJECT_DIR$/src/Model/Table/ObservationsTable.php" />
     <entry file="file://$PROJECT_DIR$/src/Model/Table/AnswersObservationsTable.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/ObservationsController.php" />
+    <entry file="file://$PROJECT_DIR$/src/Controller/SessionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3482">
+          <caret line="156" column="59" lean-forward="false" selection-start-line="156" selection-start-column="59" selection-end-line="156" selection-end-column="59" />
+          <folding>
+            <marker date="1499308173000" expanded="true" signature="1785:1854" ph="SELECT parti... clients_participants" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Sessions/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Clients/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Clients/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2000">
+          <caret line="80" column="51" lean-forward="false" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Sessions/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -730,13 +505,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SessionsController.php">
+    <entry file="file://$PROJECT_DIR$/src/Template/Sessions/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="145" column="62" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="145" selection-end-column="62" />
+        <state relative-caret-position="-380">
+          <caret line="38" column="49" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Participants/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="128" column="53" lean-forward="false" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Participants/modal_add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Participants/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RunsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Runs/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ObservationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1499308173000" expanded="true" signature="1785:1854" ph="SELECT parti... clients_participants" />
+            <marker date="1499238869000" expanded="true" signature="7595:7666" ph="SELECT parti... participants_sessions" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Observations/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

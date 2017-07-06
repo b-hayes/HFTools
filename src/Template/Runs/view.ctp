@@ -24,7 +24,7 @@
         <div class="panel-group">
             <?php foreach($run->observations as $observations): ?>
                 <div class="section-in-panel clearfix">
-                    <?= h($observations->observer_id) . ' <strong> observed </strong>  ' . h($observations->participant->full_name)?>
+                    <?= h($observations->observer->full_name) . ' <strong> observed </strong>  ' . h($observations->participant->full_name)?>
                     <?= $this->Html->link(__('<button class="btn btn-default pull-right">see results <span class="glyphicon glyphicon-chevron-right"></span></button>'), ['controller' => 'observations', 'action' => 'view', $observations->id],
                         ['escapeTitle' => false]) ?>
                 </div>

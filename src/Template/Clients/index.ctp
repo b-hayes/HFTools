@@ -27,7 +27,7 @@
                 <td><?= h($client->contact_number) ?></td>
                 <td><?= h($client->email) ?></td>
                 <td><?= h($client->contact_person) ?></td>
-                <td><?= h($client->acount_created) ?></td>
+                <td><?= h($client->acount_created->nice()) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $client->id], ['escapeTitle' => false , 'title' => 'View Details']) ?>
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $client->id], ['escapeTitle' => false , 'title' => 'Edit Details']) ?>

@@ -16,18 +16,15 @@
             echo $this->Form->control('email');
             echo $this->Form->control('phone');
             echo $this->Form->control('clients._ids', ['options' => $clients]);
-            echo $this->Form->control('roles._ids', ['options' => $roles]);
+            //echo $this->Form->control('roles._ids', ['options' => $roles]);
 //        ?>
 <!--        <div class="col-md-6">-->
 <!--            --><?php
-//            echo $this->Form->control('clients._id', array(
-//                'label' => 'Clients for this participant?',
-//                'type' => 'select',
-//                'multiple' => 'checkbox',
-//                'options' => $clients,
-//                'value' => $clients,
-//                'class' => 'cats'
-//            ));
+            echo $this->Form->control('roles._ids', array(
+                'type' => 'select',
+                'multiple' => 'checkbox',
+                'options' => $roles
+            ));
 //            ?>
 <!--        </div>-->
 <!--        <div class="col-md-6">-->

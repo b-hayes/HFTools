@@ -15,8 +15,12 @@
     echo $this->Form->control('last_name');
     echo $this->Form->control('email');
     echo $this->Form->control('phone');
-    echo $this->Form->control('clients._ids', ['options' => $clients]);
-    echo $this->Form->control('roles._ids', ['options' => $roles]);
+    echo $this->Form->control('clients._ids', ['default' => $clients]);
+    echo $this->Form->control('roles._ids', array(
+        'type' => 'select',
+        'multiple' => 'checkbox',
+        'options' => $roles
+    ));
 
     ?>
 </fieldset>

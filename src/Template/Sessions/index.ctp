@@ -21,8 +21,8 @@
             <tr>
                 <td><?= h($session->name) ?></td>
                 <td><?= h($session->description) ?></td>
-                <td><?= h($session->start_date) ?></td>
-                <td><?= h($session->end_date) ?></td>
+                <td><?= h($session->start_date->nice()) ?></td>
+                <td><?= h($session->end_date->nice()) ?></td>
                 <td><?= $session->has('client') ? $this->Html->link($session->client->name, ['controller' => 'Clients', 'action' => 'view', $session->client->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $session->id],

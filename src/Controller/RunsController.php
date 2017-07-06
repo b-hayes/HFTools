@@ -38,9 +38,15 @@ class RunsController extends AppController
      */
     public function view($id = null)
     {
+        $this->loadModel('Participants');
+
         $run = $this->Runs->get($id, [
             'contain' => ['Sessions', 'Observations' => ['Participants', 'Answers']]
         ]);
+
+        foreach ($run->observations as &$obs) {
+            $obs->observer = $this->Participants->get($obs->observer_id);
+        }
 
         $this->set('run', $run);
         $this->set('_serialize', ['run']);

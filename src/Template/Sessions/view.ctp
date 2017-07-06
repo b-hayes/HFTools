@@ -17,11 +17,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Start Date') ?></th>
-            <td><?= h($session->start_date) ?></td>
+            <td><?= h($session->start_date->nice()) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('End Date') ?></th>
-            <td><?= h($session->end_date) ?></td>
+            <td><?= h($session->end_date->nice()) ?></td>
         </tr>
     </table>
     <div class="related">
@@ -36,7 +36,7 @@
             </tr>
             <?php foreach ($session->runs as $runs): ?>
             <tr>
-                <td><?= h($runs->run_date) ?></td>
+                <td><?= h($runs->run_date->nice()) ?></td>
                 <td><?= h($runs->name) ?></td>
                 <td><?= h($runs->description) ?></td>
                 <td class="actions">
