@@ -18,9 +18,13 @@
             <tr>
                 <td><?= h($role->name) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $role->id]) ?>
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $role->id]) ?>
-                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $role->id], ['confirm' => __('Are you sure you want to delete # {0}?', $role->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $role->id],
+                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $role->id],
+                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $role->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $role->id),
+                            'escapeTitle' => false , 'title' => 'Delete Role']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

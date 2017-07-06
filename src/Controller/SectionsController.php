@@ -21,7 +21,7 @@ class SectionsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Questionnaires']
+            'contain' => ['Questionnaires', 'Buttontypes']
         ];
         $sections = $this->paginate($this->Sections);
 
@@ -39,7 +39,7 @@ class SectionsController extends AppController
     public function view($id = null)
     {
         $section = $this->Sections->get($id, [
-            'contain' => ['Questionnaires', 'Questions']
+            'contain' => ['Questionnaires', 'Buttontypes', 'Questions']
         ]);
 
         $this->set('section', $section);
@@ -56,6 +56,7 @@ class SectionsController extends AppController
         $section = $this->Sections->newEntity();
         if ($this->request->is('post')) {
             $section = $this->Sections->patchEntity($section, $this->request->getData());
+
             if ($this->Sections->save($section)) {
                 $this->Flash->success(__('The section has been saved.'));
 
@@ -64,7 +65,8 @@ class SectionsController extends AppController
             $this->Flash->error(__('The section could not be saved. Please, try again.'));
         }
         $questionnaires = $this->Sections->Questionnaires->find('list', ['limit' => 200]);
-        $this->set(compact('section', 'questionnaires'));
+        $buttontypes = $this->Sections->Buttontypes->find('list', ['limit' => 200]);
+        $this->set(compact('section', 'questionnaires', 'buttontypes'));
         $this->set('_serialize', ['section']);
     }
 
@@ -90,7 +92,8 @@ class SectionsController extends AppController
             $this->Flash->error(__('The section could not be saved. Please, try again.'));
         }
         $questionnaires = $this->Sections->Questionnaires->find('list', ['limit' => 200]);
-        $this->set(compact('section', 'questionnaires'));
+        $buttontypes = $this->Sections->Buttontypes->find('list', ['limit' => 200]);
+        $this->set(compact('section', 'questionnaires', 'buttontypes'));
         $this->set('_serialize', ['section']);
     }
 

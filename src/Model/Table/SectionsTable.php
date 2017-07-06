@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Sections Model
  *
  * @property \App\Model\Table\QuestionnairesTable|\Cake\ORM\Association\BelongsTo $Questionnaires
+ * @property \App\Model\Table\ButtontypesTable|\Cake\ORM\Association\BelongsTo $Buttontypes
  * @property \App\Model\Table\QuestionsTable|\Cake\ORM\Association\HasMany $Questions
  *
  * @method \App\Model\Entity\Section get($primaryKey, $options = [])
@@ -39,6 +40,10 @@ class SectionsTable extends Table
 
         $this->belongsTo('Questionnaires', [
             'foreignKey' => 'questionnaire_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Buttontypes', [
+            'foreignKey' => 'buttontype_id',
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Questions', [
@@ -80,6 +85,7 @@ class SectionsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['questionnaire_id'], 'Questionnaires'));
+        $rules->add($rules->existsIn(['buttontype_id'], 'Buttontypes'));
 
         return $rules;
     }

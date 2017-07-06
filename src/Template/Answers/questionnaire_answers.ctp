@@ -30,27 +30,35 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
                 <div class="panel-heading">
                     <strong>Section title:</strong> <?= h($sections->name) ?>
                     <BR />
+
                     <?php if($sections->description != ''): ?>
                         <strong>Description of section:</strong> <?= h($sections->description) ?>
                     <?php endif; ?>
+
+
                 </div>
                 <div class="panel-body">
-                    <?php
+                    <?php foreach($sections->questions as $questions): ?>
+                        <?= h($questions->text) ?>
+                        <hr>
+                        <?= $this->Form->control('answers.' . $iterator . '.question_id', ['type' => 'hidden', 'value' => $questions->id]) ?>
 
-                    foreach($sections->questions as $questions) {
+                        <?php if( !empty($sections->buttontype) && strcmp($sections->buttontype->type, 'radioButton') == 0): ?>
+                            <?php foreach($sections->buttontype->buttonvalues as $values): ?>
+                                <input type="radio" id="answers-<?= $iterator ?>-answer" name="<?= 'answers[' . $iterator . '][answer_text]' ?>" value="<?= $values->text_value ?>"><?= $values->text_lable ?>
 
-                        // display the questions to the user
-                        echo h($questions->text);
+                            <?php endforeach ?>
+                            <hr>
 
-                        // this field is hidden, because this needs to  be part of the 'post' request to save question id, sadly labels are not included in post requests.
-                        echo $this->Form->control('answers.' . $iterator . '.question_id', ['type' => 'hidden', 'value' => $questions->id]);
+                        <?php else: ?>
+                            <?php  ?>
+                                <?= $this->Form->control('answers.' . $iterator . '.answer', ['label' => false]) ?>
+                        <?php endif; ?>
 
-                        // user input field
-                        echo $this->Form->control('answers.' . $iterator . '.answer_text', ['label' => false]);
+                       <?php $iterator++; ?>
+                    <?php endforeach; ?>
 
-                        $iterator++;
-                    }
-                    ?>
+
                 </div>
             </div>
         <?php endforeach; ?>

@@ -132,7 +132,7 @@ class QuestionnairesController extends AppController
         if (empty($array)) {
             return null;
         } else {
-            $newArray = array_values($this->request->getData('section'));
+            $newArray = array_values($array);
         }
         return $newArray;
     }
@@ -140,28 +140,50 @@ class QuestionnairesController extends AppController
 
     public function create()
     {
-        $hasProvidedRelevantInformation = true;
-        $errorMessageInFlash = 'The questionnaire could not be saved. Please, try again.';
-
-        $questionnaire = $this->Questionnaires->newEntity();
-
         if ($this->request->is('post')) {
-            $sectionsArray = []; // As request getData (array format) is retrieved it needs to be converted and stored in order to attach to parent object.
+            /* There are lots of conditions to check for:
+                    1. sections must be > 0
+                    2. questions for each section must be > 0
+                    2. questions can not be empty
 
-            // New Checklist is created
+            Rather than lots of nested if conditions to $hasProvidedRelevantInformation is used to flag an error
+            before in order to abort the save operation. */
+            $hasProvidedRelevantInformation = true;
+
+            // This was used partly to debug, but also to let the user know what they did wrong.
+            $errorMessageInFlash = 'The questionnaire could not be saved. Please, try again.';
+
+            /* This creates a new questionnaire ORM object then the second line builds its structure linking everything
+                in the 'associated' parts to our object. This allows as to populate multiple tables in one go. */
+            $questionnaire = $this->Questionnaires->newEntity();
             $questionnaire = $this->Questionnaires->patchEntity($questionnaire, $this->request->getData(), [
                     'associated' => [
                         'Sections' => ['associated' => ['Questions']]
                     ]]
             );
 
-            // array_values re-indexes the post array.. so if sections removed it sorts them. i.e if indexes are 1, 2, 5 array_value will return 0, 1, 2
+            /* Because of how the create.ctp works, the array index may have missing values if a user deletes
+                a question or section that is situated between two others. I.E. the array coming in might look like
+                this:
+
+                    'sections' => [
+                        '2' => 'blah',
+                        '4' => 'blah again',
+                        '5' => 'and so on'
+                     [
+
+            however, this would cause an issue with our code, so use $this->reindexArray to
+
+
+            */
             $dataSection = $this->reindexArray($this->request->getData('section'));
 
             // All the Items on the form are contained into a variable
             $sections = $this->Questionnaires->Sections->newEntities($dataSection);
 
             if (!empty($sections)) {
+                $sectionsArray = [];
+
                 foreach ($sections as $section) {
                     $questionsArray = [];
 
@@ -174,6 +196,7 @@ class QuestionnairesController extends AppController
                     $newSec = $this->Questionnaires->Sections->newEntity();
                     $newSec->name = $section->name;
                     $newSec->description = $section->description;
+                    $newSec->buttontype_id = $section->buttontype_id;
 
                     if (empty($section->question)) {
                         $hasProvidedRelevantInformation = false;
@@ -186,14 +209,14 @@ class QuestionnairesController extends AppController
 
                     foreach ($questions as $question) {
 
-                        if(empty($question['question'][0]['text'])) {
+                        if(empty($question)) {
                             $hasProvidedRelevantInformation = false;
                             $errorMessageInFlash = 'All questions must have text!';
                             break;
                         }
 
                         $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
-                        $newQuestion->text = $question['question'][0]['text'];
+                        $newQuestion->text = $question['text'];
                         array_push($questionsArray, $newQuestion);
                     }
 
@@ -210,9 +233,15 @@ class QuestionnairesController extends AppController
                         return $this->redirect(['action' => 'index']);
                     }
                 }
-                $this->Flash->error(__($errorMessageInFlash));
             }
+            $this->Flash->error(__($errorMessageInFlash));
         }
+
+
+        $this->loadModel('Buttontypes');
+
+        $buttontypes = $this->Buttontypes->find('list', ['limit' => 200]);
+        $this->set(compact('buttontypes'));
     }
 
 

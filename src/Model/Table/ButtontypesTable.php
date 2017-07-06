@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Buttontypes Model
  *
+ * @property \App\Model\Table\SectionsTable|\Cake\ORM\Association\HasMany $Sections
  * @property \App\Model\Table\ButtonvaluesTable|\Cake\ORM\Association\BelongsToMany $Buttonvalues
  *
  * @method \App\Model\Entity\Buttontype get($primaryKey, $options = [])
@@ -33,9 +34,12 @@ class ButtontypesTable extends Table
         parent::initialize($config);
 
         $this->setTable('buttontypes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('text');
         $this->setPrimaryKey('id');
 
+        $this->hasMany('Sections', [
+            'foreignKey' => 'buttontype_id'
+        ]);
         $this->belongsToMany('Buttonvalues', [
             'foreignKey' => 'buttontype_id',
             'targetForeignKey' => 'buttonvalue_id',

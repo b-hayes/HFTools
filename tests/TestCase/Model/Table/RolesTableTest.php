@@ -31,6 +31,7 @@ class RolesTableTest extends TestCase
         'app.answers',
         'app.questions',
         'app.sections',
+        'app.answers_observations',
         'app.clients',
         'app.sessions',
         'app.users',

@@ -49,7 +49,7 @@ class ClientsFixture extends TestFixture
             'contact_number' => 'Lorem ipsum dolor sit amet',
             'email' => 'Lorem ipsum dolor sit amet',
             'contact_person' => 'Lorem ipsum dolor sit amet',
-            'acount_created' => '2017-06-14 03:46:18'
+            'acount_created' => '2017-07-04 17:17:29'
         ],
     ];
 }

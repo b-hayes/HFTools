@@ -25,8 +25,6 @@ use Cake\Validation\Validator;
 class ParticipantsTable extends Table
 {
 
-    protected $_virtual = ['full_name'];
-
     /**
      * Initialize method
      *
@@ -90,8 +88,6 @@ class ParticipantsTable extends Table
 
         return $validator;
     }
-
-
 
     /**
      * Returns a rules checker object that will be used for validating

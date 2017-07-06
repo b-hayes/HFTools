@@ -56,7 +56,8 @@ class ButtonvaluesController extends AppController
             if ($this->Buttonvalues->save($buttonvalue)) {
                 $this->Flash->success(__('The buttonvalue has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect($this->referer());
+                //return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The buttonvalue could not be saved. Please, try again.'));
         }

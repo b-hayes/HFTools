@@ -123,14 +123,20 @@ if ($role == "admin"){
             });
         });
 
-        $(".checkbox").addClass("btn btn-default btn-block");
-        $(".checkbox").click(function () {
-            alert($( this > "checkbox" ).val().toString());
-            if($( this > "checkbox" ).val()){
-                $( this ).addClass("active");
-            } else {
-                $( this ).removeClass("active");
-            }
-        })
+
+        function setCheckBoxes() {
+            $(".checkbox > label").addClass("btn btn-default btn-block");
+            $(".checkbox > label").click(function () {
+
+                if($( this ).find("input").is(':checked')){
+                    console.log("checked");
+                    $( this ).addClass("active");
+                } else {
+                    console.log("un-checked");
+                    $( this ).removeClass("active");
+                }
+            });
+        }
+        setCheckBoxes();
     })
 </script>

@@ -42,12 +42,10 @@ class ObservationsTable extends Table
             'foreignKey' => 'observer_id',
             'joinType' => 'INNER'
         ]);
-
         $this->belongsTo('Participants', [
             'foreignKey' => 'participant_id',
             'joinType' => 'INNER'
         ]);
-
         $this->belongsTo('Runs', [
             'foreignKey' => 'run_id',
             'joinType' => 'INNER'

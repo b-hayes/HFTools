@@ -26,6 +26,9 @@ class SectionsTableTest extends TestCase
     public $fixtures = [
         'app.sections',
         'app.questionnaires',
+        'app.buttontypes',
+        'app.buttonvalues',
+        'app.buttontypes_buttonvalues',
         'app.questions',
         'app.answers',
         'app.observations',
@@ -37,7 +40,8 @@ class SectionsTableTest extends TestCase
         'app.roles',
         'app.participants_roles',
         'app.participants_sessions',
-        'app.runs'
+        'app.runs',
+        'app.answers_observations'
     ];
 
     /**

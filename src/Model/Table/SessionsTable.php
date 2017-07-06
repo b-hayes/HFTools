@@ -44,16 +44,18 @@ class SessionsTable extends Table
         ]);
         $this->hasMany('Runs', [
             'foreignKey' => 'session_id',
-            'dependent' => true,
+            'dependent' => true,    //todo this might need to be removed later
             'cascadeCallbacks' => true
+
         ]);
         $this->belongsToMany('Participants', [
             'foreignKey' => 'session_id',
             'targetForeignKey' => 'participant_id',
             'joinTable' => 'participants_sessions',
-            'dependent' => true,
+            'dependent' => true,    //todo this might need to be removed later
             'cascadeCallbacks' => true
         ]);
+
     }
 
     /**

@@ -5,7 +5,7 @@
 ?>
 <?= $this->Form->create($participant, [
     'url'=>[
-        'controller' => 'Participants', 'action' => 'add'
+        'controller' => 'Participants', 'action' => 'modalAdd'
     ], 'name' => 'form-add-participant'
 ]) ?>
 <fieldset>
@@ -20,5 +20,5 @@
 
     ?>
 </fieldset>
-<?= $this->Form->button(__('Submit')) ?>
+<?php //echo $this->Form->button(__('Submit')) ?>
 <?= $this->Form->end() ?>

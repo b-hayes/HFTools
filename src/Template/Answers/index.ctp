@@ -4,17 +4,6 @@
   * @var \App\Model\Entity\Answer[]|\Cake\Collection\CollectionInterface $answers
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Answer'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Observations'), ['controller' => 'Observations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Observation'), ['controller' => 'Observations', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="answers index large-9 medium-8 columns content">
     <h3><?= __('Answers') ?></h3>
     <table class="wide-table" cellpadding="0" cellspacing="0">
         <thead>
@@ -50,4 +39,3 @@
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
-</div>

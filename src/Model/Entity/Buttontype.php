@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $text
  * @property string $type
  *
+ * @property \App\Model\Entity\Section[] $sections
  * @property \App\Model\Entity\Buttonvalue[] $buttonvalues
  */
 class Buttontype extends Entity

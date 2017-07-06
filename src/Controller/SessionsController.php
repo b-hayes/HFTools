@@ -102,8 +102,11 @@ class SessionsController extends AppController
             $session = $this->Sessions->patchEntity($session, $this->request->getData());
             $participantID = $this->request->getData('participant._id');
 
-//            $session->start_date = $session->start_date->nice();
-//            $session->end_date = $session->end_date->nice();
+            $startDateTemp = $session->start_dates;
+            $endDateTemp = $session->end_dates;
+
+            $session->start_date = date('Y-m-d', strtotime($startDateTemp));
+            $session->end_date = date('Y-m-d', strtotime($endDateTemp));
 
             // check the user selected one or more participants (otherwise app will crash if they do not.
             if (!empty($participantID)) {

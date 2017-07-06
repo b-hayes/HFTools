@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 use function array_values;
 use function debug;
 
@@ -79,58 +80,63 @@ class AnswersController extends AppController
     public function questionnaireAnswers($questionnaireID = null)
     {
         $this->loadModel('Questionnaires');
-        $this->loadModel('AnswersObservations');
         $this->loadModel('Participants');
+        $this->loadModel('AnswersObservations');
+
+        $connection = ConnectionManager::get('default');
 
         $saved_successfully = true;
-
         $observationsArray = $this->request->session()->read('Tmp.observations');
-
         $count = (count($observationsArray) - 1);
 
         // terminating case here
-        if ($observationsArray == null) {
+        if (empty($observationsArray)) {
             $runID = $this->request->session()->read('Current.run.id');
-
             if ($runID) {
                 return $this->redirect(['controller' => 'runs', 'action' => 'view', $runID]);
             }
         }
 
+        if(empty($observationsArray[0]['participant_id'])) {
+            return $this->redirect(['controller' => 'observations', 'action' => 'index']);
+        }
+
+
         $observer = $this->Participants->get($observationsArray[0]['observer_id']);
         $participant = $this->Participants->get($observationsArray[0]['participant_id']);
 
+
         if ($this->request->is('post')) {
+
             $answers = $this->request->getData('answers');
 
-            foreach ($answers as $answer) {
+            foreach ($answers as $answerSome) {
                 $newAnswer = $this->Answers->newEntity();
-                $newAnswer = $this->Answers->patchEntity($newAnswer, $answer);
+                $newAnswer->question_id = (int)$answerSome['question_id'];
+                $newAnswer->answer_text = $answerSome['answer_text'];
 
                 if(!$this->Answers->save($newAnswer)) {
                     $saved_successfully = false;
+                    debug("failed to save answer");
                 }
 
-                $saveResults = $this->AnswersObservations->newEntity();
-                $saveResults->observation_id = $observationsArray[0]['id'];
-                $saveResults->answer_id = $newAnswer->id;
 
-                if(!$this->AnswersObservations->save($saveResults)) {
-                    $saved_successfully = false;
-                }
+                $connection->insert('answers_observations', [
+                    'observation_id' => $observationsArray[0]['id'],
+                    'answer_id' => $newAnswer->id
+                ]);
+
             }
 
             if ($saved_successfully) {
+
+
                 // insert into answers_observations
                 $this->Flash->success(__('The answer has been saved.'));
-
                 unset($observationsArray[0]);
                 $observationsArray = array_values($observationsArray);
-
                 $this->request->session()->write('Tmp', ['observations' => $observationsArray]);
-
                 return $this->redirect(['controller' => 'answers', 'action' => 'questionnaireAnswers', $questionnaireID]);
-
             } else {
                 $this->Flash->error(__('The answer could not be saved. Please, try again.'));
             }
@@ -138,7 +144,7 @@ class AnswersController extends AppController
         }
 
         $questionnaire = $this->Questionnaires->get($questionnaireID, [
-            'contain' => ['Sections' => ['Questions']]]);
+            'contain' => ['Sections' => ['Questions', 'Buttontypes' => ['Buttonvalues']]]]);
 
         $this->set(compact('questionnaire', 'observer', 'participant', 'count'));
         $this->set('_serialize', ['questionnaire']);

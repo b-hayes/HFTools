@@ -47,8 +47,8 @@ class SessionsFixture extends TestFixture
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet',
-            'start_date' => '2017-06-14',
-            'end_date' => '2017-06-14',
+            'start_date' => '2017-07-04',
+            'end_date' => '2017-07-04',
             'client_id' => 1
         ],
     ];

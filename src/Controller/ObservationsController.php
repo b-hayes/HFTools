@@ -52,27 +52,27 @@ class ObservationsController extends AppController
     public function view($id = null)
     {
         $this->loadModel('Participants');
-
         $results = ['questionnaire' => ['sections' => []]];
 
         $observation = $this->Observations->get($id, [
             'contain' => ['Participants', 'Runs', 'Answers' => ['Questions' => ['Sections' => ['Questionnaires']]]]
-        ])->toArray();
+        ]);
 
         // get the questionnaire name and description
-        $results['questionnaire']['name'] = $observation['answers'][0]['question']['section']['questionnaire']['name'];
-        $results['questionnaire']['description'] = $observation['answers'][0]['question']['section']['questionnaire']['description'];
+        $results['questionnaire']['name'] = $observation['answers']['question']['section']['questionnaire']['name'];
+        $results['questionnaire']['description'] = $observation['answers']['question']['section']['questionnaire']['description'];
 
         // get the participant and observer names
         $observer = $this->Participants->find()->where(['id = :participantID'])
-            ->bind(':participantID', $observation['observer_id'])->toArray();
+            ->bind(':participantID', $observation['observer_id'])->hydrate(false)->toList();
+
         $results['participant']['name'] = $observation['participant']['first_name'] . ' ' . $observation['participant']['last_name'];
-        $results['participant']['observer'] = $observer[0]['first_name'] . ' ' . $observer[0]['last_name'];
+        $results['participant']['observer'] = $observer['first_name'] . ' ' . $observer['last_name'];
 
         // get the runs name and description
         $results['run']['name'] = $observation['run']['name'];
         $results['run']['description'] = $observation['run']['description'];
-        $results['run']['run_date'] = $observation['run']['run_date']->nice();
+        $results['run']['run_date'] = $observation['run']['run_date'];
 
         $lastAdded = '';
 
@@ -100,8 +100,9 @@ class ObservationsController extends AppController
             }
             array_push($item, ['questions' => $questions]);
         }
-            $this->set('results', $results);
-            $this->set('_serialize', ['results']);
+
+        $this->set('results', $results);
+        $this->set('_serialize', ['results']);
     }
 
 

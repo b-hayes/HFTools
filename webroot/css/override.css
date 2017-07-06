@@ -80,21 +80,35 @@ table.wide-table{
     text-align: center;
 }
 
-input[type="checkbox"] {
+input[type="radio"]{
     transform:scale(2, 2);
     margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    transform:scale(2.0, 2.0);
+    position: relative;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 6px;
+    margin-right: 20px;
 }
 div .checkbox > label{
-    /*transform:scale(2, 2);*/
-    /*border: 2px solid #1cc7ff;*/
-    /*background-color: red;*/
+    text-align: left;
+    vertical-align: text-top;
+    padding-left: 0;
 }
 div .checkbox {
-    text-align: left;
+    /*text-align: left;*/
+    margin-bottom: 10px;
 }
 
 .error-message {
-    background-color: red;
+    background-color: #ffc6b0;
+    border: 1px solid crimson;
+    padding: 2px;
 }
 
 @media screen and (min-width: 768px) {

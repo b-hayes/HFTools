@@ -45,7 +45,7 @@ class RunsFixture extends TestFixture
         [
             'id' => 1,
             'session_id' => 1,
-            'run_date' => '2017-06-14',
+            'run_date' => '2017-07-04',
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet'
         ],

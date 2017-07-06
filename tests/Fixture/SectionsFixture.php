@@ -21,12 +21,15 @@ class SectionsFixture extends TestFixture
         'questionnaire_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'name' => ['type' => 'string', 'length' => 355, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'description' => ['type' => 'string', 'length' => 355, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'buttontype_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'fk_s_questionnaire1' => ['type' => 'index', 'columns' => ['questionnaire_id'], 'length' => []],
+            'fk_s_buttontype2' => ['type' => 'index', 'columns' => ['buttontype_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'fk_s_questionnaire1' => ['type' => 'foreign', 'columns' => ['questionnaire_id'], 'references' => ['questionnaires', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'sections_ibfk_1' => ['type' => 'foreign', 'columns' => ['buttontype_id'], 'references' => ['buttontypes', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -45,7 +48,8 @@ class SectionsFixture extends TestFixture
             'id' => 1,
             'questionnaire_id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
-            'description' => 'Lorem ipsum dolor sit amet'
+            'description' => 'Lorem ipsum dolor sit amet',
+            'buttontype_id' => 1
         ],
     ];
 }

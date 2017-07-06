@@ -26,18 +26,7 @@ class AnswersTableTest extends TestCase
     public $fixtures = [
         'app.answers',
         'app.questions',
-        'app.sections',
-        'app.questionnaires',
         'app.observations',
-        'app.participants',
-        'app.clients',
-        'app.sessions',
-        'app.runs',
-        'app.participants_sessions',
-        'app.users',
-        'app.clients_participants',
-        'app.roles',
-        'app.participants_roles',
         'app.answers_observations'
     ];
 

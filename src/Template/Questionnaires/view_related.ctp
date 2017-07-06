@@ -29,6 +29,7 @@
             <?php endif; ?>
 
         </div>
+
         <div class="panel-body">
             <?php foreach($sections->questions as $questions): ?>
                 <div>
@@ -44,6 +45,12 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="row" style="margin-top: 15px">
+<!--                --><?php //echo $this->Html->link(__('<button class="btn btn-info pull-right">Add Question...</button>'), ['controller' => 'Questions', 'action' => 'add', $sections->id],
+//                    ['escapeTitle' => false , 'title' => 'Add Section']) ?>
+            </div>
         </div>
     </div>
 <?php endforeach; ?>
+<?php //echo $this->Html->link(__('<button class="btn btn-info pull-right">Add Section...</button>'), ['controller' => 'Sections', 'action' => 'add', $sections->id],
+//    ['escapeTitle' => false , 'title' => 'Add Section']) ?>

@@ -38,7 +38,10 @@ class AnswersObservationsTableTest extends TestCase
         'app.answers',
         'app.questions',
         'app.sections',
-        'app.questionnaires'
+        'app.questionnaires',
+        'app.buttontypes',
+        'app.buttonvalues',
+        'app.buttontypes_buttonvalues'
     ];
 
     /**

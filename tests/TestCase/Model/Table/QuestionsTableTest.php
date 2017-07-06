@@ -26,9 +26,18 @@ class QuestionsTableTest extends TestCase
     public $fixtures = [
         'app.questions',
         'app.sections',
-        'app.questionnaires',
         'app.answers',
-        'app.answers_questions'
+        'app.observations',
+        'app.participants',
+        'app.clients',
+        'app.sessions',
+        'app.users',
+        'app.clients_participants',
+        'app.roles',
+        'app.participants_roles',
+        'app.participants_sessions',
+        'app.runs',
+        'app.answers_observations'
     ];
 
     /**

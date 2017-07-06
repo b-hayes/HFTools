@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `answers`;
 CREATE TABLE `answers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question_id` int(10) unsigned NOT NULL,
-  `answer` varchar(500) NOT NULL,
+  `answer_text` varchar(500) NOT NULL,
   PRIMARY KEY (`id`),
     CONSTRAINT `fk_a_question1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -92,8 +92,9 @@ CREATE TABLE `answers_observations` (
   `observation_id` int(10) unsigned NOT NULL,
   `answer_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`observation_id`, `answer_id`),
+  KEY `fk_op_answer2` (`answer_id`),
   CONSTRAINT `fk_op_observation1` FOREIGN KEY (`observation_id`) REFERENCES `observations` (`id`),
-  CONSTRAINT `fk_op_participant2` FOREIGN KEY (`answer_id`) REFERENCES `answers` (`id`)
+  CONSTRAINT `fk_op_answer2` FOREIGN KEY (`answer_id`) REFERENCES `answers` (`id`)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -204,10 +205,11 @@ CREATE TABLE `sections` (
   `questionnaire_id` int(10) unsigned NOT NULL,
   `name` varchar(355) NOT NULL,
   `description` varchar(355) DEFAULT NULL,
-  
+  `buttontype_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_s_questionnaire1` (`questionnaire_id`),
-  CONSTRAINT `fk_s_questionnaire1` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaires` (`id`)
+  CONSTRAINT `fk_s_questionnaire1` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaires` (`id`),
+  FOREIGN KEY `fk_s_buttontype2` (`buttontype_id`) REFERENCES `buttontypes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

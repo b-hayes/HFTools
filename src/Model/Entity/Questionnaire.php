@@ -26,7 +26,6 @@ class Questionnaire extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false,
-        'section' => true
+        'id' => false
     ];
 }

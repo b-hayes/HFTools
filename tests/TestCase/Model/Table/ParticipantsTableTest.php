@@ -29,6 +29,7 @@ class ParticipantsTableTest extends TestCase
         'app.runs',
         'app.answers',
         'app.questions',
+        'app.answers_observations',
         'app.clients',
         'app.sessions',
         'app.users',

@@ -24,9 +24,13 @@
                 <td><?= h($run->name) ?></td>
                 <td><?= h($run->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $run->id]) ?>
-                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $run->id]) ?>
-                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $run->id], ['confirm' => __('Are you sure you want to delete # {0}?', $run->id)]) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $run->id],
+                        ['escapeTitle' => false , 'title' => 'View Details']) ?>
+                    <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $run->id],
+                        ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $run->id],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $run->id),
+                            'escapeTitle' => false , 'title' => 'Delete Run']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

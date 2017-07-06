@@ -50,13 +50,11 @@ class ParticipantsController extends AppController
 
             $participant = $this->Participants->patchEntity($participant, $this->request->getData());
             if ($this->Participants->save($participant)) {
-                $this->Flash->success(__('The participant has been saved.'));
+
 
                 //return $this->redirect($this->referer());
                 return $this->redirect(['action' => 'index']);
 
-            } else {
-                $this->Flash->error(__('The participant could not be saved. Please, try again.'));
             }
         }
 

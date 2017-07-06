@@ -10,8 +10,10 @@ use Cake\ORM\Entity;
  * @property int $questionnaire_id
  * @property string $name
  * @property string $description
+ * @property int $buttontype_id
  *
  * @property \App\Model\Entity\Questionnaire $questionnaire
+ * @property \App\Model\Entity\Buttontype $buttontype
  * @property \App\Model\Entity\Question[] $questions
  */
 class Section extends Entity
@@ -28,7 +30,6 @@ class Section extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false,
-        'question' => true
+        'id' => false
     ];
 }

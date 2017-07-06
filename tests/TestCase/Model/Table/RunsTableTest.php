@@ -36,7 +36,8 @@ class RunsTableTest extends TestCase
         'app.participants_sessions',
         'app.answers',
         'app.questions',
-        'app.sections'
+        'app.sections',
+        'app.answers_observations'
     ];
 
     /**
