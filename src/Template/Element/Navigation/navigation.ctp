@@ -48,7 +48,7 @@
             <li class="tab"><?= $this->Html->link(__('List Input Types'), ['controller' => 'Buttontypes', 'action' => 'index']) ?></li>
             <hr>
             <li><?= $this->Html->link(__('Create New Tool'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
-            <li class="tab"><?= $this->Html->link(__('Create New Input Type'), ['controller' => 'Buttontypes', 'action' => 'add']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('Create New Input Type'), ['controller' => 'Buttontypes', 'action' => 'create']) ?></li>
         </ul>
     </div>
 
