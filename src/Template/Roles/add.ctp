@@ -8,7 +8,11 @@
         <legend><?= __('Add Role') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('participants._ids', ['options' => $participants]);
+            echo $this->Form->control('participants._ids', array(
+                'type' => 'select',
+                'multiple' => 'checkbox',
+                'options' => $participants
+            ));
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

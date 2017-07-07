@@ -7,7 +7,6 @@
     <ul class="nav navbar-nav pull-right">
         <!-- this if condition checks if a user has an active session. If they do then we display navigation -->
         <?php if ($this->request->session()->read('Auth')): ?>
-            <li><a href=""><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
             <li><a href="/~hftools/hftools/users/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             <!-- otherwise there is no current session and so we should show them the login button -->
         <?php else: ?>
@@ -45,11 +44,11 @@
     <button class=" btn-block collapse-next">Tools</button>
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
-            <li><?= $this->Html->link(__('Create New Tool'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
-            <li class="tab"><?= $this->Html->link(__('Create New Input Type'), ['controller' => 'Buttontypes', 'action' => 'add']) ?></li>
-            <hr>
             <li><?= $this->Html->link(__('List Tools'), ['controller' => 'Questionnaires', 'action' => 'index']) ?></li>
             <li class="tab"><?= $this->Html->link(__('List Input Types'), ['controller' => 'Buttontypes', 'action' => 'index']) ?></li>
+            <hr>
+            <li><?= $this->Html->link(__('Create New Tool'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('Create New Input Type'), ['controller' => 'Buttontypes', 'action' => 'add']) ?></li>
         </ul>
     </div>
 
@@ -58,11 +57,9 @@
         <ul class="nav nav-pills nav-stacked">
 
             <li><?= $this->Html->link(__('List Sessions'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('List Runs'), ['controller' => 'Runs', 'action' => 'index']) ?></li>
+            <hr>
             <li><?= $this->Html->link(__('New Session'), ['controller' => 'Sessions', 'action' => 'add']) ?></li>
-            <hr>
-            <li><?= $this->Html->link(__('List Runs'), ['controller' => 'Runs', 'action' => 'index']) ?></li>
-            <hr>
-            <li><?= $this->Html->link(__('List Observations'), ['controller' => 'Observations', 'action' => 'index']) ?></li>
         </ul>
     </div>
 

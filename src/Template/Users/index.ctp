@@ -5,7 +5,7 @@
   */
 ?>
 
-<h3><?= __('Users') ?></h3>
+<h3><?= __('Client login accounts') ?></h3>
 
 <table class="wide-table" cellpadding="0" cellspacing="0">
     <thead>
@@ -25,9 +25,9 @@
             <td><?= $user->has('client') ? $this->Html->link($user->client->name, ['controller' => 'Clients', 'action' => 'view', $user->client->id]) : '' ?></td>
             <td><?= h($user->username) ?></td>
             <td><?= h($user->role) ?></td>
-            <td><?= h($user->created) ?></td>
-            <td><?= h($user->last_login) ?></td>
-            <td><?= h($user->modified) ?></td>
+            <td><?= h($user->created->nice()) ?></td>
+            <td><?= h($user->last_login->nice()) ?></td>
+            <td><?= h($user->modified->nice()) ?></td>
             <td class="actions">
 <!--                --><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $user->id],
                 // ['escapeTitle' => false , 'title' => 'View Details']) ?>

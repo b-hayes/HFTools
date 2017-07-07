@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Auth\DefaultPasswordHasher;
 use function serialize;
 
 
@@ -170,8 +171,18 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
+
+
         if ($this->request->is(['patch', 'post', 'put'])) {
+
             $user = $this->Users->patchEntity($user, $this->request->getData());
+
+            $newPassword = $this->request->getData('reset_password');
+
+            if (!empty($newPassword)) {
+                $user->password = $newPassword;
+            }
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -180,9 +191,13 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $clients = $this->Users->Clients->find('list', ['limit' => 200]);
+
+
+
         $this->set(compact('user', 'clients'));
         $this->set('_serialize', ['user']);
     }
+
 
     public function welcome() {
 

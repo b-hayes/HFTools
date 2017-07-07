@@ -8,11 +8,11 @@
 <fieldset>
     <legend><?= __('Edit User') ?></legend>
     <?php
-        echo $this->Form->control('username');
+        echo $this->Form->control('username', array('readonly' => 'readonly' ));
         echo $this->Form->control('client_id', ['options' => $clients]);
-        echo $this->Form->control('password');
-        echo $this->Form->control('role');
-        echo $this->Form->control('last_login', ['empty' => true]);
+        echo $this->Form->control('reset_password');
+    echo $this->Form->control('confirm_password');
+        echo $this->Form->control('role', ['options' => ['admin' => 'Admin', 'client' => 'Client']]);
     ?>
 </fieldset>
 <?= $this->Form->button(__('Submit')) ?>

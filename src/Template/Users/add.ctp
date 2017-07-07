@@ -6,7 +6,7 @@
 
 <?= $this->Form->create($user) ?>
 <fieldset>
-    <legend><?= __('Create user account') ?></legend>
+    <legend><?= __('Create New Client login account') ?></legend>
     <?php
         echo $this->Form->control('username');
         echo $this->Form->control('client_id', ['options' => $clients]);

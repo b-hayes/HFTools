@@ -5,7 +5,7 @@
 ?>
     <?= $this->Form->create($client) ?>
     <fieldset>
-        <legend><?= __('Add Client') ?></legend>
+        <legend><?= __('Create New Client') ?></legend>
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('address');
