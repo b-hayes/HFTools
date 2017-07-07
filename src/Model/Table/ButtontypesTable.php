@@ -34,7 +34,7 @@ class ButtontypesTable extends Table
         parent::initialize($config);
 
         $this->setTable('buttontypes');
-        $this->setDisplayField('text');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Sections', [

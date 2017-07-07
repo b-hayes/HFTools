@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use function debug;
 
 /**
  * Buttontypes Controller
@@ -51,15 +52,42 @@ class ButtontypesController extends AppController
     public function add()
     {
         $buttontype = $this->Buttontypes->newEntity();
+
         if ($this->request->is('post')) {
             $buttontype = $this->Buttontypes->patchEntity($buttontype, $this->request->getData());
+
+            debug($buttontype);
             if ($this->Buttontypes->save($buttontype)) {
                 $this->Flash->success(__('The buttontype has been saved.'));
 
+                //return $this->redirect(['action' => 'index']);
+            }
+            //$this->Flash->error(__('The buttontype could not be saved. Please, try again.'));
+        }
+        $buttonvalues = $this->Buttontypes->Buttonvalues->find('list', ['limit' => 200]);
+        $this->set(compact('buttontype', 'buttonvalues'));
+        $this->set('_serialize', ['buttontype']);
+    }
+
+
+
+
+
+
+    public function create() {
+        $buttontype = $this->Buttontypes->newEntity();
+
+        if ($this->request->is('post')) {
+
+            $buttontype = $this->Buttontypes->patchEntity($buttontype, $this->request->getData());
+
+            if ($this->Buttontypes->save($buttontype)) {
+                $this->Flash->success(__('The buttontype has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The buttontype could not be saved. Please, try again.'));
         }
+
         $buttonvalues = $this->Buttontypes->Buttonvalues->find('list', ['limit' => 200]);
         $this->set(compact('buttontype', 'buttonvalues'));
         $this->set('_serialize', ['buttontype']);

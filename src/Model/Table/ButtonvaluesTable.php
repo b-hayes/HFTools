@@ -56,8 +56,8 @@ class ButtonvaluesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('text_lable', 'create')
-            ->notEmpty('text_lable');
+            ->requirePresence('text_label', 'create')
+            ->notEmpty('text_label');
 
         $validator
             ->requirePresence('text_value', 'create')

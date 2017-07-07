@@ -26,7 +26,6 @@ class ButtonvaluesTableTest extends TestCase
     public $fixtures = [
         'app.buttonvalues',
         'app.buttontypes',
-        'app.sections',
         'app.buttontypes_buttonvalues'
     ];
 

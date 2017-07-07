@@ -257,7 +257,7 @@ CREATE TABLE `buttontypes` (
 DROP TABLE IF EXISTS `buttonvalues`;
 CREATE TABLE `buttonvalues` (
   `id` int(10) unsigned NOT NULL  AUTO_INCREMENT,
-  `text_lable` varchar(355) NOT NULL,
+  `text_label` varchar(355) NOT NULL,
   `text_value` varchar(355) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;

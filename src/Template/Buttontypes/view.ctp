@@ -26,14 +26,14 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Text Lable') ?></th>
+                <th scope="col"><?= __('Text Label') ?></th>
                 <th scope="col"><?= __('Text Value') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($buttontype->buttonvalues as $buttonvalues): ?>
             <tr>
                 <td><?= h($buttonvalues->id) ?></td>
-                <td><?= h($buttonvalues->text_lable) ?></td>
+                <td><?= h($buttonvalues->text_label) ?></td>
                 <td><?= h($buttonvalues->text_value) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Buttonvalues', 'action' => 'view', $buttonvalues->id]) ?>

@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Buttonvalue Entity
  *
  * @property int $id
- * @property string $text_lable
+ * @property string $text_label
  * @property string $text_value
  *
  * @property \App\Model\Entity\Buttontype[] $buttontypes
