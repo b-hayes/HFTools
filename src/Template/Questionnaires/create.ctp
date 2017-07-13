@@ -17,24 +17,19 @@
             How does this work?</a>
         </div>
         <div class="panel-body collapse">
-            <p><strong>Step 1:</strong> Start by giving the tool a descriptive name and description by entering them
-            in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
+            <p><strong>Step 1:</strong> Start by giving the tool a name and description by entering them in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
 
-            <p><strong>Step 2:</strong>: Once you have give your tool a name and description you can create as many sections as you please,
-                simply by clicking on the [add image here] button. You can also delete sections by clicking on the delete section button [insert button image].
-                As a guide, when you hover over the button the section to be removed will become highlighted so that you do not delete the wrong section by mistake.
-                Each section has a name and a description. <strong>Only</strong> the section name is mandatory, but we recommend you give each
-                section a description indicating its purpose.</p>
+            <p><strong>Step 2:</strong> You can create as many sections as you please simply by clicking on the Add new section button <?= $this->Html->image("Add_new_section.png", array('class' => 'info-icons')); ?>
+                You can also remove sections by clicking on the delete section button <?= $this->Html->image("delete_section.png", array('class' => 'info-icons')); ?>. As a guide, when you hover over the button the
+                corresponding section to remove is highlighted so that you do not delete the wrong section by mistake. Each section has a name and a description. Only the section name is mandatory,
+                but we recommend you give each section a description indicating its purpose.</p>
 
-            <p><strong>Step 3:</strong>: After you have your sections all set up, you can add questions to any section by selecting the add new question button [add image].
-                This allows you to set up your sections then add questions later if you choose. There is also a delete question button [add image] that you can use to remove
-                any question at any time. By hovering your mouse over the button you can see the question highlighted.
-            </p>
+            <p><strong>Step 3:</strong> After you have your sections all set up, you can add questions to any section by selecting the Add new question button <?= $this->Html->image("add_new_question.png", array('class' => 'info-icons')); ?>.
+                The add new question button allows you to set up your sections then add questions later if you choose. There is also a delete question button <?= $this->Html->image("delete_question.png", array('class' => 'info-icons')); ?>
+                that you can use to remove any question at any time. By hovering your mouse over the button, you can see the question becomes highlighted to avoid mistakes.</p>
 
-            <p><strong>Step 4:</strong>: Take a moment now to check that all the fields are correct and complete and correct them if they are not, then simply click [the save button].
-                If you are successful you will be redirected to a list of all tools currently in existence and a green bar at the top of the page will confirm it has been saved.
-            </p>
-
+            <p><strong>Step 4:</strong> Take a moment now to check that all the fields are correct and complete, then simply click the Submit button <?= $this->Html->image("submit_tool.png", array('class' => 'info-icons submitBtnHeight')); ?>.
+                If successful, the site directs you to a list of all tools currently in existence and a green bar at the top of the page is visible confirming that the site has saved the tool.</p>
         </div>
     </div>
 
@@ -49,14 +44,17 @@
     <div id="sections">
         <div id="section0" section="0" class="section" questionCounter="0">
             <div id="buttonTypes">
-                <?= $this->Form->control('section.0.buttontype_id', ['options' => $buttontypes]); ?>
+                <?php if(empty($buttontypes->first())): ?>
+                    <p>There does not appear to be any answer choices available <?= $this->Html->link(__('click here to create one'), ['controller' => 'Buttontypes', 'action' => 'create']) ?> </p>
+                <?php else: ?>
+                    <?= $this->Form->control('section.0.buttontype_id', ['options' => $buttontypes]); ?>
+                <?php endif; ?>
             </div>
 <!--        name and description of the section-->
             <?= $this->Form->control('section.0.name', ['label' => 'Section name']); ?>
             <?= $this->Form->control('section.0.description', ['label' => 'Section description']); ?>
 
             <Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>
-
         </div>
     </div>
 

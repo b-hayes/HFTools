@@ -4,26 +4,22 @@
   * @var \App\Model\Entity\Buttontype $buttontype
   */
 ?>
-<div class="buttontypes view large-9 medium-8 columns content">
+
     <h3><?= h($buttontype->id) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table wide-table" cellpadding="0" cellspacing="0">
         <tr>
             <th scope="row"><?= __('Text') ?></th>
-            <td><?= h($buttontype->text) ?></td>
+            <td class="pull-3"><?= h( $buttontype->text) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Type') ?></th>
-            <td><?= h($buttontype->type) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($buttontype->id) ?></td>
+            <td class="pull-3"><?= h($buttontype->type) ?></td>
         </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Buttonvalues') ?></h4>
         <?php if (!empty($buttontype->buttonvalues)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="wide-table" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Text Label') ?></th>
@@ -45,4 +41,4 @@
         </table>
         <?php endif; ?>
     </div>
-</div>
+

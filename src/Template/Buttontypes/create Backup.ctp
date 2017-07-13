@@ -45,61 +45,45 @@
     ?>
 
     <!-- the default inputs for a basic questionnaire -->
-    <hr>
-    <h4>Enter answer choices</h4>
-    <table id="buttonvalues" class="form-control">
-    </table>
+    <div id="buttonvalues">
+        <div id="buttonvalues0" buttonvalues="0" class="section">
+            <div id="buttonValues">
+                <?= $this->Form->control('buttonvalues.0.text_label'); ?>
+                <?= $this->Form->control('buttonvalues.0.text_value'); ?>
+            </div>
+        </div>
+    </div>
 
-    <?= $this->Form->button(__('<span class="glyphicon glyphicon-floppy-disk"></span> Save'), ['escapeTitle' => false]) ?>
+    <?= $this->Form->button(__('<span class="glyphicon glyphicon-floppy-disk"></span> Submit'), ['escapeTitle' => false]) ?>
     <?= $this->Form->end() ?>
 
     <!-- button to append more sections -->
-    <Button id="add_buttonvalue" type="Button"><span class="glyphicon glyphicon-plus"></span> Add New Choice</Button>
+    <Button id="add_buttonvalue" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new text value pair</Button>
 </fieldset>
 
 <script>
     $(document).ready(function () {
-        let buttonValuteCounter = 0;
+        var buttonValuteCounter = 0;
 
         // append a new input when the user has clicked add new section button.
         $("#add_buttonvalue").click(function () {
             buttonValuteCounter++;
 
-            $("#buttonvalues").append(`<tr id="buttonvalues` + buttonValuteCounter + `" class='sections'></tr>`);
-
-            let NewSection =
-                $("#buttonvalues" + buttonValuteCounter)
-                    .append(
-                        `<td>
-                            <input class="radio" type="radio" disabled="disabled">
-                        </td>`
-                    )
-                    .append(
-                        `<td>
-                            <div class="input text">
-                                <label for="buttonvalues-` + buttonValuteCounter + `-text_label" >Visible to user</label>
-                                <input type="text"" name="buttonvalues[` + buttonValuteCounter + `][text_label]">
-                            </div>
-                        </td>`
-                    )
-                    .append(
-
-                        `<td>
-                            <div class="input text">
-                                <label for="buttonvalues-' + buttonValuteCounter + '-text_value">What is stored</label>
-                                <input type="text" name="buttonvalues[` + buttonValuteCounter + `][text_value]">
-                            </div>
-                        </td>`
-                    )
+            $("#buttonvalues").append("<div id='buttonvalues" + buttonValuteCounter + "' class='section'></div>");
+            var NewSection =
+                $("#buttonvalues" + buttonValuteCounter).append("<label for='buttonvalues-" + buttonValuteCounter + "-text_label' >text label</label>")
+                    .append("<input type='text' name='buttonvalues[" + buttonValuteCounter + "][text_label]'>")
+                    .append("<label for='buttonvalues-" + buttonValuteCounter + "-text_value'>text value</label>")
+                    .append("<input type='text' name='buttonvalues[" + buttonValuteCounter + "][text_value]'>")
 
                     // keep track of how many times a question is added for this specific section
-                    .append("<td><button class='delete btn btn-danger' type='button'><span class='glyphicon glyphicon-trash'></span> Delete</button></td>");
+                    .append("<button class='delete btn btn-danger pull-right' type='button'><span class='glyphicon glyphicon-trash'></span> Delete value pair</button>");
 
             // make a copy of the button type select options
-            let typeList = $("#buttonTypes").clone();
+            var typeList = $("#buttonTypes").clone();
 
             //make sure add question button can find out what section it lives in
-            NewSection.attr("sections", buttonValuteCounter);
+            NewSection.attr("section", buttonValuteCounter);
 
             UpdateEventHandlers();
             scrollDown();
@@ -107,7 +91,7 @@
 
         function DeleteMe() {
             if(confirm("Are your sure?")){
-                $(this).parent().parent().remove();
+                $(this).parent().remove();
             }
         }
 
@@ -121,10 +105,10 @@
 
             //delete buttons highlight what will be affected by the action
             $(".delete").hover(function(){
-                $(this).parent().parent().css("background-color", "#ffccbe");
+                $(this).parent().css("background-color", "#ffccbe");
 
             }, function(){
-                $(this).parent().parent().css("background-color", "");
+                $(this).parent().css("background-color", "");
             });
         }
     });

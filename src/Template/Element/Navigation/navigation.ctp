@@ -45,10 +45,10 @@
     <div class="panel collapse">
         <ul class="nav nav-pills nav-stacked">
             <li><?= $this->Html->link(__('List Tools'), ['controller' => 'Questionnaires', 'action' => 'index']) ?></li>
-            <li class="tab"><?= $this->Html->link(__('List Input Types'), ['controller' => 'Buttontypes', 'action' => 'index']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('List Answer Choices'), ['controller' => 'Buttontypes', 'action' => 'index']) ?></li>
             <hr>
             <li><?= $this->Html->link(__('Create New Tool'), ['controller' => 'Questionnaires', 'action' => 'create']) ?></li>
-            <li class="tab"><?= $this->Html->link(__('Create New Input Type'), ['controller' => 'Buttontypes', 'action' => 'create']) ?></li>
+            <li class="tab"><?= $this->Html->link(__('Create New Answer Choices'), ['controller' => 'Buttontypes', 'action' => 'create']) ?></li>
         </ul>
     </div>
 

@@ -58,7 +58,7 @@ class ButtontypesController extends AppController
 
             debug($buttontype);
             if ($this->Buttontypes->save($buttontype)) {
-                $this->Flash->success(__('The buttontype has been saved.'));
+                $this->Flash->success(__('The Answer Choice has been saved.'));
 
                 //return $this->redirect(['action' => 'index']);
             }
@@ -82,10 +82,10 @@ class ButtontypesController extends AppController
             $buttontype = $this->Buttontypes->patchEntity($buttontype, $this->request->getData());
 
             if ($this->Buttontypes->save($buttontype)) {
-                $this->Flash->success(__('The buttontype has been saved.'));
+                $this->Flash->success(__('The Answer Choice has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The buttontype could not be saved. Please, try again.'));
+            $this->Flash->error(__('The Answer Choice could not be saved. Please, try again.'));
         }
 
         $buttonvalues = $this->Buttontypes->Buttonvalues->find('list', ['limit' => 200]);
@@ -108,11 +108,11 @@ class ButtontypesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $buttontype = $this->Buttontypes->patchEntity($buttontype, $this->request->getData());
             if ($this->Buttontypes->save($buttontype)) {
-                $this->Flash->success(__('The buttontype has been saved.'));
+                $this->Flash->success(__('The Answer Choice has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The buttontype could not be saved. Please, try again.'));
+            $this->Flash->error(__('The Answer Choice could not be saved. Please, try again.'));
         }
         $buttonvalues = $this->Buttontypes->Buttonvalues->find('list', ['limit' => 200]);
         $this->set(compact('buttontype', 'buttonvalues'));
@@ -131,9 +131,9 @@ class ButtontypesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $buttontype = $this->Buttontypes->get($id);
         if ($this->Buttontypes->delete($buttontype)) {
-            $this->Flash->success(__('The buttontype has been deleted.'));
+            $this->Flash->success(__('The Answer Choice has been deleted.'));
         } else {
-            $this->Flash->error(__('The buttontype could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The Answer Choice could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

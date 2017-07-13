@@ -154,3 +154,15 @@ div .checkbox {
 .tab {
     padding-left:4%
 }
+
+.info-icons {
+    /*style="width:304px;height:228px;*/
+
+    width: 155px;
+    height: 34px;
+}
+
+.submitBtnHeight {
+    width: 120px;
+    height: 40px;
+}
