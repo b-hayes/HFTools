@@ -11,7 +11,10 @@
 
     <div class="panel panel-info">
         <div class="panel panel-heading collapse-next" style="margin-bottom: 1px">
-            <a><span class="glyphicon glyphicon-info-sign"></span>How does this work?</a>
+<!--            This tiangle glyph was going to be used for animated expand collapse but ran out of time to impliment it -->
+<!--            <span class="glyphicon glyphicon glyphicon-triangle-right"></span>-->
+            <a><span class="glyphicon glyphicon-info-sign"></span>
+            How does this work?</a>
         </div>
         <div class="panel-body collapse">
             <p><strong>Step 1:</strong> Start by giving the tool a name and description by entering them in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
@@ -30,34 +33,33 @@
         </div>
     </div>
 
-    <?= $this->Form->control('name', ['label' => 'Tool name']); ?>
-    <?= $this->Form->control('description', ['label' => 'Tool description']); ?>
+    <?php
+    // name and description of this questionnaire being created
+    echo $this->Form->control('name', ['label' => 'Tool name']);
+    echo $this->Form->control('description', ['label' => 'Tool description']);
+
+    ?>
 
     <!-- the default inputs for a basic questionnaire -->
     <div id="sections">
-
         <div id="section0" section="0" class="section" questionCounter="0">
             <div id="buttonTypes">
-
                 <?php if(empty($buttontypes->first())): ?>
                     <p>There does not appear to be any answer choices available <?= $this->Html->link(__('click here to create one'), ['controller' => 'Buttontypes', 'action' => 'create']) ?> </p>
                 <?php else: ?>
                     <?= $this->Form->control('section.0.buttontype_id', ['options' => $buttontypes]); ?>
                 <?php endif; ?>
             </div>
-
-            <!-- name and description of the section-->
+<!--        name and description of the section-->
             <?= $this->Form->control('section.0.name', ['label' => 'Section name']); ?>
             <?= $this->Form->control('section.0.description', ['label' => 'Section description']); ?>
 
             <Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>
-            <button class="delete btn btn-danger pull-right" type="button"><span class="glyphicon glyphicon-trash"></span> Delete this section</button>
-
-
         </div>
-
     </div>
+
     <?= $this->Form->button(__('<span class="glyphicon glyphicon-floppy-disk"></span> Submit'), ['escapeTitle' => false]) ?>
+
     <?= $this->Form->end() ?>
 
     <!-- button to append more sections -->
@@ -74,37 +76,23 @@
         // append a new input when the user has clicked add new section button.
         $("#add_section").click(function () {
             sectionCounter++;
-
-            $("#sections").append(`
-                <table id="section` + sectionCounter + `" class="section">
-
-                </table>
-            `);
-
-            var NewSection = $("#section" + sectionCounter).append(`
-
-                <td>
-                <label for="section-` + sectionCounter + `-name" >Section</label>
-                <input type="text" name="section[` + sectionCounter + `][name]"></td>
-                <label for="section-` + sectionCounter + `-description">Section Description</label>
-                <input type="text" name="section[` + sectionCounter + `][description]">
-
-            `)
+            $("#sections").append("<div id='section" + sectionCounter + "' class='section'></div>");
+            var NewSection =
+            $("#section" + sectionCounter).append("<label for='section-" + sectionCounter + "-name' >Section</label>")
+                .append("<input type='text' name='section[" + sectionCounter + "][name]'>")
+                .append("<label for='section-" + sectionCounter + "-description'>Section Description</label>")
+                .append("<input type='text' name='section[" + sectionCounter + "][description]'>")
             // keep track of how many times a question is added for this specific section
                 .attr("questionCounter", "0")
-                .append(`
-                    <Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>
-                    <button class="delete btn btn-danger pull-right" type="button"><span class="glyphicon glyphicon-trash"></span> Delete this section</button>
-                `);
-
+                .append('<Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>')
+                .append("<button class='delete btn btn-danger pull-right' type='button'><span class='glyphicon glyphicon-trash'></span> Delete this section</button>");
             // make a copy of the button type select options
             var typeList = $("#buttonTypes").clone();
-
             //modify the details to match this section and question..
+//            <select name="section[0][buttontype_id]" id="section-0-buttontype-id"><option value="2">likert scale</option></select>
             $(typeList).find("select")
                 .attr('name', 'section[' + sectionCounter + '][buttontype_id]')
                 .attr('id', 'section-' + sectionCounter + '-buttontype-id');
-
             //add to the new section
             $(NewSection).prepend(typeList);
 
@@ -116,35 +104,23 @@
         });
 
         function AddQuestion() {
-
             //make sure we have the right section number
             var section = $(this).parent().attr("section");
-
             //Question counters are individual for each section
             var questionCounter = $(this).parent().attr("questionCounter");
 
             //add div to contain question and its buttons
-            $(this).before(`
-                <tr>
-                </tr>
-            `);
-
+            $(this).before("<div class='question'" + questionCounter + "><div>");
 
             var questDiv = $(this).prev();
 
+            console.log(questDiv);
+
             //add elements to the question div
             $(questDiv)
-                .append(`
-                    <td  class="align-middle">
-                        <label for="section-` + section + `-question-` + section + `-text" ><strong>Question ` + questionCounter  + `</strong></label>
-                    </td>
-                    <td  class="align-middle">
-                        <input type="text" name="section[`+ section +`][question][` + questionCounter + `][text]">
-                    </td>
-                    <td  class="align-middle">
-                        <button class="delete deleteQuestion btn btn-warning" type="button"><span class="glyphicon glyphicon-trash"></span> Delete Question</button>
-                    </td>
-                `);
+                .append("<button class='delete deleteQuestion btn btn-warning' type='button'><span class='glyphicon glyphicon-trash'></span> Delete Question</button>")
+                .append("<label for='section-" + section + "-question-" + section + "-text' >Question</label>")
+                .append("<input type='text' name='section["+ section +"][question]["+ questionCounter+"][text]'>");
 
             UpdateEventHandlers();
             scrollDown();

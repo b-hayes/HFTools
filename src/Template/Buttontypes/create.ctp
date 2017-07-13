@@ -54,7 +54,9 @@
     <?= $this->Form->end() ?>
 
     <!-- button to append more sections -->
-    <Button id="add_buttonvalue" type="Button"><span class="glyphicon glyphicon-plus"></span> Add New Choice</Button>
+    <Button id="add_buttonvalue" type="Button">
+        <span class="glyphicon glyphicon-plus"></span> Add New Choice
+    </Button>
 </fieldset>
 
 <script>
@@ -65,35 +67,41 @@
         $("#add_buttonvalue").click(function () {
             buttonValuteCounter++;
 
-            $("#buttonvalues").append(`<tr id="buttonvalues` + buttonValuteCounter + `" class='sections'></tr>`);
+            $("#buttonvalues").append(`
+                <tr id="buttonvalues` + buttonValuteCounter + `" class='sections'>
+                </tr>
+            `);
 
-            let NewSection =
-                $("#buttonvalues" + buttonValuteCounter)
-                    .append(
-                        `<td>
+            let NewSection = $("#buttonvalues" + buttonValuteCounter)
+                    .append(`
+                        <td>
                             <input class="radio" type="radio" disabled="disabled">
-                        </td>`
-                    )
-                    .append(
-                        `<td>
+                        </td>
+                    `)
+                    .append(`
+                        <td>
                             <div class="input text">
                                 <label for="buttonvalues-` + buttonValuteCounter + `-text_label" >Visible to user</label>
                                 <input type="text"" name="buttonvalues[` + buttonValuteCounter + `][text_label]">
                             </div>
-                        </td>`
-                    )
-                    .append(
-
-                        `<td>
+                        </td>
+                    `)
+                    .append(`
+                        <td>
                             <div class="input text">
                                 <label for="buttonvalues-' + buttonValuteCounter + '-text_value">What is stored</label>
                                 <input type="text" name="buttonvalues[` + buttonValuteCounter + `][text_value]">
                             </div>
-                        </td>`
-                    )
-
+                        </td>
+                    `)
                     // keep track of how many times a question is added for this specific section
-                    .append("<td><button class='delete btn btn-danger' type='button'><span class='glyphicon glyphicon-trash'></span> Delete</button></td>");
+                    .append(`
+                        <td>
+                            <button class="delete btn btn-danger" type="button">
+                                <span class="glyphicon glyphicon-trash"></span> Delete
+                            </button>
+                        </td>
+                    `);
 
             // make a copy of the button type select options
             let typeList = $("#buttonTypes").clone();
