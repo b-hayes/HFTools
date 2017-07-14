@@ -141,18 +141,18 @@ class QuestionnairesController extends AppController
     public function create()
     {
         if ($this->request->is('post')) {
+
+            debug($this->request->getData());
+
             /* There are lots of conditions to check for:
                     1. sections must be > 0
                     2. questions for each section must be > 0
                     2. questions can not be empty
-
             Rather than lots of nested if conditions to $hasProvidedRelevantInformation is used to flag an error
             before in order to abort the save operation. */
             $hasProvidedRelevantInformation = true;
-
             // This was used partly to debug, but also to let the user know what they did wrong.
             $errorMessageInFlash = 'The questionnaire could not be saved. Please, try again.';
-
             /* This creates a new questionnaire ORM object then the second line builds its structure linking everything
                 in the 'associated' parts to our object. This allows as to populate multiple tables in one go. */
             $questionnaire = $this->Questionnaires->newEntity();
@@ -161,72 +161,58 @@ class QuestionnairesController extends AppController
                         'Sections' => ['associated' => ['Questions']]
                     ]]
             );
-
             /* Because of how the create.ctp works, the array index may have missing values if a user deletes
                 a question or section that is situated between two others. I.E. the array coming in might look like
                 this:
-
                     'sections' => [
                         '2' => 'blah',
                         '4' => 'blah again',
                         '5' => 'and so on'
                      [
-
             however, this would cause an issue with our code, so use $this->reindexArray to
-
-
             */
             $dataSection = $this->reindexArray($this->request->getData('section'));
-
             // All the Items on the form are contained into a variable
             $sections = $this->Questionnaires->Sections->newEntities($dataSection);
 
+            debug($sections);
+
             if (!empty($sections)) {
                 $sectionsArray = [];
-
                 foreach ($sections as $section) {
                     $questionsArray = [];
-
                     if(empty($section->name)) {
                         $hasProvidedRelevantInformation = false;
                         $errorMessageInFlash = 'You need to provide each section with a name';
                         break;
                     }
-
                     $newSec = $this->Questionnaires->Sections->newEntity();
                     $newSec->name = $section->name;
                     $newSec->description = $section->description;
                     $newSec->buttontype_id = $section->buttontype_id;
-
                     if (empty($section->question)) {
                         $hasProvidedRelevantInformation = false;
                         $errorMessageInFlash = 'You need to have at least one question for each section!';
                         break;
                     }
-
                     $dataQuestions = $this->reindexArray($section->question);
                     $questions = $this->Questionnaires->Sections->Questions->newEntities($dataQuestions);
-
                     foreach ($questions as $question) {
-
                         if(empty($question)) {
                             $hasProvidedRelevantInformation = false;
                             $errorMessageInFlash = 'All questions must have text!';
                             break;
                         }
-
                         $newQuestion = $this->Questionnaires->Sections->Questions->newEntity();
                         $newQuestion->text = $question['text'];
                         array_push($questionsArray, $newQuestion);
                     }
-
                     // Set the questions for this section to..
                     $newSec->questions = $questionsArray;
                     array_push($sectionsArray, $newSec);
                 }
                 // Set the checklist's items to be the array
                 $questionnaire->sections = $sectionsArray;
-
                 if ($hasProvidedRelevantInformation) {
                     if($this->Questionnaires->save($questionnaire)){
                         $this->Flash->success(__('The Tool has been saved.'));
@@ -236,10 +222,7 @@ class QuestionnairesController extends AppController
             }
             $this->Flash->error(__($errorMessageInFlash));
         }
-
-
         $this->loadModel('Buttontypes');
-
         $buttontypes = $this->Buttontypes->find('list', ['limit' => 200]);
         $this->set(compact('buttontypes'));
     }

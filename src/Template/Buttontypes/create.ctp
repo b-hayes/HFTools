@@ -14,22 +14,18 @@
     <div class="panel-body collapse">
         <p><strong>Step 1:</strong> Start by giving the tool a descriptive name and description by entering them
             in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
-
         <p><strong>Step 2:</strong>: Once you have give your tool a name and description you can create as many sections as you please,
             simply by clicking on the [add image here] button. You can also delete sections by clicking on the delete section button [insert button image].
             As a guide, when you hover over the button the section to be removed will become highlighted so that you do not delete the wrong section by mistake.
             Each section has a name and a description. <strong>Only</strong> the section name is mandatory, but we recommend you give each
             section a description indicating its purpose.</p>
-
         <p><strong>Step 3:</strong>: After you have your sections all set up, you can add questions to any section by selecting the add new question button [add image].
             This allows you to set up your sections then add questions later if you choose. There is also a delete question button [add image] that you can use to remove
             any question at any time. By hovering your mouse over the button you can see the question highlighted.
         </p>
-
         <p><strong>Step 4:</strong>: Take a moment now to check that all the fields are correct and complete and correct them if they are not, then simply click [the save button].
             If you are successful you will be redirected to a list of all tools currently in existence and a green bar at the top of the page will confirm it has been saved.
         </p>
-
     </div>
 </div>
 
@@ -44,7 +40,6 @@
     echo $this->Form->control('type', ['options' => ['multipleChoice' => 'Multiple Choice', 'commentBox' => 'Comment Box']]);
     ?>
 
-    <!-- the default inputs for a basic questionnaire -->
     <hr>
     <h4>Enter answer choices</h4>
     <table id="buttonvalues" class="form-control">
