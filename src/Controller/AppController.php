@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use function strcmp;
 
 /**
  * Application Controller
@@ -56,8 +57,15 @@ class AppController extends Controller
                 'controller' => 'Users',
                 'action' => 'login'
             ],
+            'logoutAction' => [
+                'controller' => 'Users',
+                'action' => 'logout'
+            ],
             'storage' => 'Session'
         ]);
+
+        // Allow only the view and index actions.
+       // $this->Auth->allow(['controller' => 'Users', 'action', 'login']);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -66,6 +74,30 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
+
+    protected function isAuthorized($user = null) {
+        if (empty($this->request->params['admin'])) {
+            return true;
+
+        } elseif (isset($this->request->params['admin'])) {
+            return ( bool )(($user['role'] === 'admin'));
+        } else {
+            return false;
+        }
+    }
+    protected function requireAuthLevel($level) {
+        $role = $this->Auth->user('role');
+        if (empty($role) || (strcmp($role, $level) != 0)) {
+            $this->denyAccess();
+        }
+        return true;
+    }
+
+    protected function denyAccess() {
+        $this->Flash->error(__("You aren't permitted to view this page."));
+        $this->redirect(['controller' => 'users', 'action' => 'home']);
+    }
+
 
     /**
      * Before render callback.

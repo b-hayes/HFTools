@@ -2,8 +2,11 @@
 /**
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\Observation $observation
+  * //todo flagged for delete
   */
 ?>
+
+
     <h3><?= h($observation->id) ?></h3>
     <table class="vertical-table">
         <tr>

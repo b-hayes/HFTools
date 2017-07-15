@@ -29,19 +29,20 @@ class UsersController extends AppController
      */
     public function login()
     {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
+            if ($this->request->is('post')) {
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
 
-                if ($this->Auth->user('role') == 'admin') {
-                    $this->set('role', $this->Auth->user('role'));
-                    return $this->redirect(['controller' => 'users', 'action' => 'welcome']);
+                    if ($this->Auth->user('role') == 'admin') {
+                        $this->set('role', $this->Auth->user('role'));
+                        $this->redirect(['controller' => 'users', 'action' => 'welcome']);
+                    }
+                    $this->redirect(['action' => 'home']);
                 }
-                return $this->redirect(['action' => 'home']);
+                $this->Flash->error('Incorrect Login');
             }
-            $this->Flash->error('Incorrect Login');
-        }
+
     }
 
     function logout()
@@ -100,6 +101,8 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->paginate = [
             'contain' => ['Clients']
         ];
@@ -118,6 +121,8 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $user = $this->Users->get($id, [
             'contain' => ['Clients']
         ]);
@@ -133,6 +138,8 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
 
@@ -168,6 +175,8 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -212,6 +221,8 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {

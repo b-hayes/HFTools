@@ -3,6 +3,8 @@
  * @var \App\View\AppView $this
  */
 ?>
+
+<!-- todo flagged for delete -->
     <?= $this->Form->create($observation) ?>
     <fieldset>
         <legend><?= __('Add Observation') ?></legend>

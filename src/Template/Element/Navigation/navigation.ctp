@@ -59,7 +59,7 @@
             <li><?= $this->Html->link(__('List Sessions'), ['controller' => 'Sessions', 'action' => 'index']) ?></li>
             <li class="tab"><?= $this->Html->link(__('List Runs'), ['controller' => 'Runs', 'action' => 'index']) ?></li>
             <hr>
-            <li><?= $this->Html->link(__('New Session'), ['controller' => 'Sessions', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('Create New Session'), ['controller' => 'Sessions', 'action' => 'add']) ?></li>
         </ul>
     </div>
 

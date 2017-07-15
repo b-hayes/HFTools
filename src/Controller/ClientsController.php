@@ -20,6 +20,7 @@ class ClientsController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
         $clients = $this->paginate($this->Clients);
 
         $this->set(compact('clients'));
@@ -35,6 +36,7 @@ class ClientsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $client = $this->Clients->get($id, [
             'contain' => ['Participants', 'Sessions', 'Users']
         ]);
@@ -50,6 +52,7 @@ class ClientsController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
         $client = $this->Clients->newEntity();
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
@@ -74,6 +77,7 @@ class ClientsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $client = $this->Clients->get($id, [
             'contain' => ['Participants']
         ]);
@@ -100,6 +104,7 @@ class ClientsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $this->request->allowMethod(['post', 'delete']);
         $client = $this->Clients->get($id);
         if ($this->Clients->delete($client)) {

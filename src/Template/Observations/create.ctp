@@ -5,7 +5,7 @@
 ?>
     <?= $this->Form->create($observation) ?>
     <fieldset>
-        <legend><?= __('Add Observation') ?></legend>
+        <legend><?= __('Create new Observation') ?></legend>
         <?php
         echo $this->Form->control('observer_id', ['options' => $participants]);
         //        echo $this->Form->control('participant_id', ['options' => $participants]);

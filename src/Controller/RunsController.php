@@ -38,6 +38,8 @@ class RunsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->loadModel('Participants');
 
         $run = $this->Runs->get($id, [
@@ -130,6 +132,8 @@ class RunsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $run = $this->Runs->get($id, [
             'contain' => []
         ]);
@@ -156,6 +160,8 @@ class RunsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $run = $this->Runs->get($id);
         if ($this->Runs->delete($run)) {

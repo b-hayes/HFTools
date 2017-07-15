@@ -25,6 +25,8 @@ class QuestionnairesController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $questionnaires = $this->paginate($this->Questionnaires);
 
         $this->set(compact('questionnaires'));
@@ -40,6 +42,8 @@ class QuestionnairesController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $questionnaire = $this->Questionnaires->get($id, [
             'contain' => ['Sections']
         ]);
@@ -66,6 +70,8 @@ class QuestionnairesController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $questionnaire = $this->Questionnaires->newEntity();
         if ($this->request->is('post')) {
             $questionnaire = $this->Questionnaires->patchEntity($questionnaire, $this->request->getData());
@@ -89,6 +95,8 @@ class QuestionnairesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $questionnaire = $this->Questionnaires->get($id, [
             'contain' => []
         ]);
@@ -114,6 +122,8 @@ class QuestionnairesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $questionnaire = $this->Questionnaires->get($id);
         if ($this->Questionnaires->delete($questionnaire)) {
@@ -140,6 +150,8 @@ class QuestionnairesController extends AppController
 
     public function create()
     {
+        $this->requireAuthLevel( 'admin' );
+
         if ($this->request->is('post')) {
 
             debug($this->request->getData());

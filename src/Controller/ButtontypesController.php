@@ -21,6 +21,8 @@ class ButtontypesController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $buttontypes = $this->paginate($this->Buttontypes);
 
         $this->set(compact('buttontypes'));
@@ -36,6 +38,8 @@ class ButtontypesController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $buttontype = $this->Buttontypes->get($id, [
             'contain' => ['Buttonvalues']
         ]);
@@ -51,6 +55,8 @@ class ButtontypesController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $buttontype = $this->Buttontypes->newEntity();
 
         if ($this->request->is('post')) {
@@ -70,11 +76,8 @@ class ButtontypesController extends AppController
     }
 
 
-
-
-
-
     public function create() {
+        $this->requireAuthLevel( 'admin' );
         $buttontype = $this->Buttontypes->newEntity();
 
         if ($this->request->is('post')) {
@@ -102,6 +105,7 @@ class ButtontypesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $buttontype = $this->Buttontypes->get($id, [
             'contain' => ['Buttonvalues']
         ]);
@@ -128,6 +132,7 @@ class ButtontypesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $this->request->allowMethod(['post', 'delete']);
         $buttontype = $this->Buttontypes->get($id);
         if ($this->Buttontypes->delete($buttontype)) {

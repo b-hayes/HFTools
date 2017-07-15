@@ -14,7 +14,7 @@
  */
 
 $cakeDescription = 'Human Factors Tools';
-$role = $this->request->session()->read('Auth.User.role'); //TODO: DAN .. fake it till u make it. This var determines sidebar display
+$role = $this->request->session()->read('Auth.User.role');
 if ($role == "admin"){
     $device = "lg";
     //TODO: Just and idea maybe change the target device size between admin vs client and change scaling accordingly

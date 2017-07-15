@@ -20,6 +20,8 @@ class ParticipantsController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $participants = $this->paginate($this->Participants);
 
         $this->set(compact('participants'));
@@ -35,6 +37,8 @@ class ParticipantsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $participant = $this->Participants->get($id, [
             'contain' => ['Clients', 'Roles', 'Sessions', 'Observations']
         ]);
@@ -49,13 +53,7 @@ class ParticipantsController extends AppController
         if ($this->request->is('post')) {
 
             $participant = $this->Participants->patchEntity($participant, $this->request->getData());
-            if ($this->Participants->save($participant)) {
-
-
-                //return $this->redirect($this->referer());
-                return $this->redirect(['action' => 'index']);
-
-            }
+            $this->Participants->save($participant);
         }
 
         $clients = $this->Participants->Clients->find('list', ['limit' => 200]);
@@ -72,6 +70,7 @@ class ParticipantsController extends AppController
      */
     public function add()
     {
+
         $participant = $this->Participants->newEntity();
 
         if ($this->request->is('post')) {
@@ -104,6 +103,8 @@ class ParticipantsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $participant = $this->Participants->get($id, [
             'contain' => ['Clients', 'Roles', 'Sessions']
         ]);
@@ -132,6 +133,8 @@ class ParticipantsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $participant = $this->Participants->get($id);
         if ($this->Participants->delete($participant)) {

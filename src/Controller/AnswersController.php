@@ -23,6 +23,8 @@ class AnswersController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->paginate = [
             'contain' => ['Questions']
         ];
@@ -41,6 +43,8 @@ class AnswersController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $answer = $this->Answers->get($id, [
             'contain' => ['Questions', 'Observations']
         ]);
@@ -56,6 +60,8 @@ class AnswersController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $answer = $this->Answers->newEntity();
         if ($this->request->is('post')) {
             $answer = $this->Answers->patchEntity($answer, $this->request->getData());
@@ -130,7 +136,6 @@ class AnswersController extends AppController
 
             if ($saved_successfully) {
 
-
                 // insert into answers_observations
                 $this->Flash->success(__('The answer has been saved.'));
                 unset($observationsArray[0]);
@@ -160,6 +165,8 @@ class AnswersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $answer = $this->Answers->get($id, [
             'contain' => ['Observations']
         ]);
@@ -187,6 +194,8 @@ class AnswersController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $answer = $this->Answers->get($id);
         if ($this->Answers->delete($answer)) {

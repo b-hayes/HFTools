@@ -106,54 +106,40 @@ class ObservationsController extends AppController
     }
 
 
-    /**
-     * View method
-     *
-     * @param string|null $id Observation id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-//    public function view($id = null)
+    // todo this is flagged for delete
+//    /**
+//     * Add method
+//     *
+//     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+//     */
+//    public function add()
 //    {
-//        $observation = $this->Observations->get($id, [
-//            'contain' => ['Participants', 'Runs', 'Answers']
-//        ]);
+//        $this->requireAuthLevel( 'admin' );
 //
-//        $this->set('observation', $observation);
+//        $this->loadModel('Questionnaires');
+//        $observation = $this->Observations->newEntity();
+//
+//        if ($this->request->is('post')) {
+//
+//            $observation = $this->Observations->patchEntity($observation, $this->request->getData());
+//
+//            if ($this->Observations->save($observation)) {
+//                $this->Flash->success(__('The observation has been saved.'));
+//                if ($this->request->session()->read('Auth.User.role') == 'client') {
+//                    // set up the questionnaire answers and put participants into an array
+//                    return $this->redirect(['action' => 'index']);
+//                }
+//                return $this->redirect(['action' => 'index']);
+//            }
+//            $this->Flash->error(__('The observation could not be saved. Please, try again.'));
+//        }
+//
+//        $questionnaires = $this->Questionnaires->find('list');
+//        $participants = $this->Observations->Participants->find('list', ['limit' => 200]);
+//        $runs = $this->Observations->Runs->find('list', ['limit' => 200]);
+//        $this->set(compact('observation', 'participants', 'runs', 'questionnaires'));
 //        $this->set('_serialize', ['observation']);
 //    }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $this->loadModel('Questionnaires');
-        $observation = $this->Observations->newEntity();
-
-        if ($this->request->is('post')) {
-
-            $observation = $this->Observations->patchEntity($observation, $this->request->getData());
-
-            if ($this->Observations->save($observation)) {
-                $this->Flash->success(__('The observation has been saved.'));
-                if ($this->request->session()->read('Auth.User.role') == 'client') {
-                    // set up the questionnaire answers and put participants into an array
-                    return $this->redirect(['action' => 'index']);
-                }
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The observation could not be saved. Please, try again.'));
-        }
-
-        $questionnaires = $this->Questionnaires->find('list');
-        $participants = $this->Observations->Participants->find('list', ['limit' => 200]);
-        $runs = $this->Observations->Runs->find('list', ['limit' => 200]);
-        $this->set(compact('observation', 'participants', 'runs', 'questionnaires'));
-        $this->set('_serialize', ['observation']);
-    }
 
 
     /**
@@ -236,6 +222,8 @@ class ObservationsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $observation = $this->Observations->get($id, [
             'contain' => []
         ]);
@@ -263,6 +251,7 @@ class ObservationsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
         $this->request->allowMethod(['post', 'delete']);
         $observation = $this->Observations->get($id);
         if ($this->Observations->delete($observation)) {

@@ -20,6 +20,8 @@ class RolesController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $roles = $this->paginate($this->Roles);
 
         $this->set(compact('roles'));
@@ -35,6 +37,8 @@ class RolesController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $role = $this->Roles->get($id, [
             'contain' => ['Participants']
         ]);
@@ -50,6 +54,8 @@ class RolesController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $role = $this->Roles->newEntity();
 
         if ($this->request->is('post')) {
@@ -77,6 +83,8 @@ class RolesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $role = $this->Roles->get($id, [
             'contain' => ['Participants']
         ]);
@@ -103,6 +111,8 @@ class RolesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $role = $this->Roles->get($id);
         if ($this->Roles->delete($role)) {

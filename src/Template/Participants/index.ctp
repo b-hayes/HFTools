@@ -28,7 +28,7 @@
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $participant->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                     <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $participant->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $participant->id),
+                        ['confirm' => __('Are you sure you want to delete {0}?', $participant->full_name),
                             'escapeTitle' => false , 'title' => 'Delete Participant']) ?>
                 </td>
             </tr>

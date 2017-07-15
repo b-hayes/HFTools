@@ -20,6 +20,8 @@ class QuestionsController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->paginate = [
             'contain' => ['Sections']
         ];
@@ -38,6 +40,8 @@ class QuestionsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $question = $this->Questions->get($id, [
             'contain' => ['Sections', 'Answers']
         ]);
@@ -53,6 +57,8 @@ class QuestionsController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $question = $this->Questions->newEntity();
         if ($this->request->is('post')) {
             $question = $this->Questions->patchEntity($question, $this->request->getData());
@@ -78,6 +84,8 @@ class QuestionsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $question = $this->Questions->get($id, [
             'contain' => ['Answers']
         ]);
@@ -105,6 +113,8 @@ class QuestionsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $question = $this->Questions->get($id);
         if ($this->Questions->delete($question)) {

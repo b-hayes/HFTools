@@ -20,6 +20,8 @@ class SectionsController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->paginate = [
             'contain' => ['Questionnaires', 'Buttontypes']
         ];
@@ -38,6 +40,8 @@ class SectionsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $section = $this->Sections->get($id, [
             'contain' => ['Questionnaires', 'Buttontypes', 'Questions']
         ]);
@@ -53,6 +57,8 @@ class SectionsController extends AppController
      */
     public function add()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $section = $this->Sections->newEntity();
         if ($this->request->is('post')) {
             $section = $this->Sections->patchEntity($section, $this->request->getData());
@@ -79,6 +85,8 @@ class SectionsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $section = $this->Sections->get($id, [
             'contain' => []
         ]);
@@ -106,6 +114,8 @@ class SectionsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $section = $this->Sections->get($id);
         if ($this->Sections->delete($section)) {

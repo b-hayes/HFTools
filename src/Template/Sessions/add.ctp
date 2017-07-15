@@ -27,7 +27,7 @@
 <div>
     <?= $this->Form->create($session) ?>
     <fieldset>
-        <legend><?= __('Add Session') ?></legend>
+        <legend><?= __('Create new Session') ?></legend>
         <?php
         echo $this->Form->control('name');
         echo $this->Form->control('description');

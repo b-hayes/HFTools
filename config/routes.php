@@ -49,12 +49,44 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+
+
+    Router::connect( '/login', array( 'controller' => 'users', 'action' => 'login' ));
+    Router::connect( '/logout', array( 'controller' => 'users', 'action' => 'logout' ));
+
+
+    // client routes
+    Router::connect( '/client/list', array( 'controller' => 'clients', 'action' => 'index'));
+    Router::connect( '/client/accounts', array( 'controller' => 'users', 'action' => 'index'));
+    Router::connect( '/client/create', array( 'controller' => 'clients', 'action' => 'add'));
+    Router::connect( '/client/login', array( 'controller' => 'users', 'action' => 'add'));
+
+    // participants routes
+    Router::connect( '/participants/list', array( 'controller' => 'participants', 'action' => 'index'));
+    Router::connect( '/participants/roles/list', array( 'controller' => 'roles', 'action' => 'index'));
+    Router::connect( '/participants/create', array( 'controller' => 'participants', 'action' => 'add'));
+    Router::connect( '/participants/roles/create', array( 'controller' => 'roles', 'action' => 'add'));
+
+    // tool routes
+    Router::connect( '/tool/list', array( 'controller' => 'questionnaires', 'action' => 'index'));
+    Router::connect( '/tool/answer_choices/list', array( 'controller' => 'buttontypes', 'action' => 'index' ));
+    Router::connect( '/tool/create', array( 'controller' => 'questionnaires', 'action' => 'create' ));
+    Router::connect( '/tool/answer_choices/create', array( 'controller' => 'buttontypes', 'action' => 'create' ));
+
+    // session routes
+    Router::connect( '/sessions/list', array( 'controller' => 'sessions', 'action' => 'index'));
+    Router::connect( '/sessions/runs/list', array( 'controller' => 'runs', 'action' => 'index' ));
+    Router::connect( '/sessions/create', array( 'controller' => 'sessions', 'action' => 'add' ));
+
+
+
+
 
     /**
      * Connect catchall routes for all controllers.
@@ -72,6 +104,14 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+    $routes->fallbacks(DashedRoute::class);
+});
+
+
+
+Router::prefix('admin', function ($routes) {
+    // All routes here will be prefixed with `/admin`
+    // And have the prefix => admin route element added.
     $routes->fallbacks(DashedRoute::class);
 });
 

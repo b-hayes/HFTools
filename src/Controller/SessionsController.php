@@ -26,6 +26,8 @@ class SessionsController extends AppController
      */
     public function index()
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->paginate = [
             'contain' => ['Clients']
         ];
@@ -44,6 +46,8 @@ class SessionsController extends AppController
      */
     public function view($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $session = $this->Sessions->get($id, [
             'contain' => ['Clients', 'Participants', 'Runs']
         ]);
@@ -159,6 +163,8 @@ class SessionsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $session = $this->Sessions->get($id, [
             'contain' => ['Participants']
         ]);
@@ -189,6 +195,8 @@ class SessionsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->requireAuthLevel( 'admin' );
+
         $this->request->allowMethod(['post', 'delete']);
         $session = $this->Sessions->get($id);
         if ($this->Sessions->delete($session)) {
