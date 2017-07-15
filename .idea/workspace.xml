@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5aa227fa-790f-4123-b159-7079ed88eaa1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Error/missing_action.ctp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Error/missing_controller.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.php" afterPath="$PROJECT_DIR$/config/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AnswersController.php" afterPath="$PROJECT_DIR$/src/Controller/AnswersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AppController.php" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ButtontypesController.php" afterPath="$PROJECT_DIR$/src/Controller/ButtontypesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ButtonvaluesController.php" afterPath="$PROJECT_DIR$/src/Controller/ButtonvaluesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ClientsController.php" afterPath="$PROJECT_DIR$/src/Controller/ClientsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ObservationsController.php" afterPath="$PROJECT_DIR$/src/Controller/ObservationsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ParticipantsController.php" afterPath="$PROJECT_DIR$/src/Controller/ParticipantsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" afterPath="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/QuestionsController.php" afterPath="$PROJECT_DIR$/src/Controller/QuestionsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RolesController.php" afterPath="$PROJECT_DIR$/src/Controller/RolesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RunsController.php" afterPath="$PROJECT_DIR$/src/Controller/RunsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SectionsController.php" afterPath="$PROJECT_DIR$/src/Controller/SectionsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SessionsController.php" afterPath="$PROJECT_DIR$/src/Controller/SessionsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Layout/default.ctp" afterPath="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Observations/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Observations/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Observations/create.ctp" afterPath="$PROJECT_DIR$/src/Template/Observations/create.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Observations/view-backup.ctp" afterPath="$PROJECT_DIR$/src/Template/Observations/view-backup.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Observations/view.ctp.OLD" afterPath="$PROJECT_DIR$/src/Template/Observations/view.ctp.OLD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Participants/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Participants/index.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Sessions/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Sessions/add.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,34 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SessionsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SessionsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2861">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <marker date="1500098640000" expanded="true" signature="1875:1944" ph="SELECT parti... clients_participants" />
-                <marker date="1500098640000" expanded="true" signature="4701:4770" ph="SELECT parti... clients_participants" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="37" column="67" lean-forward="true" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="921">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="470">
+              <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -192,6 +143,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,18 +301,19 @@
       <workItem from="1499137601906" duration="12186000" />
       <workItem from="1499239696699" duration="945000" />
       <workItem from="1499294078478" duration="393000" />
-      <workItem from="1499822738233" duration="83380000" />
+      <workItem from="1499822738233" duration="85920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230546000" />
+    <option name="totallyTimeSpent" value="233086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17077045" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16282764" sideWeight="0.7190171" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16282764" sideWeight="0.7190171" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -813,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SessionsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2861">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="606">
+          <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding>
             <marker date="1500098640000" expanded="true" signature="1875:1944" ph="SELECT parti... clients_participants" />
             <marker date="1500098640000" expanded="true" signature="4701:4770" ph="SELECT parti... clients_participants" />
@@ -824,8 +808,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="37" column="67" lean-forward="true" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
+        <state relative-caret-position="470">
+          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding />
         </state>
       </provider>

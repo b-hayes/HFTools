@@ -25,27 +25,39 @@ class UsersController extends AppController
     /**
      * Allow users to login before gaining access to the site.
      *
-     * @return \Cake\Network\Response|null
+     *
      */
     public function login()
     {
-            if ($this->request->is('post')) {
-                $user = $this->Auth->identify();
-                if ($user) {
-                    $this->Auth->setUser($user);
 
-                    if ($this->Auth->user('role') == 'admin') {
-                        $this->set('role', $this->Auth->user('role'));
-                        $this->redirect(['controller' => 'users', 'action' => 'welcome']);
-                    }
-                    $this->redirect(['action' => 'home']);
-                }
-                $this->Flash->error('Incorrect Login');
+        // want to make sure that they aren't already logged in
+        if($this->Auth->user()){
+            $this->Flash->error(__('You are already logged in!'));
+
+            if ($this->Auth->user('role') == 'admin') {
+                return $this->redirect(['controller' => 'users', 'action' => 'welcome']);
             }
+            return $this->redirect(['action' => 'home']);
+        }
 
+        // log them up and start the session
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+
+                if ($this->Auth->user('role') == 'admin') {
+                    $this->set('role', $this->Auth->user('role'));
+                    $this->redirect(['controller' => 'users', 'action' => 'welcome']);
+                }
+                $this->redirect(['action' => 'home']);
+            }
+            $this->Flash->error('Incorrect Login');
+        }
     }
 
-    function logout()
+
+    public function logout()
     {
         $this->redirect($this->Auth->logout());
     }
