@@ -43,9 +43,9 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
                         <hr>
                         <?= $this->Form->control('answers.' . $iterator . '.question_id', ['type' => 'hidden', 'value' => $questions->id]) ?>
 
-                        <?php if( !empty($sections->buttontype) && strcmp($sections->buttontype->type, 'radioGroup') == 0): ?>
+                        <?php if( !empty($sections->buttontype) && strcmp($sections->buttontype->type, 'multipleChoice') == 0): ?>
                             <?php foreach($sections->buttontype->buttonvalues as $values): ?>
-                                <input type="radio" id="answers-<?= $iterator ?>-answer" name="<?= 'answers[' . $iterator . '][answer_text]' ?>" value="<?= $values->text_value ?>"><?= $values->text_lable ?>
+                                <input type="radio" id="answers-<?= $iterator ?>-answer" name="<?= 'answers[' . $iterator . '][answer_text]' ?>" value="<?= $values->text_value ?>"><?= $values->text_label ?>
 
                             <?php endforeach ?>
                             <hr>

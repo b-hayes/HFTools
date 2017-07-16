@@ -38,7 +38,7 @@ class RunsController extends AppController
      */
     public function view($id = null)
     {
-        $this->requireAuthLevel( 'admin' );
+        //$this->requireAuthLevel( 'admin' );
 
         $this->loadModel('Participants');
 

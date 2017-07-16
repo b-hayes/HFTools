@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5aa227fa-790f-4123-b159-7079ed88eaa1" name="Default" comment="" />
+    <list default="true" id="5aa227fa-790f-4123-b159-7079ed88eaa1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AnswersController.php" afterPath="$PROJECT_DIR$/src/Controller/AnswersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" afterPath="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RunsController.php" afterPath="$PROJECT_DIR$/src/Controller/RunsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" afterPath="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" afterPath="$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +30,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+            <state relative-caret-position="1600">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Template/Buttontypes/view.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="34" column="260" lean-forward="false" selection-start-line="34" selection-start-column="260" selection-end-line="34" selection-end-column="260" />
+              <folding>
+                <marker date="1500179405000" expanded="true" signature="217:266" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="230:266" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="373:409" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="541:561" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="713:770" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="730:770" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="1026:1964" ph="..." />
+                <marker date="1500179405000" expanded="true" signature="1185:1964" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Clients/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="266" />
               <folding />
             </state>
           </provider>
@@ -65,26 +103,20 @@
         <option value="$PROJECT_DIR$/src/Template/Roles/add.ctp" />
         <option value="$PROJECT_DIR$/config/schema/hftools.sql" />
         <option value="$PROJECT_DIR$/src/Model/Table/ButtontypesTable.php" />
-        <option value="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Buttontypes/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Questionnaires/create backup.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Buttontypes/create.ctp" />
         <option value="$PROJECT_DIR$/webroot/css/override.css" />
-        <option value="$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Participants/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Sessions/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/Navigation/navigation.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/AppController.php" />
         <option value="$PROJECT_DIR$/src/Controller/SessionsController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/AnswersController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ButtontypesController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ButtonvaluesController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ClientsController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" />
         <option value="$PROJECT_DIR$/src/Controller/QuestionsController.php" />
         <option value="$PROJECT_DIR$/src/Controller/RolesController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/RunsController.php" />
         <option value="$PROJECT_DIR$/src/Controller/SectionsController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ParticipantsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
@@ -96,7 +128,13 @@
         <option value="$PROJECT_DIR$/src/Template/Observations/view-backup.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Observations/create.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Participants/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/QuestionnairesController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Questionnaires/create.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/AnswersController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RunsController.php" />
         <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Buttontypes/view.ctp" />
       </list>
     </option>
   </component>
@@ -155,6 +193,68 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Clients" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HFTools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Buttontypes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -299,12 +399,12 @@
       <workItem from="1499137601906" duration="12186000" />
       <workItem from="1499239696699" duration="945000" />
       <workItem from="1499294078478" duration="393000" />
-      <workItem from="1499822738233" duration="86517000" />
+      <workItem from="1499822738233" duration="92304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233683000" />
+    <option name="totallyTimeSpent" value="239470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -361,7 +461,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -416,42 +516,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Answers/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Clients/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="33" column="261" lean-forward="true" selection-start-line="33" selection-start-column="210" selection-end-line="33" selection-end-column="261" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Buttontypes/view.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-          <folding>
-            <marker date="1499843131000" expanded="true" signature="373:409" ph="..." />
-            <marker date="1499843131000" expanded="true" signature="541:561" ph="..." />
-            <marker date="1499843131000" expanded="true" signature="716:773" ph="..." />
-            <marker date="1499843131000" expanded="true" signature="733:773" ph="..." />
-            <marker date="1499843131000" expanded="true" signature="1092:1350" ph="..." />
-            <marker date="1499843131000" expanded="true" signature="1304:1350" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -528,40 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Questionnaires/create.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="56" column="79" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <marker date="1500030289000" expanded="true" signature="5366:5387" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5366:5390" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5366:5403" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5507:5654" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5507:6461" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5555:5596" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5555:5631" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5656:6461" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5721:6461" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5819:6147" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="5820:6147" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="6122:6146" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="6122:6147" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="6293:6461" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="6449:6461" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7435:8278" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7435:8324" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7562:7662" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7562:8244" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7775:7786" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7787:8046" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7787:8047" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7844:8012" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="7882:7974" ph="..." />
-            <marker date="1500030289000" expanded="true" signature="8113:8244" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Participants/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -574,14 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="97" column="67" lean-forward="false" selection-start-line="97" selection-start-column="67" selection-end-line="97" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AnswersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="914">
-          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -610,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/QuestionnairesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/QuestionsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2900">
@@ -630,14 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="914">
           <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RunsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -804,11 +815,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Questionnaires/create.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="90" column="53" lean-forward="false" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+          <folding>
+            <marker date="1500174439000" expanded="true" signature="5375:5396" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5375:5399" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5375:5412" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5516:5663" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5516:6470" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5564:5605" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5564:5640" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5665:6470" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5730:6470" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5828:6156" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="5829:6156" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="6131:6155" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="6131:6156" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="6302:6470" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="6458:6470" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7444:8287" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7444:8333" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7571:7671" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7571:8253" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7784:7795" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7796:8055" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7796:8056" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7853:8021" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="7891:7983" ph="..." />
+            <marker date="1500174439000" expanded="true" signature="8122:8253" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Answers/questionnaire_answers.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/QuestionnairesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3093">
+          <caret line="194" column="12" lean-forward="true" selection-start-line="194" selection-start-column="12" selection-end-line="194" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AnswersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="124" column="48" lean-forward="false" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RunsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="43" column="2" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state relative-caret-position="1600">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Clients/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="266" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Buttontypes/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="260" lean-forward="false" selection-start-line="34" selection-start-column="260" selection-end-line="34" selection-end-column="260" />
+          <folding>
+            <marker date="1500179405000" expanded="true" signature="217:266" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="230:266" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="373:409" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="541:561" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="713:770" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="730:770" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="1026:1964" ph="..." />
+            <marker date="1500179405000" expanded="true" signature="1185:1964" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

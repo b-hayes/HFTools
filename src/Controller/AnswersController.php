@@ -123,7 +123,6 @@ class AnswersController extends AppController
 
                 if(!$this->Answers->save($newAnswer)) {
                     $saved_successfully = false;
-                    debug("failed to save answer");
                 }
 
 

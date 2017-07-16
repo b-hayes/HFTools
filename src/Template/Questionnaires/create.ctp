@@ -79,15 +79,16 @@
     $(document).ready(function () {
         let sectionCounter = 0;
 
-        // make a copy of the button type select options
-        let typeList = $("#buttonTypes").clone();
-
         // adds a new field when the user clicks on add new question button.
         $(".add_question").click(AddQuestion);
 
         // append a new input when the user has clicked add new section button.
         $("#add_section").click(function () {
             sectionCounter++;
+
+
+            // make a copy of the button type select options
+            let typeList = $("#buttonTypes").clone();
 
             //modify the details to match this section and question..
             $(typeList).find("select")

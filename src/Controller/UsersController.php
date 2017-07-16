@@ -50,7 +50,7 @@ class UsersController extends AppController
                     $this->set('role', $this->Auth->user('role'));
                     $this->redirect(['controller' => 'users', 'action' => 'welcome']);
                 }
-                $this->redirect(['action' => 'home']);
+                return $this->redirect(['action' => 'home']);
             }
             $this->Flash->error('Incorrect Login');
         }
@@ -61,6 +61,7 @@ class UsersController extends AppController
     {
         $this->redirect($this->Auth->logout());
     }
+
 
     /***
      * This is the landing page once a user logs in.

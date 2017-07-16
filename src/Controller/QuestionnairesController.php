@@ -154,8 +154,6 @@ class QuestionnairesController extends AppController
 
         if ($this->request->is('post')) {
 
-            debug($this->request->getData());
-
             /* There are lots of conditions to check for:
                     1. sections must be > 0
                     2. questions for each section must be > 0
@@ -186,8 +184,6 @@ class QuestionnairesController extends AppController
             $dataSection = $this->reindexArray($this->request->getData('section'));
             // All the Items on the form are contained into a variable
             $sections = $this->Questionnaires->Sections->newEntities($dataSection);
-
-            debug($sections);
 
             if (!empty($sections)) {
                 $sectionsArray = [];
