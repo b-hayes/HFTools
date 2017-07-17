@@ -51,6 +51,11 @@ class ObservationsController extends AppController
      */
     public function view($id = null)
     {
+
+        if($this->request->is('post')) {
+            return $this->redirect(['controller' => 'observations','action' => 'view', $this->request->session()->read('Current.run.id')]);
+        }
+
         $this->loadModel('Participants');
         $results = ['questionnaire' => ['sections' => []]];
 
@@ -180,11 +185,12 @@ class ObservationsController extends AppController
 
             if ($hasSuccessfullySaved) {
                 $this->request->session()->write('Tmp', ['observations' => $observationIds]);
+                $this->request->session()->write('Current.run.id', $run);
 
-                $this->Flash->success(__('The observation has been saved.'));
+                $this->Flash->success(__('The observation setup has been saved.'));
                 return $this->redirect(['controller' => 'answers','action' => 'questionnaireAnswers', $questionnaire_id]);
             }
-            $this->Flash->error(__('The observation could not be saved. Please, try again.'));
+            $this->Flash->error(__('The observation could not be setup. Please, try again.'));
         }
 
         // get all the participants stored in this session only

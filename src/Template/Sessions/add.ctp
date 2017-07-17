@@ -13,7 +13,6 @@
                     <?= $this->requestAction(
                         array('controller'=>'Participants','action'=>'modalAdd')
                     ) ?>
-<!--                    --><?php //echo $this->Html->Url->build(['controller'=>'Sessions', 'action'=>'displaySpecificParticipants']); ?>
                 </div>
             </div>
             <div class="modal-footer">
@@ -27,7 +26,7 @@
 <div>
     <?= $this->Form->create($session) ?>
     <fieldset>
-        <legend><?= __('Create new Session') ?></legend>
+        <legend><?= __('Create New Session') ?></legend>
         <?php
         echo $this->Form->control('name');
         echo $this->Form->control('description');

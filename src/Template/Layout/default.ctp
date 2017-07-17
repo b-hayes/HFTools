@@ -13,15 +13,14 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'Human Factors Tools';
-$role = $this->request->session()->read('Auth.User.role');
-if ($role == "admin"){
-    $device = "lg";
-    //TODO: Just and idea maybe change the target device size between admin vs client and change scaling accordingly
-    //so using this device variable as part of the scaling classes everywhere else..
-} else {
-    $device = "sm";
-}
+    $cakeDescription = 'Human Factors Tools';
+    $role = $this->request->session()->read('Auth.User.role');
+
+    if ($role == "admin") {
+        $device = "lg";
+    } else {
+        $device = "sm";
+    }
 ?>
 
 <!-- Protect dangerous actions with dangerous-action class.  -->
@@ -44,62 +43,59 @@ if ($role == "admin"){
     </div>
 </div>
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
     <?= $this->Html->meta('icon') ?>
+
+    <title>
+        <?= $cakeDescription . ' ' . $this->fetch('title') ?>
+    </title>
+
     <?= $this->Html->css('bootstrap.min.css') ?>
-    <?php echo $this->Html->css('base.css') ?>
-    <?php echo $this->Html->css('bootstrap-datepicker.min.css') ?>
-<!--    --><?php //echo $this->Html->css('bootstrap-dialog.min.css') ?>
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('bootstrap-datepicker.min.css') ?>
+
     <?= $this->Html->css('override.css') ?>
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
 
     <?= $this->Html->script('/webroot/js/jquery-3.2.1.min.js'); ?>
     <?= $this->Html->script('/webroot/js/bootstrap.min.js'); ?>
     <?= $this->Html->script('/webroot/js/bootstrap-datepicker.min.js'); ?>
-<!--    --><?php //echo $this->Html->script('/webroot/js/bootstrap-dialog.min.js'); ?>
+
 </head>
-<body>
-<?= $this->element('Navigation/navigation'); ?>
-<?= $this->fetch('top_nav'); ?>
+    <body>
+    <?= $this->element('Navigation/navigation'); ?>
+    <?= $this->fetch('top_nav'); ?>
 
-<?= $this->Flash->render() ?>
-<div class="container-fluid">
-    <div class="row">
-        <?php if ($role == "admin"): ?>
-            <!-- ADMINS get the side nav -->
-            <div class="col-md-3">
-                <!--        SIDE NAV        -->
-                <?php
-                echo $this->element('Navigation/navigation');
-                echo $this->fetch('side_nav');
-                ?>
-            </div>
+    <?= $this->Flash->render() ?>
+    <div class="container-fluid">
+        <div class="row">
+            <?php if ($role == "admin"): ?>
+                <!-- ADMINS get the side nav -->
+                <div class="col-md-3">
+                    <?= $this->element('Navigation/navigation') ?>
+                    <?= $this->fetch('side_nav') ?>
+                </div>
 
-            <div class="col-md-9">
-                <!--        CONTENT         -->
+                <div class="col-md-9">
+                    <?= $this->fetch('content') ?>
+                </div>
+            <?php else: ?>
                 <?= $this->fetch('content') ?>
-            </div>
-        <?php else: ?>
-            <!-- NO SIDE NAV -->
-            <!--        CONTENT  without parent scaling       -->
-            <?= $this->fetch('content') ?>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
-<footer>
-</footer>
-</body>
+    </body>
+    <footer>
+    </footer>
 </html>
+
+
 
 <script>
     $(document).ready(function () {

@@ -6,17 +6,50 @@
 
 ?>
 
-<!--- session stuffs --->
-<h2><?= h('Session name: ' . $run->session->name) ?></h2>
-<h3><?= h('Description: ' . $run->session->description) ?></h3>
+
+<script>
+
+        function printlayer(layer) {
+
+            var content = document.getElementById(layer);
+            var pri = document.getElementById("ifmcontentstoprint").contentWindow;
+            pri.document.open();
+            pri.document.write(content.outerHTML);
+            pri.document.close();
+            pri.focus();
+            pri.print();
+
+//            var generator = window.open(",'name,");
+//            var layertext = document.getElementById(layer);
+//
+//            strHtml.append(layertext).append(`</body></html>`);
+//
+//            generator.document.write(strHtml);
+//            generator.document.close();
+//            generator.print();
+//            generator.close();
+        }
+
+</script>
+
+<iframe id="ifmcontentstoprint" style="height: 0px; width: 0px; position: absolute">
+
+</iframe>
 
 
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <div class="row">
-            <h5 class="col-md-4"><?= '<strong>Name of run: </strong> ' . h($run->name); ?></h5>
-            <h6 class="col-md-4"><?= '<strong>Description of run: </strong> ' . h($run->description) ?></h6>
-            <h6 class="col-md-4"><?= '<strong>Date run was conducted: </strong> ' . h($run->run_date) ?></h6>
+<div id="div-id-name">
+    <!--- session stuffs --->
+    <h2><?= h('Session name: ' . $run->session->name) ?></h2>
+    <h3><?= h('Description: ' . $run->session->description) ?></h3>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
+                <h5 class="col-md-4"><?= '<strong>Name of run: </strong> ' . h($run->name); ?></h5>
+                <h6 class="col-md-4"><?= '<strong>Description of run: </strong> ' . h($run->description) ?></h6>
+                <h6 class="col-md-4"><?= '<strong>Date run was conducted: </strong> ' . h($run->run_date->nice()) ?></h6>
+            </div>
         </div>
     </div>
 
@@ -31,6 +64,9 @@
             <?php endforeach; ?>
         </div>
     </div>
+
 </div>
+    <?= $this->Html->link(__('<button>Create New Observations</button>'), ['controller' => 'Users', 'action' => 'home'], ['escapeTitle' => false]) ?>
+    <p><a href='#' id="print" onclick="javascript:printlayer('div-id-name')">Print observations for this run</a></p>
 
 

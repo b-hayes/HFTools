@@ -24,5 +24,4 @@
 
     ?>
 </fieldset>
-<?php //echo $this->Form->button(__('Submit')) ?>
 <?= $this->Form->end() ?>

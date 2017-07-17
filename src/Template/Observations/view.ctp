@@ -4,7 +4,6 @@
  */
 ?>
 <div class="row">
-
     <div class="col-md-8">
         <h2>Observation Results</h2>
         <h4><?php echo "The observer was: " . h($results['participant']['name']) ?></h4>
@@ -54,4 +53,6 @@
             </table>
         <?php endforeach; ?>
     </div>
+
+    <?= $this->Html->link(__('<button>BACK</button>'), $this->request->referer(), ['escapeTitle' => false , 'title' => 'View Details']) ?>
 </div>

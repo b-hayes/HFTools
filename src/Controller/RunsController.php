@@ -80,6 +80,33 @@ class RunsController extends AppController
         $this->set('_serialize', ['run']);
     }
 
+
+    public function modalAdd()
+    {
+        $clientId = $this->request->session()->read('Auth.User.client_id');
+        $clientRole = $this->request->session()->read('Auth.User.role');
+
+        $run = $this->Runs->newEntity();
+        if ($this->request->is('post')) {
+            $run = $this->Runs->patchEntity($run, $this->request->getData());
+
+            $run->run_date = date('Y-m-d');
+            $this->Runs->save($run);
+        }
+
+        if($clientRole == 'client') {
+            $sessions = $this->Runs->Sessions->find('list')
+                ->where(['client_id =' => $clientId])
+                ->andwhere([':todays_date BETWEEN start_date AND end_date'])
+                ->bind(':todays_date', date('Y-m-d'));
+        } else {
+            $sessions = $this->Runs->Sessions->find('list', ['limit' => 200]);
+        }
+
+        $this->set(compact('run', 'sessions'));
+        $this->set('_serialize', ['run']);
+    }
+
     /**
      * Add method
      *

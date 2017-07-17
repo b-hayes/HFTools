@@ -136,13 +136,13 @@ class AnswersController extends AppController
             if ($saved_successfully) {
 
                 // insert into answers_observations
-                $this->Flash->success(__('The answer has been saved.'));
+                $this->Flash->success(__('The observations have been saved.'));
                 unset($observationsArray[0]);
                 $observationsArray = array_values($observationsArray);
                 $this->request->session()->write('Tmp', ['observations' => $observationsArray]);
                 return $this->redirect(['controller' => 'answers', 'action' => 'questionnaireAnswers', $questionnaireID]);
             } else {
-                $this->Flash->error(__('The answer could not be saved. Please, try again.'));
+                $this->Flash->error(__('The observation could not be saved. Please, try again.'));
             }
 
         }
