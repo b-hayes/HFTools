@@ -37,12 +37,12 @@
     <?php
     // name and description of this questionnaire being created
     echo $this->Form->control('text', ['label' => 'Name']);
-    echo $this->Form->control('type', ['options' => ['multipleChoice' => 'Multiple Choice', 'commentBox' => 'Comment Box']]);
+    //echo $this->Form->control('type', ['options' => ['multipleChoice' => 'Multiple Choice', 'commentBox' => 'Comment Box']]);
     ?>
 
     <hr>
     <h4>Enter answer choices</h4>
-    <table id="buttonvalues" class="form-control">
+    <table id="buttonvalues" class="" style="width: 100%">
     </table>
 
     <?= $this->Form->button(__('<span class="glyphicon glyphicon-floppy-disk"></span> Save'), ['escapeTitle' => false]) ?>
@@ -75,8 +75,8 @@
                     `)
                     .append(`
                         <td>
-                            <div class="input text">
-                                <label for="buttonvalues-` + buttonValuteCounter + `-text_label" >Visible to user</label>
+                            <div class="">
+                                <label for="buttonvalues-` + buttonValuteCounter + `-text_label" >Answer user can select</label>
                                 <input type="text"" name="buttonvalues[` + buttonValuteCounter + `][text_label]">
                             </div>
                         </td>
@@ -84,7 +84,7 @@
                     .append(`
                         <td>
                             <div class="input text">
-                                <label for="buttonvalues-' + buttonValuteCounter + '-text_value">What is stored</label>
+                                <label for="buttonvalues-' + buttonValuteCounter + '-text_value">Value stored</label>
                                 <input type="text" name="buttonvalues[` + buttonValuteCounter + `][text_value]">
                             </div>
                         </td>

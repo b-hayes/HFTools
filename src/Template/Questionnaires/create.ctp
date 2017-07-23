@@ -53,7 +53,7 @@
 
             <!--     If no answer choice exists display option to create one otherwise display answer choice     -->
             <div id="buttonTypes">
-                <?php if(empty($buttontypes->first())): ?>
+                <?php if (empty($buttontypes)): ?>
                     <p>There does not appear to be any answer choices available <?= $this->Html->link(__('click here to create one'), ['controller' => 'Buttontypes', 'action' => 'create']) ?> </p>
                 <?php else: ?>
                     <?= $this->Form->control('section.0.buttontype_id', ['options' => $buttontypes, 'label' => 'Answer choices']); ?>
@@ -61,7 +61,7 @@
             </div>
 
             <!-- Question fields get added here when user selects add new question -->
-            <table id="questions" class="form-control">
+            <table id="questions" class="">
             </table>
 
             <Button class="add_question btn btn-info" type="Button"><span class="glyphicon glyphicon-plus"></span> Add new question</Button>

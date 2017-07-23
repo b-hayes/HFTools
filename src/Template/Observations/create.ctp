@@ -59,6 +59,11 @@
 <script>
     $(document).ready(function() {
 
+        let modal = $("#ModalAddRun");
+        let modalContent = $("#ModalAddRun-Contents");
+        let form = modalContent.find("form");
+        let originalForm = form.clone(); //keep a copy of the original form for later
+
         function SubmitModal(modelData) {
 
             form = modalContent.find("form");
@@ -98,9 +103,6 @@
             };
             SubmitModal(modelData);
         });
-
-
-
 
     });
 </script>

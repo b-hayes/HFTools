@@ -1,11 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-use Cake\Event\Event;
-use Cake\Auth\DefaultPasswordHasher;
-use function serialize;
-
 
 /**
  * Users Controller
@@ -17,11 +12,6 @@ use function serialize;
 class UsersController extends AppController
 {
 
-    /**
-     * Allow users to login before gaining access to the site.
-     *
-     * @return \Cake\Network\Response|null
-     */
     /**
      * Allow users to login before gaining access to the site.
      *

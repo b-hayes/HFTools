@@ -9,11 +9,11 @@
     <table class="vertical-table wide-table" cellpadding="0" cellspacing="0">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td class="pull-3"><?= h( $buttontype->text) ?></td>
+            <td class=""><?= h($buttontype->text) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Type') ?></th>
-            <td class="pull-3"><?= h($buttontype->type) ?></td>
+            <td class=""><?= h($buttontype->type) ?></td>
         </tr>
     </table>
     <div class="related">

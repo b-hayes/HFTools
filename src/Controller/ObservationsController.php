@@ -1,12 +1,7 @@
 <?php
 namespace App\Controller;
-use function array_push;
 use Cake\Datasource\ConnectionManager;
-
-use App\Controller\AppController;
-use function debug;
-use function MongoDB\BSON\toJSON;
-use function time;
+use function array_push;
 
 /**
  * Observations Controller

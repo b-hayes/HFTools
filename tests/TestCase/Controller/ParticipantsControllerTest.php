@@ -1,7 +1,6 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ParticipantsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**

@@ -1,10 +1,8 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
 use Cake\Datasource\ConnectionManager;
 use function array_values;
-use function debug;
 
 /**
  * Answers Controller

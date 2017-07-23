@@ -83,7 +83,7 @@ table.wide-table{
 input[type="radio"]{
     transform:scale(2, 2);
     margin-top: 5px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
 }
 
@@ -182,5 +182,29 @@ div .checkbox {
 @media screen, print {
     body {
         line-height: 1.2
+    }
+}
+
+@media print {
+    button, .btn, .no-print, .no-print * {
+        display: none !important;
+    }
+}
+
+@media print {
+    .page-break {
+        page-break-after: always;
+    }
+}
+
+@media print {
+    .no-break {
+        page-break-inside: avoid;
+    }
+}
+
+@media print {
+    a[href]:after {
+        content: none !important;
     }
 }

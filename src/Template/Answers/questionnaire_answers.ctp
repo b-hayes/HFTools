@@ -7,7 +7,7 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
 
 ?>
 
-<div class="answers form large-9 medium-8 columns content">
+<div class="">
     <h3><?= h($questionnaire->name) ?></h3>
     <h4><?= h($questionnaire->description) ?></h4>
 
@@ -46,7 +46,7 @@ $iterator = 0;  // used as an array index for when  all the questions and answer
                         <?php if( !empty($sections->buttontype) && strcmp($sections->buttontype->type, 'multipleChoice') == 0): ?>
                             <?php foreach($sections->buttontype->buttonvalues as $values): ?>
                                 <input type="radio" id="answers-<?= $iterator ?>-answer" name="<?= 'answers[' . $iterator . '][answer_text]' ?>" value="<?= $values->text_value ?>"><?= $values->text_label ?>
-
+                                <br class="visible-xs">
                             <?php endforeach ?>
                             <hr>
 

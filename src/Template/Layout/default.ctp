@@ -77,7 +77,7 @@
         <div class="row">
             <?php if ($role == "admin"): ?>
                 <!-- ADMINS get the side nav -->
-                <div class="col-md-3">
+                <div class="col-md-3 no-print">
                     <?= $this->element('Navigation/navigation') ?>
                     <?= $this->fetch('side_nav') ?>
                 </div>

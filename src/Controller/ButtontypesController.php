@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
 use function debug;
 
 /**
@@ -83,6 +82,8 @@ class ButtontypesController extends AppController
         if ($this->request->is('post')) {
 
             $buttontype = $this->Buttontypes->patchEntity($buttontype, $this->request->getData());
+
+            $buttontype->type = 'Multiple Choice';
 
             if ($this->Buttontypes->save($buttontype)) {
                 $this->Flash->success(__('The Answer Choice has been saved.'));

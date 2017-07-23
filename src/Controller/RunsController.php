@@ -1,8 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-
 /**
  * Runs Controller
  *
@@ -54,6 +52,24 @@ class RunsController extends AppController
         $this->set('_serialize', ['run']);
     }
 
+
+    public function printable($id = null)
+    {
+        //$this->requireAuthLevel( 'admin' );
+
+        $this->loadModel('Participants');
+
+        $run = $this->Runs->get($id, [
+            'contain' => ['Sessions', 'Observations' => ['Participants', 'Answers']]
+        ]);
+
+        foreach ($run->observations as &$obs) {
+            $obs->observer = $this->Participants->get($obs->observer_id);
+        }
+
+        $this->set('run', $run);
+        $this->set('_serialize', ['run']);
+    }
 
 
     public function allSessionRuns()

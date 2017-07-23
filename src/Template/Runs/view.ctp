@@ -64,9 +64,9 @@
             <?php endforeach; ?>
         </div>
     </div>
-
+    <?= $this->Html->link(__('Create New Observation'), ['controller' => 'users', 'action' => 'home'], ['class' => 'btn btn-info']) ?>
+    <?= $this->Html->link(__('<span class="glyphicon glyphicon-print"> Print all Observation results for this run...</span>'),
+        ['controller' => 'runs', 'action' => 'printable', h($run->id)], ['class' => 'btn btn-info', 'escapeTitle' => false]) ?>
 </div>
-    <?= $this->Html->link(__('<button>Create New Observations</button>'), ['controller' => 'Users', 'action' => 'home'], ['escapeTitle' => false]) ?>
-    <p><a href='#' id="print" onclick="javascript:printlayer('div-id-name')">Print observations for this run</a></p>
 
 

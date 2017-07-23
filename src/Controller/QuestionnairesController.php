@@ -1,12 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-use App\Model\Entity\Questionnaire;
-use function debug;
-use function is_null;
 use const null;
-use function print_r;
 
 /**
  * Questionnaires Controller
@@ -134,23 +129,10 @@ class QuestionnairesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-
-    private function reindexArray($array)
-    {
-        $newArray = [];
-
-        if (empty($array)) {
-            return null;
-        } else {
-            $newArray = array_values($array);
-        }
-        return $newArray;
-    }
-
-
     public function create()
     {
         $this->requireAuthLevel( 'admin' );
+        $this->loadModel('Buttontypes');
 
         if ($this->request->is('post')) {
 
@@ -189,7 +171,7 @@ class QuestionnairesController extends AppController
                 $sectionsArray = [];
                 foreach ($sections as $section) {
                     $questionsArray = [];
-                    if(empty($section->name)) {
+                    if (empty($section->name)) {
                         $hasProvidedRelevantInformation = false;
                         $errorMessageInFlash = 'You need to provide each section with a name';
                         break;
@@ -197,6 +179,8 @@ class QuestionnairesController extends AppController
                     $newSec = $this->Questionnaires->Sections->newEntity();
                     $newSec->name = $section->name;
                     $newSec->description = $section->description;
+
+
                     $newSec->buttontype_id = $section->buttontype_id;
                     if (empty($section->question)) {
                         $hasProvidedRelevantInformation = false;
@@ -230,10 +214,24 @@ class QuestionnairesController extends AppController
             }
             $this->Flash->error(__($errorMessageInFlash));
         }
-        $this->loadModel('Buttontypes');
+
         $buttontypes = $this->Buttontypes->find('list', ['limit' => 200]);
+        $buttontypes = $buttontypes->toArray();
         $this->set(compact('buttontypes'));
     }
+
+    private function reindexArray($array)
+    {
+        $newArray = [];
+
+        if (empty($array)) {
+            return null;
+        } else {
+            $newArray = array_values($array);
+        }
+        return $newArray;
+    }
+
 
 
 }

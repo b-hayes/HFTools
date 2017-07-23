@@ -1,13 +1,8 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-
-use function array_push;
 use Cake\Datasource\ConnectionManager;
-use Cake\I18n\Date;
-use Cake\I18n\DateFormatTrait;
-use function is_null;
+use function array_push;
 
 /**
  * Sessions Controller

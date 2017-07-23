@@ -1,8 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -38,7 +36,9 @@ class ButtontypesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('Sections', [
-            'foreignKey' => 'buttontype_id'
+            'foreignKey' => 'buttontype_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
         $this->belongsToMany('Buttonvalues', [
             'foreignKey' => 'buttontype_id',
