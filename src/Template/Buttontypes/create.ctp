@@ -12,19 +12,19 @@
             How does this work?</a>
     </div>
     <div class="panel-body collapse">
-        <p><strong>Step 1:</strong> Start by giving the tool a descriptive name and description by entering them
-            in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
-        <p><strong>Step 2:</strong>: Once you have give your tool a name and description you can create as many sections as you please,
-            simply by clicking on the [add image here] button. You can also delete sections by clicking on the delete section button [insert button image].
-            As a guide, when you hover over the button the section to be removed will become highlighted so that you do not delete the wrong section by mistake.
-            Each section has a name and a description. <strong>Only</strong> the section name is mandatory, but we recommend you give each
-            section a description indicating its purpose.</p>
-        <p><strong>Step 3:</strong>: After you have your sections all set up, you can add questions to any section by selecting the add new question button [add image].
-            This allows you to set up your sections then add questions later if you choose. There is also a delete question button [add image] that you can use to remove
-            any question at any time. By hovering your mouse over the button you can see the question highlighted.
+        <p>Answer choices are created so that they may be used in conjunction with a Tool that allows for the custom Tools to also have custom answers. Typically, these are multiple choice questions like What is the weather like outside Cold, warm, hot?</p>
+
+        <p><strong>Step 1:</strong> Give your answer choice a name. The name is what is visible when choosing one during the custom tool creation.</p>
+
+        <p><strong>Step 2:</strong> Click the Add new choice button. Two text fields appear.  On the left, with the text label 'Answer user can select' write what you want the user to be presented with when choosing their response. For example, 'what is the weather like' hot, warm, cold? Hot, warm and cold would be the labels. </p>
+
+        <p><strong>Step 3:</strong> To the right of  'Answer user can select.'  is the text field labelled 'Value stored' this is for cases when choice selections have values associated with them. For example, cold = 1, warm = 2, hot = 3. In this instance, all we care about the value, not what the user sees. NOTE: You need to fill out the value stored, even if the label to the left is the same as the value you wish to store.
         </p>
-        <p><strong>Step 4:</strong>: Take a moment now to check that all the fields are correct and complete and correct them if they are not, then simply click [the save button].
-            If you are successful you will be redirected to a list of all tools currently in existence and a green bar at the top of the page will confirm it has been saved.
+
+        <p><strong>Step 4:</strong> To delete answer choices, simply select and click the delete button to the far right of the row.
+        </p>
+
+        <p><strong>Step 5:</strong> To save the answer choices so that they may be used at a later date, simply click on the save button..
         </p>
     </div>
 </div>
@@ -37,7 +37,7 @@
     <?php
     // name and description of this questionnaire being created
     echo $this->Form->control('text', ['label' => 'Name']);
-    //echo $this->Form->control('type', ['options' => ['multipleChoice' => 'Multiple Choice', 'commentBox' => 'Comment Box']]);
+    echo $this->Form->control('type', ['options' => ['multipleChoice' => 'Multiple Choice', 'commentBox' => 'Comment Box']]);
     ?>
 
     <hr>

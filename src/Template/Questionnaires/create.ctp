@@ -9,7 +9,7 @@
 
 <div class="panel panel-info">
     <div class="panel panel-heading collapse-next" style="margin-bottom: 1px">
-        <a><span class="glyphicon glyphicon-info-sign"></span>How does this work?</a>
+        <a><span class="glyphicon glyphicon-info-sign"></span> How does this work?</a>
     </div>
     <div class="panel-body collapse">
         <p><strong>Step 1:</strong> Start by giving the tool a name and description by entering them in the tool's name and description fields. <strong>NOTE:</strong> both name and description fields are mandatory.</p>
@@ -19,11 +19,16 @@
             corresponding section to remove is highlighted so that you do not delete the wrong section by mistake. Each section has a name and a description. Only the section name is mandatory,
             but we recommend you give each section a description indicating its purpose.</p>
 
-        <p><strong>Step 3:</strong> After you have your sections all set up, you can add questions to any section by selecting the Add new question button <?= $this->Html->image("add_new_question.png", array('class' => 'info-icons')); ?>.
+        <p><strong>Step 3:</strong> For each section, you can select an Answer Choice via a drop down menu. This allows you to create options for users to respond to the questions within the section. For example, you may
+            Wish to create a multiple choice set of responses. In another section, you may want to allow the user to answer the question as they will by providing them with a comment box instead. You are not limited by what
+            is currently visible in the drop-down menu. If you navigate to Tool/Create New Answer Choices from the side navigation, you can create a new answer choice and start using it immediately.
+        </p>
+
+        <p><strong>Step 4:</strong> After you have your sections all set up, you can add questions to any section by selecting the Add new question button <?= $this->Html->image("add_new_question.png", array('class' => 'info-icons')); ?>.
             The add new question button allows you to set up your sections then add questions later if you choose. There is also a delete question button <?= $this->Html->image("delete_question.png", array('class' => 'info-icons')); ?>
             that you can use to remove any question at any time. By hovering your mouse over the button, you can see the question becomes highlighted to avoid mistakes.</p>
 
-        <p><strong>Step 4:</strong> Take a moment now to check that all the fields are correct and complete, then simply click the Submit button <?= $this->Html->image("submit_tool.png", array('class' => 'info-icons submitBtnHeight')); ?>.
+        <p><strong>Step 5:</strong> Take a moment now to check that all the fields are correct and complete, then simply click the Submit button <?= $this->Html->image("submit_tool.png", array('class' => 'info-icons submitBtnHeight')); ?>.
             If successful, the site directs you to a list of all tools currently in existence and a green bar at the top of the page is visible confirming that the site has saved the tool.</p>
     </div>
 </div>

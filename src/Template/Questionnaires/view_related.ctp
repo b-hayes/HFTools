@@ -32,7 +32,7 @@
 
         <div class="panel-body">
             <?php foreach($sections->questions as $questions): ?>
-                <div>
+                <div class="clearfix">
                     <?= h($questions->text) ?>
                     <div class="pull-right">
                         <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['controller' => 'Questions', 'action' => 'edit', $questions->id],

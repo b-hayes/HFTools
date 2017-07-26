@@ -30,7 +30,7 @@
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $session->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                     <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $session->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $session->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
+                        ['confirm' => __('Are you sure you want to delete this session?'), 'escapeTitle' => false , 'title' => 'Delete']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

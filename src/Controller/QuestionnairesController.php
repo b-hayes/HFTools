@@ -59,29 +59,6 @@ class QuestionnairesController extends AppController
 
 
     /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $this->requireAuthLevel( 'admin' );
-
-        $questionnaire = $this->Questionnaires->newEntity();
-        if ($this->request->is('post')) {
-            $questionnaire = $this->Questionnaires->patchEntity($questionnaire, $this->request->getData());
-            if ($this->Questionnaires->save($questionnaire)) {
-                $this->Flash->success(__('The questionnaire has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The questionnaire could not be saved. Please, try again.'));
-        }
-        $this->set(compact('questionnaire'));
-        $this->set('_serialize', ['questionnaire']);
-    }
-
-    /**
      * Edit method
      *
      * @param string|null $id Questionnaire id.

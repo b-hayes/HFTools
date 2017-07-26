@@ -65,7 +65,7 @@
         </div>
     </div>
     <?= $this->Html->link(__('Create New Observation'), ['controller' => 'users', 'action' => 'home'], ['class' => 'btn btn-info']) ?>
-    <?= $this->Html->link(__('<span class="glyphicon glyphicon-print"> Print all Observation results for this run...</span>'),
+    <?= $this->Html->link(__('<span class="glyphicon glyphicon-print"></span> Print all Observation results for this run...'),
         ['controller' => 'runs', 'action' => 'printable', h($run->id)], ['class' => 'btn btn-info', 'escapeTitle' => false]) ?>
 </div>
 

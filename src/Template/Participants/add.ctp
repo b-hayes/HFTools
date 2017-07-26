@@ -20,8 +20,7 @@
             echo $this->Form->control('clients._ids', ['options' => $clients]);
         ?>
 
-
-        <?php if (empty($roles->first())): ?>
+        <?php if ($roles->isEmpty()): ?>
         <p>There does not appear to be any roles available <?= $this->Html->link(__('click here to create one'), ['controller' => 'roles', 'action' => 'add']) ?> </p>
         <?php else: ?>
             <?= $this->Form->control('roles._ids', array(

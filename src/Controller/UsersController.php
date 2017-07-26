@@ -19,13 +19,12 @@ class UsersController extends AppController
      */
     public function login()
     {
-
         // want to make sure that they aren't already logged in
         if($this->Auth->user()){
             $this->Flash->error(__('You are already logged in!'));
 
             if ($this->Auth->user('role') == 'admin') {
-                return $this->redirect(['controller' => 'users', 'action' => 'welcome']);
+                return $this->redirect(['controller' => 'sessions', 'action' => 'index']);
             }
             return $this->redirect(['action' => 'home']);
         }
@@ -38,7 +37,7 @@ class UsersController extends AppController
 
                 if ($this->Auth->user('role') == 'admin') {
                     $this->set('role', $this->Auth->user('role'));
-                    $this->redirect(['controller' => 'users', 'action' => 'welcome']);
+                    $this->redirect(['controller' => 'sessions', 'action' => 'index']);
                 }
                 return $this->redirect(['action' => 'home']);
             }
@@ -208,11 +207,6 @@ class UsersController extends AppController
 
         $this->set(compact('user', 'clients'));
         $this->set('_serialize', ['user']);
-    }
-
-
-    public function welcome() {
-
     }
 
     /**

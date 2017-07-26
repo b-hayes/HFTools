@@ -34,7 +34,7 @@
                 <?php echo $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $user->id],
                     ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                 <?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $user->id],
-                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->username), 'escapeTitle' => false, 'title' => 'Delete User Account']) ?>
+                    ['confirm' => __('Are you sure you want to delete {0}?', $user->username), 'escapeTitle' => false, 'title' => 'Delete User Account']) ?>
             </td>
         </tr>
     <?php endforeach; ?>

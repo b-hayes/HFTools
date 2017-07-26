@@ -39,7 +39,9 @@ class ParticipantsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('Observations', [
-            'foreignKey' => 'participant_id'
+            'foreignKey' => 'participant_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
         $this->belongsToMany('Clients', [
             'foreignKey' => 'participant_id',
@@ -49,12 +51,16 @@ class ParticipantsTable extends Table
         $this->belongsToMany('Roles', [
             'foreignKey' => 'participant_id',
             'targetForeignKey' => 'role_id',
-            'joinTable' => 'participants_roles'
+            'joinTable' => 'participants_roles',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
         $this->belongsToMany('Sessions', [
             'foreignKey' => 'participant_id',
             'targetForeignKey' => 'session_id',
-            'joinTable' => 'participants_sessions'
+            'joinTable' => 'participants_sessions',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
     }
 

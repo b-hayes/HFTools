@@ -117,7 +117,7 @@ class AnswersController extends AppController
             foreach ($answers as $answerSome) {
                 $newAnswer = $this->Answers->newEntity();
                 $newAnswer->question_id = (int)$answerSome['question_id'];
-                $newAnswer->answer_text = $answerSome['answer_text'];
+                $newAnswer->answer_text = $answerSome['answer'];
 
                 if(!$this->Answers->save($newAnswer)) {
                     $saved_successfully = false;

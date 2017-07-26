@@ -23,7 +23,7 @@
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $role->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                     <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $role->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $role->id),
+                        ['confirm' => __('Are you sure you want to delete {0}?', $role->name),
                             'escapeTitle' => false , 'title' => 'Delete Role']) ?>
                 </td>
             </tr>

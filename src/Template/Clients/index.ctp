@@ -31,7 +31,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-info-sign"></span>'), ['action' => 'view', $client->id], ['escapeTitle' => false , 'title' => 'View Details']) ?>
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $client->id], ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
-                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $client->id], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id), 'escapeTitle' => false, 'title' => 'Delete Client']) ?>
+                    <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $client->name], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id), 'escapeTitle' => false, 'title' => 'Delete Client']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

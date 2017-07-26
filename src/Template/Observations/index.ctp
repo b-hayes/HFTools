@@ -26,7 +26,7 @@
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $observation->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                     <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $observation->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $observation->id), 'escapeTitle' => false , 'title' => 'Delete']) ?>
+                        ['confirm' => __('Are you sure you want to delete this observation?'), 'escapeTitle' => false , 'title' => 'Delete']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

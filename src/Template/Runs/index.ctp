@@ -20,7 +20,7 @@
             <?php foreach ($runs as $run): ?>
             <tr>
                 <td><?= $run->has('session') ? $this->Html->link($run->session->name, ['controller' => 'Sessions', 'action' => 'view', $run->session->id]) : '' ?></td>
-                <td><?= h($run->run_date) ?></td>
+                <td><?= h($run->run_date->nice()) ?></td>
                 <td><?= h($run->name) ?></td>
                 <td><?= h($run->description) ?></td>
                 <td class="actions">
@@ -29,7 +29,7 @@
                     <?= $this->Html->link(__('<span class="glyphicon glyphicon-pencil"></span>'), ['action' => 'edit', $run->id],
                         ['escapeTitle' => false , 'title' => 'Edit Details']) ?>
                     <?= $this->Form->postLink(__('<span class="glyphicon glyphicon-trash"></span>'), ['action' => 'delete', $run->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $run->id),
+                        ['confirm' => __('Are you sure you want to delete this run?'),
                             'escapeTitle' => false , 'title' => 'Delete Run']) ?>
                 </td>
             </tr>
